@@ -85,6 +85,9 @@
 						"limit": 2
 					}
 				},
+				"avoidStandbyHax": {
+					"kill"
+				},
 				"convert": {
 					"mode": "ChangeTarget",
 					"msg": "Somebody tried to turn you into sushi last night. You decided to kill them for fun.",
