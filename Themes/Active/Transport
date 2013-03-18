@@ -31,7 +31,7 @@
 		{
             "side": "teleport",
             "translation": "Teleporter Mafia",
-			"winmsg": "The might of the future was no match for these primitive vehicles. The Teleporter, ~Players~, has zapped all other modes of transportation away!"
+			"winmsg": "The primitive vehicles were no match for the might of the future! The Teleporter, ~Players~, has zapped all other modes of transportation away!"
         }
 	],
 	"roles": [
