@@ -1,7 +1,7 @@
 {
     "name": "Ocean",
   "author": ["Fuzzysqurl"],
-    "summary": "Recent Changes: Hotfixes to Cthulhu update. Fish no longer hax Cthulhu, but get increased hax on swordfish for better connection!",
+    "summary": "Recent Changes: Temporary work around to standby hax. Cthulhu avoids, Hammerhead has a reduced reveal chance to offset the hax.",
     "sides": [
         {
             "side": "village",
@@ -85,9 +85,9 @@
 						"limit": 2
 					}
 				},
-				"avoidStandbyHax": {
+				"avoidStandbyHax": [
 					"kill"
-				},
+				],
 				"convert": {
 					"mode": "ChangeTarget",
 					"msg": "Somebody tried to turn you into sushi last night. You decided to kill them for fun.",
