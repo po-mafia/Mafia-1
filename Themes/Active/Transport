@@ -877,7 +877,7 @@
 			"actions": {
 				"night": {
 					"discharge":{
-						"command": ["convert", "distract],
+						"command": ["convert", "distract"],
 						"target": "AnyButTeam",
 						"common": "Self",
 						"broadcast": "Team",
@@ -897,7 +897,7 @@
 						"priority": 13,
 						"silent": true,
 						"distractmsg": "A strong magnetic force immobilized you last night.",
-						"teammsg": "You and your partner(s) were immobilized by a strong magnetic force last night.",
+						"teammsg": "You and your partner(s) were immobilized by a strong magnetic force last night."
 					}
 				},
                 "startup": "team-reveal-with-roles",
