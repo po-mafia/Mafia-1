@@ -591,7 +591,7 @@
 						"target": "AnyButTeam",
 						"msg": "You can kill now by typing /hammer [name] (You'll probably be revealed though)!",
 						"killmsg": "Can't touch this- IT'S HAMMER TIME!!!! The Hammershead Shark headbutted ~Target~, killing them instantly!",
-						"revealChance": 0.33, 
+						"revealChance": 0.08, 
 						"revealmsg": "But wait! Who was that! ~Self~ was revealed to be ~Role~!"
 					}
 				},
