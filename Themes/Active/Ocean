@@ -86,7 +86,7 @@
 					}
 				},
 				"avoidStandbyHax": [
-					"kill"
+					"kill", "thrash", "torment"
 				],
 				"convert": {
 					"mode": "ChangeTarget",
