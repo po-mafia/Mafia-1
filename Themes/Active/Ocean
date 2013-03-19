@@ -76,6 +76,11 @@
 						"msg": "Use /thrash [name] for a non-revealing kill and use /torment [name] for a one-time non-revealing kill!",
 						"killmsg": "Cthulhu starts to thrash around undersea. Violent currents carry ~Target~ away from the group, never to be heard from again."
 					},
+					"kill": {
+						"target": "AnyButSelf",
+						"msg": "Use /thrash [name] for a non-revealing kill and use /torment [name] for a one-time non-revealing kill!",
+						"killmsg": "Cthulhu starts to thrash around undersea. Violent currents carry ~Target~ away from the group, never to be heard from again."
+					},
 					"torment": {
 						"command": "kill",
 						"target": "AnyButSelf",
