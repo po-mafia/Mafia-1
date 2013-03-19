@@ -76,11 +76,6 @@
 						"msg": "Use /thrash [name] for a non-revealing kill and use /torment [name] for a one-time non-revealing kill!",
 						"killmsg": "Cthulhu starts to thrash around undersea. Violent currents carry ~Target~ away from the group, never to be heard from again."
 					},
-					"kill": {
-						"target": "AnyButSelf",
-						"msg": "Use /thrash [name] for a non-revealing kill and use /torment [name] for a one-time non-revealing kill!",
-						"killmsg": "Cthulhu starts to thrash around undersea. Violent currents carry ~Target~ away from the group, never to be heard from again."
-					},
 					"torment": {
 						"command": "kill",
 						"target": "AnyButSelf",
@@ -593,13 +588,6 @@
 				"standby": {
 					"hammer": {
 						"command": "kill",
-						"target": "AnyButTeam",
-						"msg": "You can kill now by typing /hammer [name] (You'll probably be revealed though)!",
-						"killmsg": "Can't touch this- IT'S HAMMER TIME!!!! The Hammershead Shark headbutted ~Target~, killing them instantly!",
-						"revealChance": 0.33, 
-						"revealmsg": "But wait! Who was that! ~Self~ was revealed to be ~Role~!"
-					},
-					"kill": {
 						"target": "AnyButTeam",
 						"msg": "You can kill now by typing /hammer [name] (You'll probably be revealed though)!",
 						"killmsg": "Can't touch this- IT'S HAMMER TIME!!!! The Hammershead Shark headbutted ~Target~, killing them instantly!",
