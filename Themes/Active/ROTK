@@ -1,1 +1,1254 @@
-Removed.
+{
+  "name": "ROTK",
+  "author": "Fuzzysqurl",
+	"summary": "Major Overhaul! Important note: All poisons kill on the same night. Outdated wiki guide (Yay!): http://wiki.pokemon-online.eu/wiki/Theme:ROTK",
+	"sides": [
+		{
+			"side": "none",
+			"translation": "Unaffiliated",
+			"winmsg": "Supreme excellence consists of breaking the enemy's resistance without fighting. ~Players~ won the war without fighting... somehow."
+		},
+        {
+            "side": "wu",
+            "translation": "Wu Army",
+            "winmsg": "All the learning in the world won't teach you how to defeat the Wu Army (~Players~)!"
+        },
+        {
+            "side": "wei",
+            "translation": "Wei Army",
+            "winmsg": "No matter how many bodies you throw in our path, you cannot stop the might of Wei (~Players~)!"
+        },
+        {
+            "side": "shu",
+            "translation": "Shu Army",
+            "winmsg": "The word magnificent hardly does them justice! With the Shu Army (~Players~) on the battlefield, victory is never in doubt!"
+        },
+		{
+			"side": "jin",
+			"translation": "Jin Army",
+			"winmsg": "No matter where you run, you cannot escape from the Jin Army (~Players~)."
+		},
+		{
+            "side": "yuanshao",
+            "translation": "Yuan Shao",
+            "winmsg": "I am the Emperor! I am the land itself! You dare threaten ~Players~, you landless peasants?"
+        }
+	],
+	"roles": [
+		{
+			"role": "soldier",
+			"translation": "Soldier",
+			"side": "none",
+			"info": "Can join Shu, Wu, Wei, or Jin during the night. Receives 100 extra votes if voted for. Sided with other unaffiliated players.",
+			"help": "Use /shu, /wu, /wei, or /jin [your name] to join a side during the night. If you remain unaffiliated and get voted, you will be removed from the game, so be sure to pick a side! Each side has hax on a different action: Protect for Shu, Safeguard for Jin, Poison for Wei, and Kill for Wu.",
+			"actions": {
+				"voteshield": 100,		
+				"night": {
+					"wu": {
+						"command": "convert",
+						"convertmsg": "An unaffiliated Soldier has joined the Wu Army",
+						"target": "OnlySelf",
+						"common": "Self",
+						"priority": 2,
+						"newRole": "wu_soldier",
+						"silent": false,
+						"restrict": ["wei", "shu", "jin"]
+					},
+					"wei": {
+						"command": "convert",
+						"convertmsg": "An unaffiliated Soldier has joined the Wei Army",
+						"target": "OnlySelf",
+						"common": "Self",
+						"priority": 2,
+						"newRole": "wei_soldier",
+						"silent": false,
+						"restrict": ["wu", "shu", "jin"]
+					},
+					"shu": {
+						"command": "convert",
+						"convertmsg": "An unaffiliated Soldier has joined the Shu Army",
+						"target": "OnlySelf",
+						"common": "Self",
+						"priority": 2,
+						"newRole": "shu_soldier",
+						"silent": false,
+						"restrict": ["wu", "wei", "jin"]
+					},
+					"jin": {
+						"command": "convert",
+						"convertmsg": "An unaffiliated Soldier has joined the Jin Army",
+						"target": "OnlySelf",
+						"common": "Self",
+						"priority": 2,
+						"newRole": "jin_soldier",
+						"silent": false,
+						"restrict": ["wu", "wei", "shu"]
+					}
+				},
+				"inspect": {
+					"mode": {
+						"ignore": ["shu_hooker"]
+					},
+					"silent": true					
+				}
+			}
+		},  
+		{
+			"role": "shu_soldier",
+            "translation": "Shu Soldier",
+            "side": "shu",
+			"info": "Can defect to Wu, Wei, or Jin during the night. Gets hax on protect (20% team, 5% player). Sided with Shu Army.",
+            "help": "Team up with Shu Forces to bring victory. Use /wu, /wei, or /jin [your name] to defect at night if you dislike the direction your team is headed. However, once you select, you are locked into that choice. You can /cancel [your name] to stay loyal if you ''accidentally'' try to defect. You also reveal as an ordinary Soldier and get hax on protect (20% team, 5% player).",
+            "actions": {
+				"night": {
+					"wu": {
+                        "command": "convert",
+                        "convertmsg": "A Shu Soldier has defected to the Wu Army",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 2,
+                        "newRole": "wu_soldier",
+                        "silent": false,
+						"restrict": ["wei", "jin"]
+					},
+					"wei": {
+                        "command": "convert",
+                        "convertmsg": "A Shu Soldier has defected to the Wei Army",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 2,
+                        "newRole": "wei_soldier",
+                        "silent": false,
+						"restrict": ["wu", "jin"]
+                    },
+					"jin": {
+                        "command": "convert",
+                        "convertmsg": "A Shu Soldier has defected to the Jin Army",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 2,
+                        "newRole": "jin_soldier",
+                        "silent": false,
+						"restrict": ["wu", "wei"]
+                    },
+					"cancel": {
+						"command": "distract",
+						"target": "Self",
+						"common": "Self",
+						"priority": 1,
+						"distractmsg": "You decided not to defect tonight."
+					}
+				},
+				"inspect": {
+					"revealAs": "soldier",
+					"mode": {
+						"ignore": ["shu_hooker"]
+					},
+					"silent": true					
+				},
+				"hax": {
+					"protect": {
+						"revealTeam": 0.2,
+						"revealPlayer": 0.05
+					}
+				}
+			}
+		},
+		{
+            "role": "wu_soldier",
+            "translation": "Wu Soldier",
+            "side": "wu",
+			"info": "Can defect to Shu, Wei, or Jin during the night. Gets hax on kill (20% team, 5% player). Sided with Wu Army.",
+            "help": "Team up with Wu Forces to bring victory. Use /shu, /wei, or /jin [your name] to defect at night if you dislike the direction your team is headed. However, once you select, you are locked into that choice. You can /cancel [your name] to stay loyal if you ''accidentally'' try to defect. You also reveal as an ordinary Soldier and get hax on kill (20% team, 5% player).",
+            "actions": {
+				"night": {
+					"shu": {
+                        "command": "convert",
+                        "convertmsg": "A Wu Soldier has defected to the Shu Army",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 2,
+                        "newRole": "shu_soldier",
+                        "silent": false,
+						"restrict": ["wei", "jin"]
+                    },
+					"wei": {
+                        "command": "convert",
+                        "convertmsg": "A Wu Soldier has defected to the Wei Army",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 2,
+                        "newRole": "wei_soldier",
+                        "silent": false,
+						"restrict": ["shu", "jin"]
+                    },
+					"jin": {
+                        "command": "convert",
+                        "convertmsg": "A Wu Soldier has defected to the Jin Army",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 2,
+                        "newRole": "jin_soldier",
+                        "silent": false,
+						"restrict": ["shu", "wei"]
+                    },
+					"cancel": {
+						"command": "distract",
+						"target": "Self",
+						"common": "Self",
+						"priority": 1,
+						"distractmsg": "You decided not to defect tonight."
+					}
+				},
+				"inspect": {
+					"revealAs": "soldier",
+					"mode": {
+						"ignore": ["shu_hooker"]
+					},
+					"silent": true					
+				},
+				"hax": {
+					"kill": {
+						"revealTeam": 0.2,
+						"revealPlayer": 0.05
+					}
+				}  
+			}
+		},
+		{
+            "role": "wei_soldier",
+            "translation": "Wei Soldier",
+            "side": "wei",
+			"info": "Can defect to Wu, Shu, or Jin during the night. Gets hax on poison (20% team, 5% player). Sided with Wei Army.",
+            "help": "Team up with Wei Forces to bring victory. Use /wu, /shu, or /jin [your name] to defect at night if you dislike the direction your team is headed. However, once you select, you are locked into that choice. You can /cancel [your name] to stay loyal if you ''accidentally'' try to defect. You also reveal as an ordinary Soldier and get hax on poison (20% team, 5% player).",
+			"actions": {
+				"night": {
+					"wu": {
+                        "command": "convert",
+                        "convertmsg": "A Wei Soldier has defected to the Wu Army",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 2,
+                        "newRole": "wu_soldier",
+                        "silent": false,
+						"restrict": ["shu", "jin"]
+                    },
+					"shu": {
+                        "command": "convert",
+                        "convertmsg": "A Wei Soldier has defected to the Shu Army",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 2,
+                        "newRole": "shu_soldier",
+                        "silent": false,
+						"restrict": ["wu", "jin"]
+                    },
+					"jin": {
+                        "command": "convert",
+                        "convertmsg": "A Wei Soldier has defected to the Jin Army",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 2,
+                        "newRole": "jin_soldier",
+                        "silent": false,
+						"restrict": ["wu", "shu"]
+                    },
+					"cancel": {
+						"command": "distract",
+						"target": "Self",
+						"common": "Self",
+						"priority": 1,
+						"distractmsg": "You decided not to defect tonight."
+					}
+				},
+				"inspect": {
+					"revealAs": "soldier",
+					"mode": {
+						"ignore": ["shu_hooker"]
+					},
+					"silent": true					
+				},
+				"hax": {
+					"poison": {
+						"revealTeam": 0.2,
+						"revealPlayer": 0.05
+					}
+				}   
+			}
+		},
+		{
+            "role": "jin_soldier",
+            "translation": "Jin Soldier",
+            "side": "jin",
+			"info": "Can defect to Wu, Shu, or Wei during the night. Gets hax on safeguard (20% team, 5% player). Sided with Jin Army.",
+            "help": "Team up with Jin Forces to bring victory. Use /wu, /shu, or /wei [your name] to defect at night if you dislike the direction your team is headed. However, once you select, you are locked into that choice. You can /cancel [your name] to stay loyal if you ''accidentally'' try to defect. You also reveal as an ordinary Soldier and get hax on safeguard (20% team, 5% player).",
+			"actions": {
+				"night": {
+					"wu": {
+                        "command": "convert",
+                        "convertmsg": "A Jin Soldier has defected to the Wu Army",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 2,
+                        "newRole": "wu_soldier",
+                        "silent": false,
+						"restrict": ["shu", "wei"]
+                    },
+					"shu": {
+                        "command": "convert",
+                        "convertmsg": "A Jin Soldier has defected to the Shu Army",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 2,
+                        "newRole": "shu_soldier",
+                        "silent": false,
+						"restrict": ["wu", "wei"]
+                    },
+					"wei": {
+                        "command": "convert",
+                        "convertmsg": "A Jin Soldier has defected to the Wei Army",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 2,
+                        "newRole": "wei_soldier",
+                        "silent": false,
+						"restrict": ["wu", "shu"]
+                    },
+					"cancel": {
+						"command": "distract",
+						"target": "Self",
+						"common": "Self",
+						"priority": 1,
+						"distractmsg": "You decided not to defect tonight."
+					}
+				},
+				"inspect": {
+					"revealAs": "soldier",
+					"mode": {
+						"ignore": ["shu_hooker"]
+					},
+					"silent": true					
+				},
+				"hax": {
+					"safeguard": {
+						"revealTeam": 0.2,
+						"revealPlayer": 0.05
+					}
+				}   
+			}
+		},
+		{
+            "role": "shu_inspector",
+            "translation": "Shu Strategist",
+            "side": "shu",
+			"info": "Can inspect 1 person during the standby. Identifies distractors. Reveals daykillers. Sided with Shu Army.",
+            "help": "You are the Shu Strategist. You can /inspect during the STANDBY phase. The role you inspected will be broadcast to all, but only you know who you targeted. (Hint: You will need to pay attention to who you target and match it with the role that is broadcast) You also know the identity of your Tactician because their methods help carry out your plan. If someone tries to distract you, their identity is revealed to you, and if they try to daykill you, their identity is revealed.",
+            "actions": {
+				"startup": {
+                    "revealRole": [
+                        "shu_hooker"
+                    ]
+				},
+				"standby": { 
+					"inspect": {
+						"command": "expose",
+						"msg": "Use /inspect [name] for a non-revealing inspect/expose.",
+						"exposemsg": "Shu Strategist: ~Role~! Even a child could devise a better strategy!",
+						"revealmsg": "Shu Strategist: My strategies, however, shall be studied for centuries to come.",
+						"revealChance": 1,
+						"target": "AnyButSelf"
+					}
+				},
+				"distract": {
+					"mode":	"identify"
+				},
+				"daykill": "revealkiller",
+				"daykillrevengemsg": "~Self~: ~Role~ (~Target~)! I have seen your prowess with my own two eyes! "
+			}	
+		},
+		{
+            "role": "shu_killer",
+            "translation": "Shu General",
+            "side": "shu",
+			"info": "Can kill or poison-kill 1 person during the night. Cannot use same command two nights in a row. Evades daykills. Can rally troops during standby. Sided with Shu Army.",
+            "help": "You are the Shu General. You have a choice to make: you can either use your weapon to /kill someone or you can use /poison for the same effect. Kill is blocked by protect and poison is blocked by safeguard, however, you cannot use the same one twice in a row, so choose wisely. You can /rally the troops during the day to raise moral (revealing) and your awareness of the battlefield helps you evade all daykills. Finally, you know the identity of your right hand man, the Defender.",
+            "actions": {
+				"daykill": "evade",
+				"startup": {
+					"revealRole": [
+						"shu_bodyguard"
+					]
+				},
+				"night": {
+			        "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 10,
+                        "limit": 1,
+						"restrict": ["poison"],
+						"recharge": 2
+                    },
+					"poison": {
+						"command": ["poison", "distract"],
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 10,
+						"count": -1,
+						"poisonDeadMessage": "You were hit with a poison coated weapon... ",
+                        "limit": 1,
+						"restrict": ["kill"],
+						"recharge": 2
+                    }
+				},
+				"standby": {
+					"rally": {
+						"command": "expose",
+						"msg": "Use /rally [your name] to reveal/expose yourself.",
+						"target": "Self",
+						"exposemsg": "Shu General: This blade is the symbol of my duty to the entire the army. Alone we are strong, but together we are unbeatable!",
+						"revealmsg": "The Shu Army's moral has increased due to ~Self~'s motivational words.",
+						"revealChance": 1
+					}
+				}
+			}
+		},
+		{
+            "role": "shu_bodyguard",
+            "translation": "Shu Defender",
+            "side": "shu",
+			"info": "Can protect or safeguard 2 people during the night. Can kill 1 person during the standby every 3 days. Sided with Shu Army.",
+            "help": "You are the Shu Defender. Use /protect OR /safeguard to keep your forces safe from harm. Some enemies have attacks only blockable by protect, and others are only blockable by safeguard. You can only choose one, but you can use it up to twice per night. If you ever run into trouble, you can do a non-revealing /kill once during standby every 3 days. Finally, you know the identity of your general, since you are his right hand man.",
+            "actions": {	
+				"startup": {
+					"revealRole": [
+						"shu_killer"
+					]
+				},
+				"night": {
+					"protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 8,
+                        "limit": 2,
+						"restrict": ["safeguard"]
+					},
+					"safeguard": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 8,
+                        "limit": 2,
+						"restrict": ["protect"]                  
+					}
+                },
+				"standby": {
+					"kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Use /kill [name] for a non-revealing kill.",
+						"killmsg": "Shu Defender: Another obstacle in the path of justice has fallen before me!",
+						"recharge": 3
+                    }
+				}
+			}
+		},
+		{
+            "role": "shu_hooker",
+            "translation": "Shu Tactician",
+            "side": "shu",
+			"info": "Can distract 1 person during the night. Vote of 3. Sided with Shu Army.",
+            "help": "You are the Shu Tactician. Your tactical aptitude allows you to /distract a target during the night, as well as grants you a vote of 3 during the voting phase. You also know the identity of your Strategist because your methods help carry out their plan.",
+            "actions": {
+				"startup": {
+                    "revealRole": [
+                        "shu_inspector"
+                    ]
+				},
+				"vote": 3,
+				"night":{
+					"distract": {
+						"command": ["distract", "inspect"],
+						"target": "AnyButSelf",
+						"common": "Self",
+						"priority": 4,
+						"distractmsg": "Even great weapons become useless when in the hands of a coward. You were unable to act last night."
+					}
+				}
+			}	
+        },
+		{
+			"role": "wei_bodyguard",
+            "translation": "Wei Guardian",
+            "side": "wei",
+			"info": "Can protect or safeguard 2 people during the night. Can perfect guard self once every 3 nights. Sided with Wei Army.",
+			"help": "You are the Wei Guardian. Use /protect OR /safeguard to keep your forces safe from harm. Some enemies have attacks only blockable by protect, and others are only blockable by safeguard. You can only choose one, but you can use it up to twice per night. You are also able to /defend (safeguard + protect) yourself from all threats, except distractions, once every 3 nights. If there is another Wei Guardian in battle, you will know their identity.",
+			"actions": {
+				"startup": {
+					"revealRole": [
+						"wei_killer2",
+						"wei_bodyguard"
+					]
+				},
+				"inspect": {
+						"mode": {
+							"ignore": ["shu_hooker"]
+						},
+						"silent": true					
+				},
+				"night":{
+					"protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 8,
+                        "limit": 2,
+						"restrict": ["safeguard"]
+					},
+					"safeguard": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 8,
+                        "limit": 2,
+						"restrict": ["protect"]                  
+					},
+					"defend": {
+						"command": ["protect", "safeguard"],
+						"target": "Self",
+                        "common": "Self",
+                        "priority": 5,
+                        "limit": 1,					
+						"recharge": 3
+					}
+				}
+			}
+		},
+		{
+			"role": "wei_killer",
+            "translation": "Wei Berserker",
+            "side": "wei",
+			"info": "Can kill 1 person during the day. Revenges daykills (revealing). Kill distractors. Sided with Wei Army.",
+			"help": "You are the Wei Berserker. You are able to /kill every standby phase, and you will not be revealed! You wont go down without a fight and will kill anyone that tries to kill you during the day, but it will reveal your identity. You will also kill distractors at night.",
+			"actions": {
+				"inspect": {
+					"mode": {
+						"ignore": ["shu_hooker"]
+					},
+					"silent": true					
+				},				
+				"standby":{
+					"kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Use /kill [name] for a revealing kill.",
+                        "killmsg": "Wei Berseker: Allow me to show you how a battle is supposed to be fought."			
+                    }
+				},
+				"distract": {
+					"mode": "ChangeTarget",
+                    "hookermsg": "Wei Berserker: Hmph. Did you really think that you could get past me?",
+                    "msg": "The ~Distracter~ came to you last night, but their efforts were futile and you killed them to make an example out of them."
+				},
+				"daykill": "revenge",
+				"daykillrevengemsg": "~Self~: I see that you have overestimated your own abilities. Allow me to show you your place!"
+			}
+		},
+		{
+            "role": "wei_killer2",
+            "translation": "Wei Swordsman",
+            "side": "wei",
+			"info": "Can kill or poison-kill one person during the night. Cannot use the same command two nights in a row. Sided with Wei Army.",
+            "help": "You are the Wei Swordsman. You have a choice to make: you can either use your weapon to /kill someone or you can use /poison for the same effect. Kill is blocked by protect and poison is blocked by safeguard, however, you cannot use the same one twice in a row, so choose wisely. You also know the identity of your the Wei Guardians.",
+            "actions": {
+				"night": {
+			        "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 12,
+                        "limit": 1,
+						"restrict": ["poison"],
+						"recharge": 2
+                    },
+					"poison": {
+						"command": ["poison", "distract"],
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 12,
+						"count": -1,
+						"poisonDeadMessage": "You were hit with a poison coated weapon... ",
+                        "limit": 1,
+						"restrict": ["kill"],
+						"recharge": 2
+                    }
+				},
+				"startup": {
+                    "revealRole": [
+                        "wei_bodyguard"
+                    ]
+				},
+				"inspect": {
+					"mode": {
+						"ignore": ["shu_hooker"]
+					},
+					"silent": true					
+				}
+			}
+		},
+		{
+            "role": "jin_inspector",
+            "translation": "Jin Mystic",
+            "side": "jin",
+			"info": "Can inspect 1 person during the night. Cannot be daykilled. Sided with Jin Army.",
+			"help": "You are the Jin Mystic. You can use /inspect to find out the identity of a player and you cannot be killed during the day. You know the Jin Lancer from the start, and if he dies, you gain a one-time non-revealing daykill.",
+			"actions": {
+				"startup": {
+                    "revealRole": [
+                        "jin_killer"
+                    ]
+				},
+				"daykill": "evade",
+				"inspect": {
+					"mode": {
+						"ignore": ["shu_hooker"]
+					},
+					"silent": true
+				},
+				"night": {
+					"inspect": {
+						"target": "AnyButSelf",
+						"common": "Self",
+						"priority": 15
+					}
+				}	
+			}
+		},
+		{
+			"role": "jin_killer",
+            "translation": "Jin Lancer",
+            "side": "jin",
+			"info": "Can kill or poison-kill 1 person during the night. Cannot use the same command two nights in a row. Sided with Jin Army.",
+			"help": "You are the Jin Lancer. You have a choice to make: you can either use your weapon to /kill someone or you can use /poison for the same effect. Kill is blocked by protect and poison is blocked by safeguard, however, you cannot use the same one twice in a row, so choose wisely. You know the Jin Mystic from the start, and if he dies, you gain a one-time non-revealing daykill. The converse is also true, your death will power them up.",
+			"actions": {
+				"startup": {
+                    "revealRole": [
+                        "jin_inspector"
+                    ]
+				},
+				"inspect": {
+					"mode": {
+						"ignore": ["shu_hooker"]
+					},
+					"silent": true
+				},
+				"night": {
+					"kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 11,
+                        "limit": 1,
+						"restrict": ["poison"],
+						"recharge": 2
+                    },
+					"poison": {
+						"command": ["poison", "distract"],
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 11,
+						"count": -1,
+						"poisonDeadMessage": "You were hit with a poison coated weapon... ",
+                        "limit": 1,
+						"restrict": ["kill"],
+						"recharge": 2
+                    }
+				},
+				"onDeath": {
+                    "convertRoles": {
+                        "jin_inspector": "jin_kinspector"
+                    },
+                    "convertmsg": "Jin Mystic: Hmm. So now we have an opportunity to strike back. Very well, I shall join in this endeavor! Your death will be avenged, Jin Lancer!"
+                }
+			}
+		},	
+		{
+            "role": "jin_kinspector",
+            "translation": "Jin Sage",
+            "side": "jin",
+			"info": "Can inspect 1 person during the night. Can kill 1 person during the standby once per game (non-revealing). Sided with Jin Army.",
+			"help": "You are the Jin Sage. You can use /inspect to tell what a target is and you cannot be killed during the day. Avenge the Jin Lancer's death with a non-revealing /kill during the standby (once per game).",
+			"actions": {
+				"inspect": {
+					"mode": {
+						"ignore": ["shu_hooker"]
+					},
+					"silent": true
+				},
+				"daykill": "evade",
+				"night": {
+					"inspect": {
+						"target": "AnyButSelf",
+						"common": "Self",
+						"priority": 15
+					}
+				},
+				"standby":{
+					"kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Use /kill [name] for a non-revealing kill.",
+                        "killmsg": "Jin Sage: Letting you win would be most unsatisfying. It is time for you to learn the severity of war.",
+						"recharge": 99
+                    }
+				}
+			}
+		},				
+		{
+			"role": "jin_bodyguard",
+            "translation": "Jin Sentry",
+            "side": "jin",
+			"info": "Can protect or safeguard 2 people during the night. Can can distract 1 person every 3 nights. Sided with Jin Army.",
+			"help": "You are the Jin Sentry. Use /protect OR /safeguard to keep your forces safe from harm. Some enemies have attacks only blockable by protect, and others are only blockable by safeguard. You can only choose one, but you can use it up to twice per night. You know the identity of the Jin Scout, so work together to keep each other safe. You are also able to /distract one person once every 3 nights.",
+			"actions": {
+				"inspect": {
+						"mode": {
+							"ignore": ["shu_hooker"]
+						},
+						"silent": true					
+				},
+				"night":{
+					"protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 8,
+                        "limit": 2,
+						"restrict": ["safeguard"]
+					},
+					"safeguard": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 8,
+                        "limit": 2,
+						"restrict": ["protect"]                  
+					},
+					"distract": {
+						"target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 3,
+                        "limit": 1,					
+						"recharge": 3
+					}
+				},
+				"startup": {
+					"revealRole": "jin_stalker"
+				}
+			}
+		},
+		{
+			"role": "jin_stalker",
+            "translation": "Jin Scout",
+            "side": "jin",
+			"info": "Can stalk 1 person during the night. Can divert (protect + safeguard) 1 person every other night. Evades 10% of daykills, kills, and poison. Sided with Jin Army.",
+            "help": "You are the Jin Scout. You are able to /stalk 1 person during the night in order to find out who they visited. You are also able to /divert (protect + safeguard) danger away from your team mates, but you are only able to do this every other night. You know the identity of the Jin Sentry, so work together to keep each other safe. Finally, your agility allows you to evade 10% of daykills, poisons, and kills.",
+			"actions": {
+                "night": {
+					"stalk": {
+						"target": "AnyButSelf",
+						"common": "Self",
+						"priority": 15,
+						"limit": 1
+					},
+					"divert": {
+						"command": ["protect", "safeguard"],
+						"target": "AnyButSelf",
+						"common": "Self",
+						"priority": 8,
+						"limit": 1,
+						"recharge": 2
+					}
+				},
+				"daykill": {
+					"mode": {
+						"evadeChance": 0.1
+					}
+				},
+				"kill": {
+					"mode": {
+						"evadeChance": 0.1
+					}
+				},
+				"poison": {
+					"mode": {
+						"evadeChance": 0.1
+					}
+				},
+				"inspect": {
+					"mode": {
+						"ignore": ["shu_hooker"]
+					},
+					"silent": true					
+				},
+				"startup": {
+					"revealRole": "jin_bodyguard"
+				}
+			}
+		},
+		{
+			"role": "wu_killer",
+            "translation": "Wu Marksman",
+            "side": "wu",
+			"info": "Can kill or poison-kill 1 person during the night. Vote of 2. Sided with Wu Army.",
+			"help": "You are the Wu Marksman. You have a choice to make: you can either use your weapon to /kill someone or you can use /poison for the same effect. Kill is blocked by protect and poison is blocked by safeguard, and unlike others, you can freely choose which one to use. You know the identity of the Wu Vanguard as they help keep enemy advances at bay, but if they dies, you can no longer freely choose your kill. Finally, you have a vote of 2.",
+			"actions": {
+				"inspect": {
+					"mode": {
+						"ignore": ["shu_hooker"]
+					},
+					"silent": true					
+				},
+				"vote": 2,
+				"startup": {
+					"revealRole": [
+						"wu_bodyguard"
+					]
+				},
+				"night": {
+			        "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 13,
+                        "limit": 1,
+						"restrict": ["poison"]
+                    },
+					"poison": {
+						"command": ["poison", "distract"],
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 13,
+						"count": -1,
+						"poisonDeadMessage": "You were hit with a poison coated weapon... ",
+                        "limit": 1,
+						"restrict": ["kill"]
+                    }
+				},
+				"onDeath": {
+                    "convertRoles": {
+                        "wu_mercenary00": "wu_mercenary10",
+						"wu_mercenary01": "wu_mercenary11"
+                    },
+					"convertmsg": "±Sun Tzu: A new job is available for the Wu Mercenary."
+                }
+			}
+		},
+		{
+			"role": "wu_kkiller",
+            "translation": "Wu Archer",
+            "side": "wu",
+			"info": "Can kill or poison-kill 1 person during the night. Cannot use the same command two nights in a row. Sided with Wu Army.",
+			"help": "You are the Wu Archer. You have a choice to make: you can either use your weapon to /kill someone or you can use /poison for the same effect. Kill is blocked by protect and poison is blocked by safeguard, however, since the Wu Vanguard died, you can no longer use the same command two nights in a row.",
+			"actions": {
+				"inspect": {
+					"mode": {
+						"ignore": ["shu_hooker"]
+					},
+					"silent": true					
+				},
+				"startup": {
+					"revealRole": [
+						"wu_bodyguard"
+					]
+				},
+				"night": {
+			        "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 13,
+                        "limit": 1,
+						"restrict": ["poison"],
+						"recharge": 2
+                    },
+					"poison": {
+						"command": ["poison", "distract"],
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 13,
+						"count": -1,
+						"poisonDeadMessage": "You were hit with a poison coated weapon... ",
+                        "limit": 1,
+						"restrict": ["kill"],
+						"recharge": 2
+                    }
+				}
+			}
+		},
+		{
+			"role": "wu_kkiller2",
+            "translation": "Wu Archer",
+            "side": "wu",
+			"info": "Can kill or poison-kill 1 person during the night. Cannot use the same command two nights in a row. Sided with Wu Army.",
+			"help": "You are the Wu Archer. You have a choice to make: you can either use your weapon to /kill someone or you can use /poison for the same effect. Kill is blocked by protect and poison is blocked by safeguard, however, you cannot use the same one twice in a row, so choose wisely.",
+			"actions": {
+				"inspect": {
+					"mode": {
+						"ignore": ["shu_hooker"]
+					},
+					"silent": true					
+				},
+				"startup": {
+					"revealRole": [
+						"wu_bodyguard"
+					]
+				},
+				"night": {
+			        "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 13,
+                        "limit": 1,
+						"restrict": ["poison"],
+						"recharge": 2
+                    },
+					"poison": {
+						"command": ["poison", "distract"],
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 13,
+						"count": -1,
+						"poisonDeadMessage": "You were hit with a poison coated weapon... ",
+                        "limit": 1,
+						"restrict": ["kill"],
+						"recharge": 2
+                    }
+				}
+			}
+		},		
+		{
+			"role": "wu_bodyguard",
+            "translation": "Wu Vanguard",
+            "side": "wu",
+			"info": "Can protect 1 person during the night. Can perfect inspect 1 person during the night once every 3 nights. Sided with Wu Army.",
+			"help": "You are the Wu Vanguard. Use /protect OR /safeguard to keep your forces safe from harm. Some enemies have attacks only blockable by protect, and others are only blockable by safeguard. You can only choose one, but you can use it up to twice per night. Unlike other unsuccessful strategists, you know the true identity of everyone you inspect. You help the Wu Archer stay safe from enemy advances and know them from the start, but if you die, their attacks become more restricted.",
+			"actions": {		
+				"inspect": {
+					"mode": {
+						"ignore": ["shu_hooker"]
+					},
+					"silent": true					
+				},
+				"startup": {
+					"revealRole": [
+						"wu_killer"
+					]
+				},
+				"night":{
+					"protect": {
+						"target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 8,
+                        "limit": 1
+					},
+					"inspect": {
+						"target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 25,
+                        "limit": 1,
+						"recharge": 3,
+						"Sight": {
+                            "true": 1
+						}
+					}
+				},
+				"onDeath": {
+                    "convertRoles": {
+                        "wu_killer": "wu_kkiller"
+                    },
+                    "convertmsg": "Wu Vanguard: Forgive me Wu Marksman...I'll be waiting for you...on the other side..."
+                }
+				
+			}
+		},	
+		{
+			"role": "wu_pkiller",
+            "translation": "Wu Captain",
+            "side": "wu",
+			"info": "Can poison-kill 1 person during the night. Bypasses safeguard but not self-protect. Sided with Wu Army.",
+			"help": "You are the Wu Captain. You are able to use /poison to instantly kill any target, striking even before your target is safeguarded or protected. However, if you attempt to kill someone who self-protected, your attack will be unsuccessful. You ignore distractions as well.",
+			"actions": {
+				"night": {
+					"poison": {
+						"command": ["poison", "distract"],
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 7,
+						"count": -1,
+						"poisonDeadMessage": "You were hit with a poison coated weapon... ",
+                        "limit": 1
+                    }
+				},
+				"distract": {
+					"mode": "ignore"
+				},
+				"inspect": {
+					"mode": {
+						"ignore": ["shu_hooker"]
+					},
+					"silent": true					
+				},
+				"onDeath": {
+                    "convertRoles": {
+                        "wu_mercenary00": "wu_mercenary01",
+						"wu_mercenary11": "wu_mercenary11"
+                    },
+					"convertmsg": "±Sun Tzu: A new job is available for the Wu Mercenary."
+                }				
+			}
+		},
+		{
+			"role": "wu_mercenary00",
+            "translation": "Wu Mercenary",
+            "side": "wu",
+			"info": "Vote of 0. Cannot be poisoned or night killed. Sided with Wu Army.",
+			"help": "You are the Wu Mercenary. Initially, you have no commands and a vote of 0, but luckily you cannot be poisoned or night killed. If the Wu Captain or Wu Marksman/Archer dies, you are able to assume their role the following night.",
+			"actions": {
+				"vote": 0,
+				"kill": {
+					"mode": "ignore"
+				},
+				"poison": {
+					"mode": "ignore"
+				},
+				"inspect": {
+					"mode": {
+						"ignore": ["shu_hooker"]
+					},
+					"silent": true					
+				}
+			}
+		},
+		{
+			"role": "wu_mercenary10",
+            "translation": "Wu Mercenary",
+            "side": "wu",
+			"info": "Can convert self into Wu Archer. Vote of 0. Cannot be poisoned or night killed. Sided with Wu Army.",
+			"help": "You are the Wu Mercenary. You have a vote of 0 and cannot be poisoned or night killed. Since the Wu Archer has fallen in battle, you are able to assume their role using /archer [your name].",
+			"actions": {
+				"night": {
+					"archer": {
+						"command": "convert",
+						"target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 1,
+                        "newRole": "wu_kkiller2",
+                        "canConvert": [
+							"wu_mercenary10",
+							"wu_mercenary11"
+                        ],
+                        "silent": false,
+						"convertmsg": "The ~Old~ has assumed the role of the ~New~"
+                    }
+				},
+				"vote": 0,
+				"kill": {
+					"mode": "ignore"
+				},
+				"poison": {
+					"mode": "ignore"
+				},
+				"inspect": {
+					"mode": {
+						"ignore": ["shu_hooker"]
+					},
+					"silent": true					
+				}
+			}
+		},
+		{
+			"role": "wu_mercenary01",
+            "translation": "Wu Mercenary",
+            "side": "wu",
+			"info": "Can convert self into Wu Captain. Vote of 0. Cannot be poisoned or night killed. Sided with Wu Army.",
+			"help": "You are the Wu Mercenary. You have a vote of 0 and cannot be poisoned or night killed. Since the Wu Captain has fallen in battle, you are able to assume their role using /captain [your name].",
+			"actions": {
+				"night": {
+					"captain": {
+						"command": "convert",
+						"target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 1,
+                        "newRole": "wu_pkiller",
+                        "canConvert": [
+                            "wu_mercenary01",
+							"wu_mercenary11"
+                        ],
+                        "silent": false,
+						"convertmsg": "The ~Old~ has assumed the role of the ~New~"
+                    }
+				},
+				"vote": 0,
+				"kill": {
+					"mode": "ignore"
+				},
+				"poison": {
+					"mode": "ignore"
+				},
+				"inspect": {
+					"mode": {
+						"ignore": ["shu_hooker"]
+					},
+					"silent": true					
+				}
+			}
+		},
+		{
+			"role": "wu_mercenary11",
+            "translation": "Wu Mercenary",
+            "side": "wu",
+			"info": "Can convert self into Wu Captain or Wu Archer. Vote of 0. Cannot be poisoned or night killed. Sided with Wu Army.",
+			"help": "You are the Wu Mercenary. You have a vote of 0 and cannot be poisoned or night killed. Since the Wu Captain and Wu Archer have fallen in battle, you are able to assume their role using /captain [your name] or /archer [your name].",
+			"actions": {
+				"night": {
+					"captain": {
+						"command": "convert",
+						"target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 1,
+                        "newRole": "wu_pkiller",
+                        "canConvert": [
+							"wu_mercenary11"
+                        ],
+                        "silent": false,
+						"convertmsg": "The ~Old~ has assumed the role of the ~New~"
+                    },
+					"archer": {
+						"command": "convert",
+						"target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 1,
+                        "newRole": "wu_kkiller2",
+                        "canConvert": [
+							"wu_mercenary11"
+                        ],
+                        "silent": false,
+						"convertmsg": "The ~Old~ has assumed the role of the ~New~"
+                    }
+				},
+				"vote": 0,
+				"kill": {
+					"mode": "ignore"
+				},
+				"poison": {
+					"mode": "ignore"
+				},
+				"inspect": {
+					"mode": {
+						"ignore": ["shu_hooker"]
+					},
+					"silent": true					
+				}
+			}
+		},
+		{
+            "role": "yuanshao",
+            "translation": "Emperor Yuan Shao",
+            "side": "yuanshao",
+			"info": "Can kill or poison-kill 1 person during the night and 1 person during standby. Cannot be distracted or haxed. Voteshield of -3. Sided with Yuan Shao.",
+            "help": "Those who refuse to respect nobility shall die where they stand! You can perform a non-revealing /kill during standby. You have a choice to make: you can either use your weapon to /kill someone or you can use /poison for the same effect. Kill is blocked by protect and poison is blocked by safeguard, so choose wisely. You are initially unaware that a war is occurring and as a result, cannot kill during the first night. Your control over the empire grants you a voteshield of -3 as well as immunity from all distractors and hax.",
+            "actions": {
+				"inspect": {
+					"mode": {
+						"ignore": ["shu_hooker"]
+					},
+					"silent": true					
+				},
+                "night": {				
+			        "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 10,
+                        "limit": 1,
+						"restrict": ["poison"],
+						"initialrecharge": 2
+                    },
+					"poison": {
+						"command": ["poison", "distract"],
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 10,
+						"count": -1,
+						"poisonDeadMessage": "You were hit with a poison coated weapon... ",
+                        "limit": 1,
+						"restrict": ["kill"],
+						"initialrecharge": 2
+                    }
+				},
+				"distract": {
+					"mode": "ignore"
+				},
+				"voteshield": -3,
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Use /kill [name] for a non-revealing kill.",
+                        "killmsg": "Yuan Shao: Those who refuse to respect nobility shall die where they stand!"
+                    }
+                },
+				"avoidHax": [
+					"poison",
+					"kill"
+				]
+			}
+		}		
+	],
+	"roles1": [
+		"shu_inspector",
+		"shu_bodyguard",
+		"jin_stalker",
+		"jin_killer",
+		"wu_pkiller",
+		"soldier",
+		"shu_hooker",
+		"jin_inspector",
+		"soldier",
+		"jin_bodyguard",
+		"wu_killer",
+		"shu_killer",
+		"wu_bodyguard",
+		"yuanshao",
+		"soldier",
+		"soldier",
+		"soldier"
+	],
+	"roles2": [
+		"shu_inspector",
+		"shu_bodyguard",
+		"jin_stalker",
+		"jin_killer",
+		"wu_pkiller",
+		"soldier",
+		"shu_hooker",
+		"jin_inspector",
+		"soldier",
+		"jin_bodyguard",
+		"wu_killer",
+		"shu_killer",
+		"wu_bodyguard",
+		"yuanshao",
+		"soldier",
+		"wei_killer",
+		"wei_bodyguard",	
+		"wei_killer2",
+		"wu_mercenary00",
+		"soldier",
+		"wei_bodyguard",
+		"soldier",
+		"soldier",
+		"soldier",
+		"soldier",
+		"soldier",
+		"soldier",
+		"soldier",
+		"soldier"
+	],
+	"killmsg": "±Sun Tzu: ~Player~ (~Role~) was killed in battle.",
+    "killusermsg": "***You have been killed in battle!",
+    "lynchmsg": "±Sun Tzu: The supreme art of war is to subdue the enemy, ~Player~ (~Role~), without fighting.",
+	"drawmsg": "±Sun Tzu: There is no instance of a country having benefited from prolonged warfare. Today is no exception.",
+	"border": "***-^-*-^-*-^-*-^-*-^-*-^-*-^-*-^-*-^-*-^-*-^-*-^-*-^-*-^-*-^-*-^-*-^-*-^-*-^-*-^-*-^-***",
+	"minplayers": 5,
+	"ticks": {
+		"night": 35,
+		"standby": 35
+	}
+}
