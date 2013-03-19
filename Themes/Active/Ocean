@@ -51,7 +51,7 @@
                     "curse": {
                         "cursedRole": "cthulhu2",
                         "curseCount": 2,
-                        "curseConvertMessage": "The Legendary Cthulhu has awaken!"
+                        "curseConvertMessage": "The Legendary Cthulhu has awakened!"
                     }
                 },
 				"daykill": "evade",
