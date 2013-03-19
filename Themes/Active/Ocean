@@ -119,7 +119,7 @@
 			"actions": {
 				"standbyHax": {
 					"kill": {
-						"revealRole": 0.15
+						"revealRole": 1
 					},
 					"hammer": {
 						"revealRole": 0.08
