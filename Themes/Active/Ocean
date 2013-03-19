@@ -117,7 +117,7 @@
 						"revealRole": 0.15
 					},
 					"hammer": {
-						"revealRole": 0.1
+						"revealRole": 0.08
 					}
 				}
 			}
@@ -591,11 +591,21 @@
 						"target": "AnyButTeam",
 						"msg": "You can kill now by typing /hammer [name] (You'll probably be revealed though)!",
 						"killmsg": "Can't touch this- IT'S HAMMER TIME!!!! The Hammershead Shark headbutted ~Target~, killing them instantly!",
-						"revealChance": 0.03, 
+						"revealChance": 0.33, 
+						"revealmsg": "But wait! Who was that! ~Self~ was revealed to be ~Role~!"
+					},
+					"kill": {
+						"target": "AnyButTeam",
+						"msg": "You can kill now by typing /hammer [name] (You'll probably be revealed though)!",
+						"killmsg": "Can't touch this- IT'S HAMMER TIME!!!! The Hammershead Shark headbutted ~Target~, killing them instantly!",
+						"revealChance": 0.33, 
 						"revealmsg": "But wait! Who was that! ~Self~ was revealed to be ~Role~!"
 					}
 				},
-				"startup": "team-reveal-with-roles"
+				"startup": "team-reveal-with-roles",
+				"avoidStandbyHax": [
+					"kill"
+				]
 			}
         },
 		{
