@@ -167,47 +167,13 @@
 				},
 				"daykill": "evade",
 				"onDeath": {
-					"convertRoles": {"anemone":"toxic"},
-					"convertmsg": "Oh no! The Clown Fish has drowned. The Sea Anemone is not happy and is releasing deadly neurotoxins throughout the Ocean."
-				}
-			}
-		},
-        {
-            "role": "clown3",
-            "translation": "Clown Fish",
-                "side": "village",
-                "hide": true,
-            "help": "Like Nemo or, uh, Nemo's Dad? Yeah, Nemo's Dad! Anyway, since you're so good at finding people you can inspect one person a night by typing /Inspect [name]. As long as the Anemone is alive, you cannot be killed or distracted.",
-            "info": "Can inspect one person during the night. Ignores all distractors. Cannot be killed. Sided with Fish.",
-			"actions": {
-                "night": {
-                    "inspect": {
-                        "target": "AnyButSelf",
-                        "common": "Self",
-						"broadcast": ["anemone2"],
-                        "priority": 1,
-						"hide": true
-                    }
-				},
-				"startup":{
-					"revealRole": "anemone2"
-				},
-				"distract": {
-                    "mode": "ignore"
-                },
-				"kill": {
-					"mode": "ignore",
-					"msg": "±Game: Your target (~Self~) was protected!"
-				},
-				"daykill": "evade",
-				"onDeath": {
-					"convertRoles": {"anemone2":"toxic"},
+					"convertRoles": {"anemone":"toxic", "anemone2":"toxic"},
 					"convertmsg": "Oh no! The Clown Fish has drowned. The Sea Anemone is not happy and is releasing deadly neurotoxins throughout the Ocean."
 				}
 			}
 		},
 		{
-            "role": "clown4",
+            "role": "clown3",
             "translation": "Clown Fish",
                 "side": "village",
                 "hide": true,
@@ -273,7 +239,7 @@
 					"targetmsg": "Your clumsy protecting knocked the Sea Anemone loose from the reef. They floated away, never to be seen again."
 				},
 				"onDeath": {
-					"convertRoles": {"clown2":"clown4"},
+					"convertRoles": {"clown2":"clown3"},
 					"convertmsg": "Oh no! The Sea Anemone has been destroyed. Where will the Clown Fish hide now?"
 				},
 				"startup": {
@@ -296,7 +262,7 @@
 					"targetmsg": "Your clumsy protecting knocked the Sea Anemone loose from the reef. They floated away, never to be seen again."
 				},
 				"onDeath": {
-					"convertRoles": {"clown3":"clown4"},
+					"convertRoles": {"clown2":"clown3"},
 					"convertmsg": "Oh no! The Sea Anemone has been destroyed. Where will the Clown Fish hide now?"
 				},
 				"startup": {
@@ -841,15 +807,6 @@
 			}
         },
 		{
-			"role": "clown31",
-			"translation": "Clown Fish",
-			"side": "dummy",
-			"help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzysqurl.",
-			"info": "Can inspect one person during the night. Ignores all distractors. Cannot be killed. Sided with Fish.",
-			"actions": {
-			}
-		},
-		{
 			"role": "anemone21",
 			"translation": "Sea Anemone",
 			"side": "dummy",
@@ -898,7 +855,7 @@
 	],
 	"roles2": [		
 		"fishy",
-		{"clown2": 1, "clown31": 0},
+		"clown2",
 		"anemone",
 		"otter",
 		"greatwhite",
@@ -914,7 +871,7 @@
 			"fishy"
     ],
 	"roles3": [
-		{"clown3": 1, "clown31": 0},
+		"clown2",
 		{"anemone2": 1, "anemone21":0},
 		"fishy",
 		"fishy",
