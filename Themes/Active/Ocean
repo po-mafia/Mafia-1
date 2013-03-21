@@ -834,6 +834,15 @@
 			}
 		},
 		{
+     			 "role": "clown31",
+      			"translation": "Clown Fish",
+      			"side": "dummy",
+      			"help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzysqurl.",
+    			  "info": "Can inspect one person during the night. Ignores all distractors. Cannot be killed. Sided with Fish.",
+      			"actions": {
+      			}
+  		  },
+		{
 			"role": "sushi31",
 			"translation": "Sushi",
 			"side": "dummy",
@@ -855,7 +864,7 @@
 	],
 	"roles2": [		
 		"fishy",
-		"clown2",
+		{"clown2": 1, "clown31": 0},
 		"anemone",
 		"otter",
 		"greatwhite",
@@ -871,7 +880,7 @@
 			"fishy"
     ],
 	"roles3": [
-		"clown2",
+		{"clown2": 1, "clown31": 0},
 		{"anemone2": 1, "anemone21":0},
 		"fishy",
 		"fishy",
