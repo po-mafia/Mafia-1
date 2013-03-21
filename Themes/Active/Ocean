@@ -642,7 +642,7 @@
             "translation": "Enraged Dolphin",
             "side": "mammal",
             "help": "GRRRR! RAAAGGGEEE! The death of the Blue Whale has angered you and now everyone must pay! You can avenge the death of your fallen comrade with your 1000 vote! You think you saw the Clown Fish trying to dart around earlier, so you might know who they are. Unfortunately, revenge is the only thing on your mind causing you to be very reckless and vulnerable during the day.",
-			"info": "Vote of 1000. Sided with Mammal Alliance",
+			"info": "Vote of 1000. Sided with Mammal Alliance.",
 			"actions": {
 				"vote": 1000,
 				"startup": {
