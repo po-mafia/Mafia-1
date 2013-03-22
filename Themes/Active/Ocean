@@ -613,8 +613,8 @@
 					"pufferfish",
 					"greatwhite",
 					"hammerhead",
-					"cthulhu",
-					"chef2",
+					"cthulhu2",
+					"chef",
 					"barracuda",
 					"reef"
 				]
@@ -656,8 +656,8 @@
 					"pufferfish",
 					"greatwhite",
 					"hammerhead",
-					"cthulhu",
-					"chef2",
+					"cthulhu2",
+					"chef",
 					"barracuda",
 					"reef"
 				]
@@ -831,7 +831,7 @@
 				"fishy",
 				"devilray",
 				"fishy",
-				"chef2",
+				"chef",
 				"flyingfish",
 				"fishy",
 				"mermaid",
