@@ -1,0 +1,85 @@
+{
+    "name": "Testing",
+  "author": ["Fuzzysqurl"],
+    "summary": "Test",
+    "sides": [
+		 {
+            "side": "1",
+            "translation": "Side 1"
+        },
+        {
+            "side": "2",
+            "translation": "Side 2"
+        },
+        {
+            "side": "3",
+            "translation": "Side 3"
+        }
+	],
+	"roles": [
+	     {
+            "role": "mafia1",
+            "translation": "Mafia Side 1",
+            "side": "1",
+            "help": "Type /Kill [name] to kill someone!",
+			"winIfDeadRoles": ["mafia2"],
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal"
+            }
+        }, 
+		{
+            "role": "mafia2",
+            "translation": "Mafia Side 2",
+            "side": "2",
+            "help": "Type /Kill [name] to kill someone!",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal"
+            }
+        }, 
+		{
+            "role": "mafia3",
+            "translation": "Mafia Side 3",
+            "side": "3",
+			"winIfDeadRoles": ["mafia2"],
+            "help": "Type /Kill [name] to kill someone!",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal"
+            }
+        }
+	],
+	"roles1": [
+		"mafia1",
+		"mafia1",
+		"mafia1",
+		"mafia1",
+		"mafia2",
+		"mafia3",
+		"mafia3",
+		"mafia3",
+		"mafia3"
+	]
+}
