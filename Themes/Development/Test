@@ -73,13 +73,8 @@
 	],
 	"roles1": [
 		"mafia1",
-		"mafia1",
-		"mafia1",
-		"mafia1",
 		"mafia2",
-		"mafia3",
-		"mafia3",
-		"mafia3",
 		"mafia3"
-	]
+	],
+	"minplayers": 3
 }
