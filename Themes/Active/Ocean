@@ -1,7 +1,7 @@
 {
     "name": "Ocean",
   "author": ["Fuzzysqurl"],
-    "summary": "Recent Changes: Temporary work around to standby hax. Cthulhu avoids, Hammerhead has a reduced reveal chance to offset the hax. Disclaimer: If you are upset following a ''standby hax incident'', you should be like me: whenever I feel upset, I stop feeling upset and realize it is just a game and there's no reason to complain about it.",
+    "summary": "Recent Changes: Sushi Chef and Clownfish tweaked to balance sides. Angel Fish added earlier to help leverage town power. Tip: Angel Fish's command is Protect+Safeguard+Distract, it prevents night actions in exchange for perfect protection. This command WILL kill the Sea Anemone, so don't use it on it.",
     "sides": [
         {
             "side": "village",
@@ -143,8 +143,8 @@
             "translation": "Clown Fish",
                 "side": "village",
                 "hide": true,
-            "help": "Like Nemo or, uh, Nemo's Dad? Yeah, Nemo's Dad! Anyway, since you're so good at finding people you can inspect one person a night by typing /Inspect [name]. As long as the Anemone is alive, however, you cannot be killed or distracted.",
-            "info": "Can inspect one person during the night. Ignores all distractors. Cannot be killed. Sided with Fish.",
+            "help": "Like Nemo or, uh, Nemo's Dad? Yeah, Nemo's Dad! Anyway, since you're so good at finding people you can inspect one person a night by typing /Inspect [name]. As long as the Anemone is alive, however, you cannot be killed or distracted. Your familiar design makes you very charismatic and grants you a vote of 2!",
+            "info": "Can inspect one person during the night. Ignores all distractors. Cannot be killed. Vote of 2. Sided with Fish.",
 			"actions": {
                 "night": {
                     "inspect": {
@@ -169,7 +169,8 @@
 				"onDeath": {
 					"convertRoles": {"anemone":"toxic", "anemone2":"toxic"},
 					"convertmsg": "Oh no! The Clown Fish has drowned. The Sea Anemone is not happy and is releasing deadly neurotoxins throughout the Ocean."
-				}
+				},
+				"vote": 2
 			}
 		},
 		{
@@ -689,36 +690,7 @@
 			}
         },
 		{	
-            "role": "chef1",
-            "translation": "Sushi Chef",
-            "side": "sushi",
-            "help": "Every night you can convert one Fish, Great White Shark, or Orca into sashimi by using /slice [name]! You can only convert these roles though and any attempt to convert another role will fail. To make things easier you know the identity of all Fish, but not the Great White Shark or the Orca, and your /slice will actually protect your target from dying in the same night. Try not to make Cthulhu sushi as you will probably have a VERY bad day.",
-            "info": "Can convert one person every night. Sided with Sushi Mafia.",
-			"actions": {
-				"night": {
-					"slice": {
-						"command": ["convert", "protect"],
-						"target": "Any",
-						"common": "Self",
-						"priority": 1,
-						"newRole": {
-							"sashimi": ["fishy", "greatwhite", "orca"] 
-						},
-						"convertmsg": "Try out our new dish at City Sushi! It is made from ~Old~ and is only $3.99 + tip!"
-					}	
-				},
-				"startup": {
-                    "revealRole": ["fishy"],
-					"team-revealif": ["sushi"]
-                },
-				"onDeath": {
-					"convertRoles": {"sashimi":"sushi"},
-					"convertmsg": "Even in the face of death, the Sushi Chef made sure to finish his work by using the ~Old~ in order to make ~New~!"
-				}
-            }
-		},
-		{	
-            "role": "chef2",
+            "role": "chef",
             "translation": "Sushi Chef",
                 "side": "sushi",
                 "hide": true,
@@ -746,7 +718,7 @@
 					"mode": "ignore"
 				},
 				"onDeath": {
-					"convertRoles": {"sashimi":"sushi2"},
+					"convertRoles": {"sashimi":"sushi"},
 					"convertmsg": "Even in the face of death, the Sushi Chef made sure to finish his work by using the ~Old~ in order to make ~New~!"
 				},
 				"voteshield": -9999
@@ -769,31 +741,15 @@
 			"role": "sashimi",
             "translation": "Sashimi",
             "side": "sushi",
-            "help": "Oh no! The Sushi Chef caught you and sliced you up to serve in his restaurant! Oh well, now you can help him to victory. Because you are still fish, you reveal as one!",
-            "info": "Sided with Sushi Mafia.",
+            "help": "Oh no! The Sushi Chef caught you and sliced you up to serve in his restaurant! To make matters worse, you have no vote!",
+            "info": "Vote of 0. Sided with Sushi Mafia.",
 			"actions": {
 				"startup": "team-reveal-with-roles",
-				"inspect": {
-					"revealAs": "fishy"
-				}
+				"vote": 0
 			}
-        },	
-		{	
-            "role": "sushi",
-            "translation": "Sushi",
-            "side": "sushi2",
-			"hide": true,
-            "help": "Oh no! The Sushi Chef has died. But his last act was to make Sushi out of you! You now have vote of 2 to use.",
-            "info": "Vote of 2. Sided with Sushi Mafia.",
-			"actions": {
-				"vote": 2,
-				"startup": {
-                    "revealRole": ["sushi"]
-				}
-			}
-        },		
+        },			
 		{
-            "role": "sushi2",
+            "role": "sushi",
             "translation": "Sushi",
             "side": "sushi2",
 			"hide": true,
@@ -816,41 +772,14 @@
 			}
 		},
 		{
-			"role": "chef21",
-			"translation": "Sushi Chef",
-			"side": "dummy",
-			"help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzysqurl.",
-			"info": "Can convert one person every night. Ignores distractors. Voteshield of -9999. Sided with Sushi Mafia.",
-			"actions": {
-			}
-		},
-		{
-			"role": "sushi21",
-			"translation": "Sushi",
-			"side": "sushi",
-			"help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzysqurl.",
-			"info": "Vote of 2. Sided with Sushi Mafia.",
-			"actions": {
-			}
-		},
-		{
      			 "role": "clown31",
       			"translation": "Clown Fish",
       			"side": "dummy",
       			"help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzysqurl.",
-    			  "info": "Can inspect one person during the night. Ignores all distractors. Cannot be killed. Sided with Fish.",
+    			  "info": "Can inspect one person during the night. Ignores all distractors. Cannot be killed. Vote of 2. Sided with Fish.",
       			"actions": {
       			}
-  		  },
-		{
-			"role": "sushi31",
-			"translation": "Sushi",
-			"side": "dummy",
-			"help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzysqurl.",
-			"info": "Vote of 3. Sided with Sushi Mafia.",
-			"actions": {
-			}
-		}
+  		  }
     ],
     "roles1": [
 		"fishy",
@@ -876,7 +805,7 @@
 			"swordfish",
 			"fishy",
 			"cthulhu",
-			"chef1",
+			"angelfish",
 			"fishy"
     ],
 	"roles3": [
@@ -902,7 +831,7 @@
 				"fishy",
 				"devilray",
 				"fishy",
-				{"chef2": 1, "chef21": 0},
+				"chef2",
 				"flyingfish",
 				"fishy",
 				"mermaid",
@@ -925,7 +854,8 @@
         "barracuda",
         "swordfish",
 		"pufferfish",
-		"remora"
+		"remora",
+		"clown2"
         ],
 	"killmsg": "±Neptune: ~Player~ (~Role~) drowned!",
 	"killusermsg": "You drowned!",
