@@ -1,6 +1,6 @@
 {
     "name": "Testing",
-  "author": ["Fuzzysqurl"],
+	"author": ["Fuzzysqurl"],
     "summary": "Test",
     "sides": [
 		 {
@@ -49,14 +49,17 @@
                         "broadcast": "team"
                     }
                 },
-                "startup": "team-reveal"
+                "startup": "team-reveal",
+				"onDeath": {
+					"convertRoles": {"mafia3":"mafia1"},
+					"convertmsg": "~Old~ moves one step closer to winning."
+				}
             }
         }, 
 		{
             "role": "mafia3",
             "translation": "Mafia Side 3",
             "side": "3",
-			"winIfDeadRoles": ["mafia2"],
             "help": "Type /Kill [name] to kill someone!",
             "actions": {
                 "night": {
@@ -75,6 +78,5 @@
 		"mafia1",
 		"mafia2",
 		"mafia3"
-	],
-	"minplayers": 3
+	]
 }
