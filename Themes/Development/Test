@@ -78,5 +78,6 @@
 		"mafia1",
 		"mafia2",
 		"mafia3"
-	]
+	],
+	"minplayers": 3
 }
