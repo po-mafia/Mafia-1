@@ -51,9 +51,30 @@
                 },
                 "startup": "team-reveal",
 				"onDeath": {
-					"convertRoles": {"mafia3":"mafia1"},
-					"convertmsg": "~Old~ moves one step closer to winning."
+					"convertRoles": {"mafia2":"mafia22"},
+					"convertmsg": "~Old~ can't die!"
 				}
+            }
+        }, 	{
+            "role": "mafia22",
+            "translation": "Mafia Side 2",
+            "side": "2",
+            "help": "Type /Kill [name] to kill someone!",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal",
+		"kill": {
+			"mode": {
+				"ignore"
+			}	
+		}
             }
         }, 
 		{
