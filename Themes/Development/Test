@@ -1,7 +1,7 @@
 {
-    "name": "",
+    "name": "AITP",
 	"author": ["Fuzzysqurl"],
-    "summary": "Assassin in the Palace",
+    "summary": "Assassin in the Palace. There is an assassin sneaking around the palace. The only way it can win the game is to assassinate the King. However, it only has one chance to do it before the Guards catch him.",
     "sides": [
 		 {
             "side": "village",
