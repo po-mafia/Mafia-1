@@ -1,104 +1,121 @@
 {
-    "name": "Testing",
+    "name": "",
 	"author": ["Fuzzysqurl"],
-    "summary": "Test",
+    "summary": "Assassin in the Palace",
     "sides": [
 		 {
-            "side": "1",
-            "translation": "Side 1"
+            "side": "village",
+            "translation": "Palace"
         },
         {
-            "side": "2",
-            "translation": "Side 2"
-        },
-        {
-            "side": "3",
-            "translation": "Side 3"
+            "side": "assassin",
+            "translation": "Assassin"
         }
 	],
 	"roles": [
 	     {
-            "role": "mafia1",
-            "translation": "Mafia Side 1",
-            "side": "1",
-            "help": "Type /Kill [name] to kill someone!",
-			"winIfDeadRoles": ["mafia2"],
+            "role": "guard",
+            "translation": "Guard",
+            "side": "village",
+            "help": "It is your duty to protect the King from being assassinated! You and every other guard know the identity of the King, but that alone is not enough to win. There is an Assassin among the group, and he wins as long as he kills the King, but he only has one chance to do it.",
+			"winIfDeadRoles": ["assassin0", "assassin1", "assassin2"],
             "actions": {
-                "night": {
-                    "kill": {
-                        "target": "AnyButTeam",
-                        "common": "Team",
-                        "priority": 11,
-                        "broadcast": "team"
-                    }
-                },
-                "startup": "team-reveal"
+                "startup": { "revealRole": "king" }
             }
         }, 
 		{
-            "role": "mafia2",
-            "translation": "Mafia Side 2",
-            "side": "2",
-            "help": "Type /Kill [name] to kill someone!",
+            "role": "king",
+            "translation": "King",
+            "side": "village",
+            "help": "You have no abilities, but your survival is crucial to the kingdom. It is your job to avoid the assassination attempt. The Guards all know your identity, but you do not know theirs. You win if the Assassin assassinates the wrong person or does not assassinate at all.",
+			"winIfDeadRoles": ["assassin0", "assassin1", "assassin2"],
+            "actions": {
+            }
+        },
+		{
+            "role": "assassin1",
+            "translation": "Assassin",
+            "side": "assassin",
+            "help": "You have a one-shot assassination attempt, which you can make at any point in the game (even after being lynched) with /kill. Your only goal is to kill the King. If you kill a guard, everyone will learn your identity and you will be executed for treason.",
             "actions": {
                 "night": {
                     "kill": {
+						"command": ["kill", "copy"],
                         "target": "AnyButTeam",
                         "common": "Team",
-                        "priority": 11,
-                        "broadcast": "team"
+                        "priority": 1,
+						"copyAs": {
+							"assassin3": ["guard"],
+							"assassin0": ["king"]
+						},
+						"charges": 1
                     }
                 },
-                "startup": "team-reveal",
-				"onDeath": {
-					"convertRoles": {"mafia2":"mafia22"},
-					"convertmsg": "~Old~ can't die!"
+				"lynch": {
+					"convertTo": "assassin2",
+					"convertmsg": "There is an assassin in the palace! Protect the King!"
 				}
             }
-        }, 	{
-            "role": "mafia22",
-            "translation": "Mafia Side 2",
-            "side": "2",
-            "help": "Type /Kill [name] to kill someone!",
-            "actions": {
-                "night": {
-                    "kill": {
-                        "target": "AnyButTeam",
-                        "common": "Team",
-                        "priority": 11,
-                        "broadcast": "team"
-                    }
-                },
-                "startup": "team-reveal",
-		"kill": {
-			"mode": 
-				"ignore"
-				
-		}
-            }
-        }, 
+        },
 		{
-            "role": "mafia3",
-            "translation": "Mafia Side 3",
-            "side": "3",
-            "help": "Type /Kill [name] to kill someone!",
+            "role": "assassin0",
+            "translation": "Assassin",
+            "side": "assassin",
+			"hide": true,
+            "help": "You have successfully assassinated the King!",
+			"winIfDeadRoles": ["king"],
+            "actions": {
+            }
+        },
+		{
+            "role": "assassin2",
+            "translation": "Assassin",
+            "side": "assassin",
+			"hide": true,
+            "help": "You have narrowly escaped capture! You still have an opportunity to /kill the King, but if you are lynched again, you won't be making another escape. If you miss the King, you will not have enough time to get away.",
             "actions": {
                 "night": {
                     "kill": {
+						"command": ["kill", "copy"],
                         "target": "AnyButTeam",
                         "common": "Team",
-                        "priority": 11,
-                        "broadcast": "team"
+                        "priority": 1,
+						"copyAs": {
+							"assassin3": ["guard"],
+							"assassin0": ["king"]
+						},
+						"charges": 1
                     }
                 },
-                "startup": "team-reveal"
+				"lynch": {
+					"convertTo": "assassin3",
+					"convertmsg": "The assassin has been captured!"
+				}
             }
-        }
+        },
+		{
+            "role": "assassin3",
+            "translation": "Assassin",
+            "side": "assassin",
+			"hide": true,
+            "help": "You have failed to assassinate the King! You are set to be executed for treason.",
+            "actions": {
+            }
+		}
 	],
 	"roles1": [
-		"mafia1",
-		"mafia2",
-		"mafia3"
+		"assassin1",
+		"king",
+		"guard",
+		"guard", 
+		"guard",
+		"guard",
+		"guard",
+		"guard",
+		"guard",
+		"guard",
+		"guard",
+		"guard"
 	],
-	"minplayers": 3
+	"minplayers": 4
 }
