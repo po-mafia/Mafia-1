@@ -469,7 +469,7 @@
 						"target": "AnyButTeam",
                         "common": "Team",
                         "priority": 6,
-                        "broadcast": "Team"
+                        "broadcast": "team"
                     }
                 },
                 "startup": "team-reveal-with-roles"
@@ -493,7 +493,7 @@
 						"target": "AnyButTeam",
                         "common": "Role",
                         "priority": 10,
-                        "broadcast": "Team"
+                        "broadcast": "team"
 					}
                 },
 				"distract": {
