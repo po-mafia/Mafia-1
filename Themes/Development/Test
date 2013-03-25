@@ -1,121 +1,68 @@
 {
-    "name": "AITP",
+    "name": "Testing",
 	"author": ["Fuzzysqurl"],
-    "summary": "Assassin in the Palace. There is an assassin sneaking around the palace. The only way it can win the game is to assassinate the King. However, it only has one chance to do it before the Guards catch him.",
+    "summary": "Test",
     "sides": [
 		 {
-            "side": "village",
-            "translation": "Palace"
+            "side": "1",
+            "translation": "Side 1"
         },
         {
-            "side": "assassin",
-            "translation": "Assassin"
+            "side": "2",
+            "translation": "Side 2"
+        },
+        {
+            "side": "3",
+            "translation": "Side 3"
         }
 	],
 	"roles": [
 	     {
-            "role": "guard",
-            "translation": "Guard",
-            "side": "village",
-            "help": "It is your duty to protect the King from being assassinated! You and every other guard know the identity of the King, but that alone is not enough to win. There is an Assassin among the group, and he wins as long as he kills the King, but he only has one chance to do it.",
-			"winIfDeadRoles": ["assassin0", "assassin1", "assassin2"],
+            "role": "mafia1",
+            "translation": "Mafia Side 1",
+            "side": "1",
+            "help": "You can vote",
+			"winIfDeadRoles": ["mafia2"],
             "actions": {
-                "startup": { "revealRole": "king" }
+               "vote": [1.1, 3.1],
+                "startup": "team-reveal"
             }
         }, 
 		{
-            "role": "king",
-            "translation": "King",
-            "side": "village",
-            "help": "You have no abilities, but your survival is crucial to the kingdom. It is your job to avoid the assassination attempt. The Guards all know your identity, but you do not know theirs. You win if the Assassin assassinates the wrong person or does not assassinate at all.",
-			"winIfDeadRoles": ["assassin0", "assassin1", "assassin2"],
+            "role": "mafia2",
+            "translation": "Mafia Side 2",
+            "side": "2",
+            "help": "You can vote",
             "actions": {
+				"vote": [1.1, 3.2],
+                "startup": "team-reveal"
             }
-        },
+        }, 
 		{
-            "role": "assassin1",
-            "translation": "Assassin",
-            "side": "assassin",
-            "help": "You have a one-shot assassination attempt, which you can make at any point in the game (even after being lynched) with /kill. Your only goal is to kill the King. If you kill a guard, everyone will learn your identity and you will be executed for treason.",
+            "role": "mafia3",
+            "translation": "Mafia Side 3",
+            "side": "3",
+            "help": "You can vote",
             "actions": {
-                "night": {
-                    "kill": {
-						"command": ["kill", "copy"],
-                        "target": "AnyButTeam",
-                        "common": "Team",
-                        "priority": 1,
-						"copyAs": {
-							"assassin3": ["guard"],
-							"assassin0": ["king"]
-						},
-						"charges": 1
-                    }
-                },
-				"lynch": {
-					"convertTo": "assassin2",
-					"convertmsg": "There is an assassin in the palace! Protect the King!"
-				}
+				"vote": [1.11, 3.54],
+                "startup": "team-reveal"
             }
-        },
-		{
-            "role": "assassin0",
-            "translation": "Assassin",
-            "side": "assassin",
-			"hide": true,
-            "help": "You have successfully assassinated the King!",
-			"winIfDeadRoles": ["king"],
-            "actions": {
-            }
-        },
-		{
-            "role": "assassin2",
-            "translation": "Assassin",
-            "side": "assassin",
-			"hide": true,
-            "help": "You have narrowly escaped capture! You still have an opportunity to /kill the King, but if you are lynched again, you won't be making another escape. If you miss the King, you will not have enough time to get away.",
-            "actions": {
-                "night": {
-                    "kill": {
-						"command": ["kill", "copy"],
-                        "target": "AnyButTeam",
-                        "common": "Team",
-                        "priority": 1,
-						"copyAs": {
-							"assassin3": ["guard"],
-							"assassin0": ["king"]
-						},
-						"charges": 1
-                    }
-                },
-				"lynch": {
-					"convertTo": "assassin3",
-					"convertmsg": "The assassin has been captured!"
-				}
-            }
-        },
-		{
-            "role": "assassin3",
-            "translation": "Assassin",
-            "side": "assassin",
-			"hide": true,
-            "help": "You have failed to assassinate the King! You are set to be executed for treason.",
-            "actions": {
-            }
-		}
+        }
 	],
 	"roles1": [
-		"assassin1",
-		"king",
-		"guard",
-		"guard", 
-		"guard",
-		"guard",
-		"guard",
-		"guard",
-		"guard",
-		"guard",
-		"guard",
-		"guard"
+		"mafia1",
+		"mafia2",
+		"mafia3",
+		"mafia1",
+		"mafia2",
+		"mafia3",
+		"mafia1",
+		"mafia2",
+		"mafia3",
+		"mafia1",
+		"mafia2",
+		"mafia3"
 	],
-	"minplayers": 4
+	"minplayers": 3,
+	"lynchmsg": "~Target~ had ~Count~ votes"
 }
