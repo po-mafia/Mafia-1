@@ -31,6 +31,10 @@
 				"target": "Self",
 				"killmsg": "Did ~Self~ prove Rice wrong?"
 			}
+		},
+		"onDeath": {
+			"convertRoles": ["mafia2":"mafia3"],
+			"convertmsg": "~Old~ decided that RiceKirby smells and joined a different team"
 		}
             }
         }, 
