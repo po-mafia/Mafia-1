@@ -66,6 +66,7 @@
             "role": "cthulhu2",
             "translation": "Cthulhu",
             "side": "cthulhu",
+		"hide": true,
             "help": "Now that you've awaken, let's cause some chaos! Use /thrash during the day to kill one person (non-revealing), then if you want to cause even more chaos, you can /torment (kill) someone after your thrash, however, you can only do this once per game. You have a chance to reveal as a Fish (50%) because some people still don't believe you exist. Finally, if anyone tries to kill you at night, you will make sure they die as well.",
             "info": "Can kill one person during the standby. Can kill a second person during standby once per game. Kills converters. Bombs night kills. Reveals as Fish (50%) when inspected or exposed. Sided with Cthulhu.",
 			"actions": {
@@ -97,12 +98,8 @@
                     "revealAs": [
 						"fishy", "cthulhu"
 					]
-                },
-				"kill": {
-					"mode": "killattacker",
-					"msg": "Somebody tried to kill you last night. You decided to kill them, but then got bored with the war and went back to sleep.",
-					"targetmsg": "You attacked Cthulhu! Not a very wise move..."
-				}
+                }
+				
 			}
 		},
 		{
@@ -785,6 +782,15 @@
       			"side": "dummy",
       			"help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzysqurl.",
     			  "info": "Can inspect one person during the night. Ignores all distractors. Cannot be killed. Vote of 2. Sided with Fish.",
+      			"actions": {
+      			}
+  		  },
+			{
+     			 "role": "cthulhu21",
+      			"translation": "Cthulhu",
+      			"side": "dummy",
+      			"help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzysqurl.",
+    			  "info": "Can kill one person during the standby. Can kill a second person during standby once per game. Kills converters. Reveals as Fish (50%) when inspected or exposed. Sided with Cthulhu.",
       			"actions": {
       			}
   		  }
