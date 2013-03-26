@@ -28,8 +28,7 @@
                 "startup": "team-reveal",
 		"standby": {
 			"kill": {
-				"target": "Self",
-				"killmsg": "~Self~ decided to kill themselves."
+				"target": "Self"
 			}
 		},
 		"onDeath": {
