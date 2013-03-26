@@ -2,6 +2,7 @@
     "name": "Testing",
 	"author": ["Fuzzysqurl"],
     "summary": "Test",
+	"daystart": true,
     "sides": [
 		 {
             "side": "1",
