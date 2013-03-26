@@ -1574,6 +1574,7 @@
             "role": "magikarp",
             "translation": "Magikarp",
             "side": "magikarp",
+		"hide": true,
             "help": "You are Magikarp, splashing fish! Angered at your portrayal, and having been helped by a Smeargle, you may kill during the day with /kill, and likewise during every other night. You also stop distractors attempting to stop you.",
             "info": "A daykiller who kills distractors and has a kill every other night. Sided with itself.",
             "actions": {
