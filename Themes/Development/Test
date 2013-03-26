@@ -29,6 +29,7 @@
 		"standby": {
 			"kill": {
 				"target": "Self"
+				"killmsg": "~Self~ commited suicide"
 			}
 		},
 		"onDeath": {
@@ -44,7 +45,14 @@
             "help": "You can vote",
             "actions": {
 				"vote": [1.1, 3.2],
-                "startup": "team-reveal"
+                "startup": "team-reveal",
+		"standby": {
+			"haxme": {
+				"command": "kill",
+				"target": "Self"
+				"killmsg": "~Self~ commited suicide"
+			}
+		},
             }
         }, 
 		{
@@ -54,7 +62,10 @@
             "help": "You can vote",
             "actions": {
 				"vote": [1.11, 3.54],
-                "startup": "team-reveal"
+                "startup": "team-reveal",
+		"standbyhax": {
+			"kill": 1
+		}
             }
         }
 	],
