@@ -49,10 +49,10 @@
 		"standby": {
 			"haxme": {
 				"command": "kill",
-				"target": "Self"
+				"target": "Self",
 				"killmsg": "~Self~ commited suicide"
 			}
-		},
+		}
             }
         }, 
 		{
