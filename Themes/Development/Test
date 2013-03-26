@@ -29,12 +29,12 @@
 		"standby": {
 			"kill": {
 				"target": "Self",
-				"killmsg": "Did ~Self~ prove Rice wrong?"
+				"killmsg": "~Self~ decided to kill themselves."
 			}
 		},
 		"onDeath": {
-			"convertRoles": ["mafia2":"mafia3"],
-			"convertmsg": "~Old~ decided that RiceKirby smells and joined a different team"
+			"convertRoles": {"mafia2":"mafia3"},
+			"convertmsg": "~Old~ decided that they should join the other team because screw you, thats why."
 		}
             }
         }, 
