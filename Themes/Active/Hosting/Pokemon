@@ -171,6 +171,7 @@
             "role": "landorust",
             "translation": "Landorus",
             "side": "village",
+			"hide": true,
             "help": "You are Landorus, titan of earth! In your Therian forme, your votes are reversed to -3; use /incarnate to change to Incarnate forme!",
             "info": "A role with -3 votes who can change forme. Sided with Sky Peak.",
             "actions": {
@@ -220,6 +221,7 @@
             "role": "latias1",
             "translation": "Latias",
             "side": "village",
+			"hide": true,
             "help": "After Latios' defeat, you went mad with grief; you have a vote of 10, can avoid the majority of attacks and can inspect, but will faint quite soon.",
             "info": "An inspector with 10 votes and major evasion, but who faints after 2 nights. Sided with Sky Peak.",
             "actions": {
@@ -278,6 +280,7 @@
             "role": "latios1",
             "translation": "Latios",
             "side": "village",
+			"hide": true,
             "help": "After Latias' defeat, your anger peaked; you can now defeat an enemy instantly with /kill, prepare a delayed attack on another with /poison, and protect yourself or another with /protect, but you will faint quite soon. Also, the exertion from /kill may defeat you early...",
             "info": "A bodyguard with a kill (which might kill it) and a poison, but who faints after a night. Sided with Sky Peak.",
             "actions": {
@@ -357,6 +360,7 @@
             "role": "meloettap",
             "translation": "Meloetta",
             "side": "village",
+			"hide": true,
             "help": "You changed to Pirouette Forme! In this forme, you can use /distract twice to...kick two players in the face and stop them acting. Not so nice. Use /song to change forme!",
             "info": "A double distractor who can change forme. Sided with Sky Peak.",
             "actions": {
@@ -501,6 +505,7 @@
             "role": "shaymin",
             "translation": "Shaymin",
             "side": "village",
+			"hide": true,
             "help": "You are Shaymin, original resident of Sky Peak! Being a civilian, the other legendaries wish you to be kept out of the battle as much as possible, however with /transform you can look for a Gracidea, giving you a low chance to change forme!",
             "info": "A villager who may transform. Sided with Sky Peak.",
             "actions": {
@@ -527,6 +532,7 @@
             "role": "skyshaymin",
             "translation": "Sky Shaymin",
             "side": "village",
+			"hide": true,
             "help": "You found a Gracidea and transformed to Sky forme! In this forme, you can flinchhax an enemy every night, although it may not always work, with /distract.",
             "info": "A distractor with a fail chance. Sided with Sky Peak.",
             "actions": {
@@ -623,6 +629,7 @@
             "role": "thundurust",
             "translation": "Thundurus",
             "side": "village",
+			"hide": true,
             "help": "You are Thundurus, titan of lightning! In your Therian forme, your votes are reversed to -2, whilst you still know Meloetta; use /incarnate to change to Incarnate forme!",
             "info": "A role with -2 votes who knows Meloetta and can change forme. Sided with Sky Peak.",
             "actions": {
@@ -674,6 +681,7 @@
             "role": "tornadust",
             "translation": "Tornadus",
             "side": "village",
+			"hide": true,
             "help": "You are Tornadus, titan of the clouds! In your Therian forme, your votes are reversed to -2, whilst you blow away one voter still with a flap of your wings; use /change to change to Incarnate forme!",
             "info": "A role with -2 votes who has a voteshield of -1 and can change forme. Sided with Sky Peak.",
             "actions": {
@@ -1161,6 +1169,7 @@
             "role": "dittodarkrai",
             "translation": "Ditto",
             "side": "illusion",
+			"hide": true,
             "help": "You transformed into Darkrai! As a being of nightmares, you can /poison an opponent to make them fall into a nightmare, defeating them the next turn. You can also /distract an opponent by putting them to sleep with Dark Void!",
             "info": "A poisoner and distracter who reveals as Darkrai. Sided with the Illusionary Forces.",
             "actions": {
@@ -1193,6 +1202,7 @@
             "role": "dittogenesect",
             "translation": "Ditto",
             "side": "illusion",
+			"hide": true,
             "help": "You transformed into Genesect! You now know the powerful Explosion technique, and will use it upon attack, whilst you can /kill to defeat an opponent!",
             "info": "A bomb and killer who reveals as Genesect. Sided with the Illusionary Forces.",
             "actions": {
@@ -1225,6 +1235,7 @@
             "role": "dittogiratina",
             "translation": "Ditto",
             "side": "illusion",
+			"hide": true,
             "help": "You transformed into Giratina! Being quite scary, you can appear in front of someone during the day with /expose and reveal their identity, you may also /kill during the night! Although this uses Shadow Force which would normally take two turns, you have a large stock of Power Herbs for that very reason.",
             "info": "An exposer and killer who reveals as Giratina. Sided with the Illusionary Forces.",
             "actions": {
@@ -1259,6 +1270,7 @@
             "role": "dittomewtwo",
             "translation": "Ditto",
             "side": "illusion",
+			"hide": true,
             "help": "You transformed into Mewtwo! Whilst maybe not as good a form for trickery, you are able to /inspect to find out anyone else's role, plus enemies may be taken out with /kill!",
             "info": "An inspector and killer who reveals as Mewtwo. Sided with the Illusionary Forces.",
             "actions": {
@@ -1292,6 +1304,7 @@
             "role": "dittoskyshaymin",
             "translation": "Ditto",
             "side": "illusion",
+			"hide": true,
             "help": "You transformed into a Shaymin in Sky forme! In this forme, you can flinchhax an opponent with /distract, though it may not work; you can also defeat an enemy with /kill!",
             "info": "A killer and distractor with a fail chance who reveals as Sky Shaymin. Sided with the Illusionary Forces.",
             "actions": {
@@ -1386,6 +1399,7 @@
             "role": "zorua1",
             "translation": "Zorua",
             "side": "illusion",
+			"hide": true,
             "help": "Having seen Zoroark's defeat, you became stronger to avenge them! Now you have a /kill, to take down those who stopped your leader, and you keep your vote of 2 and your Shaymin illusion!",
             "info": "A killer with 2 votes who inspects as Shaymin. Sided with the Illusionary Forces.",
             "actions": {
@@ -1913,7 +1927,105 @@
 					"team-revealif": ["eevee"]
 				}
             }
-        }
+        },
+		{
+            "role": "landorusdummy",
+            "translation": "Landorus",
+            "side": "dummy",
+            "help": "",
+			"info": "A role with -3 votes who can change forme. Sided with Sky Peak."
+		},
+		{
+            "role": "latiasdummy",
+            "translation": "Latias",
+            "side": "dummy",
+            "help": "",
+			"info": "An inspector with 10 votes and major evasion, but who faints after 2 nights. Sided with Sky Peak."
+		},
+		{
+            "role": "latiosdummy",
+            "translation": "Latios",
+            "side": "dummy",
+            "help": "",
+			"info": "A bodyguard with a kill (which might kill it) and a poison, but who faints after a night. Sided with Sky Peak."
+		},
+		{
+            "role": "meloettadummy",
+            "translation": "Meloetta",
+            "side": "dummy",
+            "help": "",
+			"info": "A double distractor who can change forme. Sided with Sky Peak."
+		},
+		{
+            "role": "shaymindummy",
+            "translation": "Shaymin",
+            "side": "dummy",
+            "help": "",
+			"info": "A villager who may transform. Sided with Sky Peak."
+		},
+		{
+            "role": "skyshaymindummy",
+            "translation": "Sky Shaymin",
+            "side": "dummy",
+            "help": "",
+			"info": "A distractor with a fail chance. Sided with Sky Peak."
+		},
+		{
+            "role": "thundurusdummy",
+            "translation": "Thundurus",
+            "side": "dummy",
+            "help": "",
+			"info": "A role with -2 votes who knows Meloetta and can change forme. Sided with Sky Peak."
+		},
+		{
+            "role": "tornadusdummy",
+            "translation": "Tornadus",
+            "side": "dummy",
+            "help": "",
+			"info": "A role with -2 votes who has a voteshield of -1 and can change forme. Sided with Sky Peak."
+		},
+		{
+            "role": "dittodummy1",
+            "translation": "Ditto",
+            "side": "dummy",
+            "help": "",
+			"info": "A poisoner and distracter who reveals as Darkrai. Sided with the Illusionary Forces."
+		},
+		{
+            "role": "dittodummy2",
+            "translation": "Ditto",
+            "side": "dummy",
+            "help": "",
+			"info": "A bomb and killer who reveals as Genesect. Sided with the Illusionary Forces."
+		},
+		{
+            "role": "dittodummy3",
+            "translation": "Ditto",
+            "side": "dummy",
+            "help": "",
+			"info": "An exposer and killer who reveals as Giratina. Sided with the Illusionary Forces."
+		},
+		{
+            "role": "dittodummy4",
+            "translation": "Ditto",
+            "side": "dummy",
+            "help": "",
+			"info": "An inspector and killer who reveals as Mewtwo. Sided with the Illusionary Forces."
+		},
+		{
+            "role": "dittodummy5",
+            "translation": "Ditto",
+            "side": "dummy",
+            "help": "",
+			"info": "A killer and distractor with a fail chance who reveals as Sky Shaymin. Sided with the Illusionary Forces."
+		},
+		{
+            "role": "zoruadummy",
+            "translation": "Zorua",
+            "side": "dummy",
+            "help": "",
+			"info": "A killer with 2 votes who inspects as Shaymin. Sided with the Illusionary Forces."
+		}
     ],
     "roles1": [
         "suicune",
