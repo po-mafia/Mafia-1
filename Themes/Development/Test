@@ -2,7 +2,6 @@
     "name": "Testing",
 	"author": ["Fuzzysqurl"],
     "summary": "Test",
-	"daystart": true,
     "sides": [
 		 {
             "side": "1",
@@ -52,7 +51,6 @@
 				"command": "kill",
 				"target": "AnyButSelf",
 				"killmsg": "~Self~ killed ~Target~",
-				"limit": 5,
 				"charges": 1
 			}
 		}
@@ -64,10 +62,12 @@
             "side": "3",
             "help": "You can vote",
             "actions": {
-				"vote": [1.11, 3.54],
+		"vote": [1.11, 3.54],
                 "startup": "team-reveal",
-		"standbyhax": {
-			"kill": 1
+		"standbyHax": {
+					"kill": {
+						"revealRole": 1
+					}
 		}
             }
         }
