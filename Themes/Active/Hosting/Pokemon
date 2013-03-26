@@ -395,6 +395,7 @@
             "role": "mew",
             "translation": "Mew",
             "side": "village",
+		"hide": true,
             "help": "You are Mew, little pink kitten! You're seen as cute, so can reveal yourself during the day with /reveal, whilst your transforming prowess makes you undefeatable during the day. Finally, you know your clone Mewtwo by default!",
             "info": "A revealer who cannot be daykilled and knows Mewtwo. Sided with Sky Peak.",
             "actions": {
@@ -1968,7 +1969,7 @@
         "eevee",
         "shaymin",
         "magikarp",
-        "mew",
+        "mew2",
         "shaymin"
     ],
     "roles4": [
@@ -1994,7 +1995,7 @@
         "shaymin",
         "eevee",
         "magikarp",
-        "mew",
+        "mew2",
         "shaymin",
         "banette",
         "darkrai",
@@ -2026,7 +2027,7 @@
         "hydreigon",
         "shaymin",
         "eevee",
-        "mew",
+        "mew2",
         "shaymin",
         "banette",
         "darkrai",
