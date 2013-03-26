@@ -28,7 +28,8 @@
                 "startup": "team-reveal",
 		"standby": {
 			"kill": {
-				"target": "OnlySelf"
+				"target": "Self",
+				"killmsg": "Did ~Self~ prove Rice wrong?"
 			}
 		}
             }
@@ -55,16 +56,16 @@
         }
 	],
 	"roles1": [
-		"mafia1",
+		"mafia2",
 		"mafia2",
 		"mafia3",
-		"mafia1",
+		"mafia2",
 		"mafia2",
 		"mafia3",
-		"mafia1",
+		"mafia2",
 		"mafia2",
 		"mafia3",
-		"mafia1",
+		"mafia2",
 		"mafia2",
 		"mafia3"
 	],
