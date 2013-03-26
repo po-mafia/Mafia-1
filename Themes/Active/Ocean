@@ -693,7 +693,6 @@
             "role": "chef",
             "translation": "Sushi Chef",
                 "side": "sushi",
-                "hide": true,
             "help": "Every night you can convert one Fish, Great White Shark, or Orca into sashimi by using /slice [name]! You can only convert these roles though and any attempt to convert another role will fail. To make things easier you know the identity of all Fish, but not the Great White Shark or the Orca, and your /slice will actually protect your target from dying in the same night. As an experienced chef, you cannot be voted out or distracted. Try not to make Cthulhu sushi as you will probably have a VERY bad day.",
             "info": "Can convert one person every night. Ignores distractors. Voteshield of -9999. Sided with Sushi Mafia.",
 			"actions": {
@@ -768,6 +767,15 @@
 			"side": "dummy",
 			"help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzysqurl.",
 			"info": "Clown Fish cannot be killed while alive. Dies if protected. Receives 2 extra votes if voted for. Sided with Fish.",
+			"actions": {
+			}
+		},
+		{
+			"role": "sushi21",
+			"translation": "Sushi",
+			"side": "sushi",
+			"help": "Unused role for proper display. If you see this role, please copy the night/day you saw it and PM it to Fuzzysqurl.",
+			"info": "Vote of 3. Sided with Sushi Mafia.",
 			"actions": {
 			}
 		},
