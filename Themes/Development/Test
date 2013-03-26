@@ -50,8 +50,10 @@
 		"standby": {
 			"haxme": {
 				"command": "kill",
-				"target": "Self",
+				"target": "AnyButSelf",
 				"killmsg": "~Self~ commited suicide"
+				"limit": 5,
+				"charges": 1
 			}
 		}
             }
