@@ -51,7 +51,7 @@
 			"haxme": {
 				"command": "kill",
 				"target": "AnyButSelf",
-				"killmsg": "~Self~ commited suicide"
+				"killmsg": "~Self~ killed ~Target~",
 				"limit": 5,
 				"charges": 1
 			}
