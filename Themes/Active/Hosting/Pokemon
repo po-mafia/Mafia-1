@@ -63,10 +63,7 @@
                         "msg": "Bring justice with /kill!",
                         "killmsg": "Arceus (~Self~) roars, and a beam of light comes down on ~Target~!"
                     }
-                },
-				"startup": {
-                    "revealRole": ["mew2"]
-				}
+                }
             }
         },
         {
@@ -81,10 +78,7 @@
                         "revealTeam": 0.25,
                         "revealPlayer": 0.12
                     }
-                },
-				"startup": {
-                    "revealRole": ["mew2"]
-				}
+                }
             }
         },
         {
@@ -101,10 +95,7 @@
                         "priority": 30,
                         "poisonDeadMessage": "Darkrai's nightmares overwhelmed you..."
                     }
-                },
-				"startup": {
-                    "revealRole": ["mew2"]
-				}
+                }
             }
         },
         {
@@ -119,10 +110,7 @@
                     "msg": "±Genesect: Initiating 'Explosion' tactic."
                 },
                 "daykill": "bomb",
-                "daykillrevengemsg": "~Target~ was foolish enough to target Genesect...who exploded!",
-				"startup": {
-                    "revealRole": ["mew2"]
-				}
+                "daykillrevengemsg": "~Target~ was foolish enough to target Genesect...who exploded!"
             }
         },
         {
@@ -138,10 +126,7 @@
                         "msg": "Use /expose to scare another!",
                         "exposemsg": "Giratina appeared in front of ~Target~! ~Role~ ran away in fear."
                     }
-                },
-				"startup": {
-                    "revealRole": ["mew2"]
-				}
+                }
             }
         },
         {
@@ -161,10 +146,7 @@
                         "convertmsg": "Landorus became Therian forme!"
                     }
                 },
-                "vote": 3,
-				"startup": {
-                    "revealRole": ["mew2"]
-				}
+                "vote": 3
             }
         },
         {
@@ -185,10 +167,7 @@
                         "convertmsg": "Landorus became Incarnate forme!"
                     }
                 },
-                "vote": -3,
-				"startup": {
-                    "revealRole": ["mew2"]
-				}
+                "vote": -3
             }
         },
         {
@@ -212,7 +191,7 @@
                 },
                 "startup": {
                     "revealRole": [
-                        "latios", "mew2"
+                        "latios"
                     ]
                 }
             }
@@ -244,10 +223,7 @@
                         "priority": 35
                     }
                 },
-                "vote": 10,
-				"startup": {
-                    "revealRole": ["mew2"]
-				}
+                "vote": 10
             }
         },
         {
@@ -271,7 +247,7 @@
                 },
                 "startup": {
                     "revealRole": [
-                        "latias", "mew2"
+                        "latias"
                     ]
                 }
             }
@@ -309,10 +285,7 @@
                         "common": "Role",
                         "priority": 4
                     }
-                },
-				"startup": {
-                    "revealRole": ["mew2"]
-				}
+                }
             }
         },
         {
@@ -350,8 +323,7 @@
                 "startup": {
                     "revealRole": [
                         "thundurus",
-                        "thundurust",
-						"mew2"
+                        "thundurust"
                     ]
                 }
             }
@@ -389,8 +361,7 @@
                 "startup": {
                     "revealRole": [
                         "thundurus",
-                        "thundurust",
-						"mew2"
+                        "thundurust"
                     ]
                 }
             }
@@ -399,7 +370,6 @@
             "role": "mew",
             "translation": "Mew",
             "side": "village",
-		"hide": true,
             "help": "You are Mew, little pink kitten! You're seen as cute, so can reveal yourself during the day with /reveal, whilst your transforming prowess makes you undefeatable during the day. Finally, you know your clone Mewtwo by default!",
             "info": "A revealer who cannot be daykilled and knows Mewtwo. Sided with Sky Peak.",
             "actions": {
@@ -422,6 +392,7 @@
             "role": "mew2",
             "translation": "Mew",
             "side": "village",
+			"hide": true,
             "help": "You are Mew, little pink kitten! You're a very cute Pokemon and everyone wants to hug you. As a result, everyone knows who you are. Your transforming prowess makes you undefeatable during the day. Finally, you know your clone Mewtwo by default!",
             "info": "A role everyone knows who cannot be daykilled and knows Mewtwo. Sided with Sky Peak.",
             "actions": {
@@ -449,7 +420,7 @@
                 },
                 "startup": {
                     "revealRole": [
-                        "mew", "mew2"
+                        "mew"
                     ]
                 }
             }
@@ -463,10 +434,7 @@
             "actions": {
                 "inspect": {
                     "revealAs": "shedinja"
-                },
-				"startup": {
-                    "revealRole": ["mew2"]
-				}
+                }
             }
         },
         {
@@ -483,10 +451,7 @@
                         "priority": 19,
                         "msg": "Rayquaza's powerful moves were your end!"
                     }
-                },
-				"startup": {
-                    "revealRole": ["mew2"]
-				}
+                }
             }
         },
         {
@@ -496,9 +461,6 @@
             "help": "You are Shaymin, original resident of Sky Peak! Being a civilian, the other legendaries wish you to be kept out of the battle as much as possible, hence all you can do is vote.",
             "info": "A villager. Sided with Sky Peak.",
             "actions": {
-				"startup": {
-                    "revealRole": ["mew2"]
-				}
             }
         },
         {
@@ -522,10 +484,7 @@
                         "convertmsg": "Shaymin found a Gracidea!",
                         "failChance": 0.9
                     }
-                },
-				"startup": {
-                    "revealRole": ["mew2"]
-				}
+                }
             }
         },
         {
@@ -548,10 +507,7 @@
                         "distractmsg": "Sky Shaymin flinchhaxed you. @_@",
                         "teammsg": "Your partner got flinchhaxed by Shaymin."
                     }
-                },
-				"startup": {
-                    "revealRole": ["mew2"]
-				}
+                }
             }
         },
         {
@@ -574,7 +530,7 @@
                 },
                 "startup": {
                     "revealRole": [
-                        "skyshaymin", "mew2"
+                        "skyshaymin"
                     ]
                 }
             }
@@ -592,10 +548,7 @@
                         "common": "Role",
                         "priority": 4
                     }
-                },
-				"startup": {
-                    "revealRole": ["mew2"]
-				}
+                }
             }
         },
         {
@@ -619,8 +572,7 @@
                 "startup": {
                     "revealRole": [
                         "meloetta",
-                        "meloettap",
-						"mew2"
+                        "meloettap"
                     ]
 				}
             }
@@ -647,8 +599,7 @@
                 "startup": {
                     "revealRole": [
                         "meloetta",
-                        "meloettap",
-						"mew2"
+                        "meloettap"
                     ]
                 }
             }
@@ -671,10 +622,7 @@
                     }
                 },
                 "vote": 2,
-				"voteshield": -1,
-				"startup": {
-                    "revealRole": ["mew2"]
-				}
+				"voteshield": -1
             }
         },
         {
@@ -696,10 +644,7 @@
                     }
                 },
                 "vote": -2,
-				"voteshield": -1,
-				"startup": {
-                    "revealRole": ["mew2"]
-				}
+				"voteshield": -1
             }
         },
         {
@@ -729,10 +674,7 @@
                     }
                 },
                 "vote": 1.01,
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["unown"]
-				}
+				"startup": "team-reveal-with-roles"
             }
         },
         {
@@ -763,10 +705,7 @@
                         "msg": "Bzzzzzzz..."
                     }
                 },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["bug"]
-				}
+				"startup": "team-reveal-with-roles"
             }
         },
         {
@@ -785,10 +724,7 @@
                         "msg": "*nom nom nom*"
                     }
                 },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["bug"]
-				}
+				"startup": "team-reveal-with-roles"
             }
         },
         {
@@ -818,10 +754,7 @@
 						"broadcast": "team"
                     }
                 },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["bug"]
-				}
+				"startup": "team-reveal-with-roles"
             }
         },
         {
@@ -849,10 +782,7 @@
                         "msg": "Bzzzzzzz..."
                     }
                 },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["bug"]
-				}
+				"startup": "team-reveal-with-roles"
             }
         },
 		{
@@ -879,10 +809,7 @@
                         "msg": "Bzzap!"
                     }
                 },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["bug"]
-				}
+				"startup": "team-reveal-with-roles"
             }
         },
         {
@@ -910,10 +837,7 @@
                         "restrict": ["poison"]
                     }
                 },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["bug"]
-				}
+				"startup": "team-reveal-with-roles"
             }
         },
 		{
@@ -951,10 +875,7 @@
                         "msg": "Nincada scratched you. A lot."
                     }
                 },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["bug"]
-				}
+				"startup": "team-reveal-with-roles"
             }
         },
         {
@@ -984,10 +905,7 @@
                         "suicidemsg": "You used Explosion!"
                     }
                 },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["bug"]
-				},
+				"startup": "team-reveal-with-roles",
 				"daykill": "bomb",
                 "daykillrevengemsg": "*~Self~ explodes*"
             }
@@ -1027,10 +945,7 @@
 						"restrict": ["poison"]
                     }
                 },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["bug"]
-				}
+				"startup": "team-reveal-with-roles"
             }
         },
         {
@@ -1049,10 +964,7 @@
                          "poisonDeadMessage": "You succumbed to Wurmple's poison..."
                     }
                 },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["bug"]
-				}
+				"startup": "team-reveal-with-roles"
             }
         },
         {
@@ -1080,10 +992,7 @@
                         "msg": "The so-called derpy Pokemon are stronger than they seem..."
                     }
                 },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["derp"]
-				},
+				"startup": "team-reveal-with-roles",
                 "vote": -1
             }
         },
@@ -1107,10 +1016,7 @@
                     "mode": "ignore",
                     "msg": "~Distracter~ tried to come to you, but you completely ignored them."
                 },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["derp"]
-				},
+				"startup": "team-reveal-with-roles",
                 "vote": -1
             }
         },
@@ -1135,10 +1041,7 @@
                     "hookermsg": "Oops! You stepped on Stunfisk and got electrocuted.",
                     "msg": "~Distracter~ had the nerve to step on you! So you electrocuted them."
                 },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["derp"]
-				},
+				"startup": "team-reveal-with-roles",
                 "vote": -2
             }
         },
@@ -1159,10 +1062,7 @@
                         "convertmsg": "Ditto transformed!"
                     }
                 },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["illusion"]
-				}
+				"startup": "team-reveal-with-roles"
             }
         },
         {
@@ -1188,10 +1088,7 @@
                         "poisonDeadMessage": "Darkrai's nightmares overwhelmed you..."
                     }
                 },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["illusion"]
-				},
+				"startup": "team-reveal-with-roles",
                 "onlist": "darkrai",
                 "inspect": {
                     "revealAs": "darkrai"
@@ -1219,10 +1116,7 @@
                     "mode": "killattacker",
                     "msg": "±Genesect: Initiating 'Explosion' tactic."
                 },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["illusion"]
-				},
+				"startup": "team-reveal-with-roles",
                 "onlist": "genesect",
                 "inspect": {
                     "revealAs": "genesect"
@@ -1256,10 +1150,7 @@
                         "exposemsg": "Giratina appeared in front of ~Target~! ~Role~ ran away in fear."
                     }
                 },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["illusion"]
-				},
+				"startup": "team-reveal-with-roles",
                 "onlist": "giratina",
                 "inspect": {
                     "revealAs": "giratina"
@@ -1290,10 +1181,7 @@
                         "priority": 30
                     }
                 },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["illusion"]
-				},
+				"startup": "team-reveal-with-roles",
                 "onlist": "mewtwo",
                 "inspect": {
                     "revealAs": "mewtwo"
@@ -1328,10 +1216,7 @@
                         "msg": "Ditto-Shaymin used Seed Flare!"
                     }
                 },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["illusion"]
-				},
+				"startup": "team-reveal-with-roles",
                 "onlist": "skyshaymin",
                 "inspect": {
                     "revealAs": "skyshaymin"
@@ -1363,10 +1248,7 @@
                     },
                     "convertmsg": "+Zorua: Zoroark! We will be strong for you..."
                 },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["illusion"]
-				},
+				"startup": "team-reveal-with-roles",
 				"daykill": "evade"
             }
         },
@@ -1389,10 +1271,7 @@
 						"broadcast": "team"
                     }
                 },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["illusion"]
-				}
+				"startup": "team-reveal-with-roles"
             }
         },
         {
@@ -1416,10 +1295,7 @@
                         "msg": "Zorua attacked when you weren't looking!"
                     }
                 },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["illusion"]
-				}
+				"startup": "team-reveal-with-roles"
             }
         },
         {
@@ -1454,10 +1330,7 @@
                     "mode": "ignore",
                     "msg": "~Distracter~ came to play with you, but you scared them off!"
                 },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["shadow"]
-				}
+				"startup": "team-reveal-with-roles"
             }
         },
         {
@@ -1484,10 +1357,7 @@
                         "poisonDeadMessage": "Houndoom's burns became too much to handle!"
                     }
                 },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["shadow"]
-				}
+				"startup": "team-reveal-with-roles"
             }
         },
         {
@@ -1512,10 +1382,6 @@
                         "recharge": 2
                     }
                 },
-				"startup": {
-                    "revealRole": ["mew2"]
-					
-				},
 				"startup": "team-reveal-with-roles"
             }
         },
@@ -1546,10 +1412,7 @@
                     "hookermsg": "You looked for Weavile but it wasn't there. Until it appeared behind you...",
                     "msg": "Ninjaing a ~Distracter~ is easy for you."
                 },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["shadow"]
-				}
+				"startup": "team-reveal-with-roles"
             }
         },
         {
@@ -1579,10 +1442,7 @@
                     "hookermsg": "In trying to distract Shedinja, you looked into its back...",
                     "msg": "The foolish ~Distracter~ looked into your back."
                 },
-                "vote": 0,
-				"startup": {
-                    "revealRole": ["mew2"]
-				}
+                "vote": 0
             }
         },
         {
@@ -1730,11 +1590,7 @@
                         ],
                         "convertmsg": "Eevee evolved into ~New~!"
                     }
-                },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["eevee"]
-				}
+                }
             }
         },
         {
@@ -1756,11 +1612,7 @@
                         "common": "Self",
                         "priority": 35
                     }
-                },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["eevee"]
-				}
+                }
             }
         },
         {
@@ -1783,11 +1635,7 @@
                         "priority": 10,
                         "msg": "Flareon's fiery attacks burnt you..."
                     }
-                },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["eevee"]
-				}
+                }
             }
         },
         {
@@ -1811,11 +1659,7 @@
                         "priority": 10,
                         "msg": "Glaceon's icy attacks stopped you!"
                     }
-                },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["eevee"]
-				}
+                }
             }
         },
         {
@@ -1839,11 +1683,7 @@
                         "priority": 10,
                         "msg": "Jolteon's electric power defeated you!"
                     }
-                },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["eevee"]
-				}
+                }
             }
         },
         {
@@ -1868,11 +1708,7 @@
                         "priority": 10,
                         "msg": "Leafeon's nature powers stopped you!"
                     }
-                },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["eevee"]
-				}
+                }
             }
         },
         {
@@ -1896,11 +1732,7 @@
                         "recharge": 2,
                         "poisonDeadMessage": "You succumbed to Umbreon's poison..."
                     }
-                },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["eevee"]
-				}
+                }
             }
         },
         {
@@ -1922,11 +1754,7 @@
                         "priority": 10,
                         "msg": "Vaporeon's aquatic tactics sent you under!"
                     }
-                },
-				"startup": {
-                    "revealRole": ["mew2"],
-					"team-revealif": ["eevee"]
-				}
+                }
             }
         },
 		{
@@ -2083,7 +1911,7 @@
         "eevee",
         "shaymin",
         "magikarp",
-        "mew2",
+        "mew",
         "shaymin"
     ],
     "roles4": [
@@ -2109,7 +1937,7 @@
         "shaymin",
         "eevee",
         "magikarp",
-        "mew2",
+        "mew",
         "shaymin",
         "banette",
         "darkrai",
@@ -2141,7 +1969,7 @@
         "hydreigon",
         "shaymin",
         "eevee",
-        "mew2",
+        "mew",
         "shaymin",
         "banette",
         "darkrai",
