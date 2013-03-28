@@ -1513,9 +1513,10 @@
                     }
                 },
 				"startup": {
-                    "revealRole": ["mew2"],
-					"team-reveal-with-roles"
-				}
+                    "revealRole": ["mew2"]
+					
+				},
+				"startup": "team-reveal-with-roles"
             }
         },
         {
