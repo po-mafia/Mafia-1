@@ -226,8 +226,7 @@
                 "night": {
                     "fling": {
                         "command": [
-                            "kill",
-                            "copy"
+                            "copy", "kill"
                         ],
                         "copyAs": "scep",
                         "silent": false,
