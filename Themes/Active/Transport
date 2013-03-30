@@ -2291,6 +2291,6 @@
 	"drawmsg": "±Game: Everyone crashed (and died)! Nature is now taking over the world. This is why we can't have nice things!",
 	"border": "*** ~~~~~~ ✈ ~~~~~~ ✈ ~~~~~~ ✈ ~~~~~~ ✈ ~~~~~~ ✈ ~~~~~~ ✈ ~~~~~~ ***",
 	"changelog": {
-		"29.03.13": "Updated Freight Train and Semi's kill+copy to properly resolve in future script update"
+		"29.03.13": "Updated Freight Train and Semi's kill+copy to properly resolve and futureproof it"
 	}
 }
