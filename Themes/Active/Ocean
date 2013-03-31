@@ -264,7 +264,7 @@
 					"convertmsg": "Oh no! The Sea Anemone has been destroyed. Where will the Clown Fish hide now?"
 				},
 				"startup": {
-					"revealRole": "clown3"
+					"revealRole": "clown2"
 				},
 				"voteshield": 2
 			}
