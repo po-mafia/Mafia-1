@@ -630,7 +630,7 @@
             "translation": "Tornadus",
             "side": "village",
 			"hide": true,
-            "help": "You are Tornadus, titan of the clouds! In your Therian forme, your votes are reversed to -2, whilst you blow away one voter still with a flap of your wings; use /change to change to Incarnate forme!",
+            "help": "You are Tornadus, titan of the clouds! In your Therian forme, your votes are reversed to -2, whilst you blow away one voter still with a flap of your wings; use /incarnate to change to Incarnate forme!",
             "info": "A role with -2 votes who has a voteshield of -1 and can change forme. Sided with Sky Peak.",
             "actions": {
                 "night": {
