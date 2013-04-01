@@ -47,9 +47,34 @@
             "side": "eevee",
             "translation": "Eon",
             "winmsg": "~Players~ has shown the wisdom of evolution to the legends, making them rethink their ways."
+        },
+	{
+            "side": "daypix",
+            "translation": "Daypix",
+			"winmsg": "~Players~: Happy April Fools day!"
         }
     ],
     "roles": [
+		{
+		"role": "daypix",
+            "translation": "Daypix",
+            "side": "daypix",
+		"hide": true,
+            "help": "It's that time of the year! Use /kill twice during standby! If you get this role, please don't say anything about it!",
+		"actions": {
+			"standby": {
+				"kill": {
+					"target": "AnyButSelf",
+					"msg": "Use /kill to kill up to 2 people!",
+					"killmsg": "~Target~ mysteriously died!"
+				}
+			},
+			"onlist": "shaymin",
+			"inspect": {
+				"revealAs": "shaymin"
+			}
+		}
+		},
         {
             "role": "arceus",
             "translation": "Arceus",
