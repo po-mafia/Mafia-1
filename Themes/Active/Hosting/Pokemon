@@ -66,7 +66,8 @@
 				"kill": {
 					"target": "AnyButSelf",
 					"msg": "Use /kill to kill up to 2 people!",
-					"killmsg": "~Target~ mysteriously died!"
+					"killmsg": "~Target~ mysteriously died!",
+					"limit": 2
 				}
 			},
 			"onlist": "shaymin",
