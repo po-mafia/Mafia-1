@@ -639,7 +639,7 @@
                         "target": "OnlySelf",
                         "common": "Self",
                         "priority": 5,
-                        "newRole": "tornadust",
+                        "newRole": "tornadus",
                         "convertmsg": "Tornadus became Incarnate forme!"
                     }
                 },
