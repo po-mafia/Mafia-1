@@ -47,40 +47,9 @@
             "side": "eevee",
             "translation": "Eon",
             "winmsg": "~Players~ has shown the wisdom of evolution to the legends, making them rethink their ways."
-        },
-	{
-            "side": "daypix",
-            "translation": "Daypix",
-			"winmsg": "~Players~: Happy April Fools day!"
         }
     ],
     "roles": [
-		{
-		"role": "daypix",
-            "translation": "Daypix",
-            "side": "daypix",
-		"hide": true,
-            "help": "It's that time of the year! Use /kill twice during standby! If you get this role, please don't say anything about it!",
-		"actions": {
-			"standby": {
-				"kill": {
-					"target": "AnyButSelf",
-					"msg": "Use /kill to kill up to 2 people!",
-					"killmsg": "~Target~ mysteriously died!",
-					"limit": 2
-				}
-			},
-			"onlist": "shaymin",
-			"inspect": {
-				"revealAs": "shaymin"
-			},
-			"poison": {
-			"mode": { "ignore"}},
-"kill": {
-			"mode": { "ignore"}},
-"daykill": "evade"
-		}
-		},
         {
             "role": "arceus",
             "translation": "Arceus",
@@ -1888,7 +1857,6 @@
 		}
     ],
     "roles1": [
-	"daypix",
         "suicune",
         "arceus",
         "mewtwo",
@@ -1901,7 +1869,7 @@
         "shaymin1"
     ],
     "roles2": [
-        "daypix", "suicune",
+        "suicune",
         "arceus",
         "mewtwo",
 		{ "caterpie": 0.1, "wurmple": 0.1, "joltik": 0.1, "larvesta": 0.1, "pineco": 0.1, "nincada": 0.1, "spinarak": 0.1 },
@@ -1921,7 +1889,7 @@
         "phione"
     ],
     "roles3": [
-        "daypix", "suicune",
+        "suicune",
         "arceus",
         "mewtwo",
         "zorua",
@@ -1947,7 +1915,7 @@
         "shaymin"
     ],
     "roles4": [
-        "daypix", "suicune",
+        "suicune",
         "arceus",
         "mewtwo",
         "zorua",
@@ -1980,7 +1948,7 @@
         "shaymin"
     ],
     "roles5": [
-        "daypix", "suicune",
+        "suicune",
         "arceus",
         "mewtwo",
         "zorua",
