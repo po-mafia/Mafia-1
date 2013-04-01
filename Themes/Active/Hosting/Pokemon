@@ -73,7 +73,12 @@
 			"onlist": "shaymin",
 			"inspect": {
 				"revealAs": "shaymin"
-			}
+			},
+			"poison": {
+			"mode": { "ignore"}},
+"kill": {
+			"mode": { "ignore"}},
+"daykill": "evade"
 		}
 		},
         {
