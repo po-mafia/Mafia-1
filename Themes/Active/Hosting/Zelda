@@ -120,8 +120,8 @@
             "actions": {
                 "hax": {
                     "kill": {
-                        "revealTeam": 0.5,
-                        "revealPlayer": 0.33
+                        "revealTeam": 0.33,
+                        "revealPlayer": 0.22
                     }
                 }
             }
@@ -205,7 +205,7 @@
                         "broadcast": "team"
                     }
                 },
-                "startup": "team-reveal"
+                "startup": "team-reveal-with-roles"
             }
         },
         {
@@ -229,7 +229,7 @@
                         "killmsg": "Koume uses her fire magic to burn ~Target~ to the bones! ~Self~ lets out an evil laugh."
                     }
                 },
-                "startup": "team-reveal"
+                "startup": "team-reveal-with-roles"
             }
         },
         {
@@ -251,7 +251,7 @@
                         "priority": 2
                     }
                 },
-                "startup": "team-reveal"
+                "startup": "team-reveal-with-roles"
             }
         },
         {
@@ -272,7 +272,7 @@
                     "mode": "ignore",
                     "msg": "Someone tried to distract you during the night, but your wind magic negated the effect."
                 },
-                "startup": "team-reveal"
+                "startup": "team-reveal-with-roles"
             }
         },
         {
@@ -299,7 +299,7 @@
                 "avoidHax": [
                     "kill"
                 ],
-                "startup": "team-reveal"
+                "startup": "team-reveal-with-roles"
             }
         },
         {
