@@ -1,7 +1,7 @@
 {
     "name": "Pokemon",
     "author": ["Cake", "Fuzzysqurl"],
-    "summary": "A legendary battle commences, as the legends are forced to defend themselves from Sky Peak for the good of their world! From the mysterious Unown, to the small yet vengeful Little Bugs, to even the illusionary forces of Zoroark, they will have to work together above all else or lose their hold on the world of Pokemon... (Updates: Use /changelog to check the changes.)",
+    "summary": "A legendary battle commences, as the legends are forced to defend themselves from Sky Peak for the good of their world! From the mysterious Unown, to the small yet vengeful Little Bugs, to even the illusionary forces of Zoroark, they will have to work together above all else or lose their hold on the world of Pokemon... (Updates: Bugfixes, Role tweaks on Zoroark, Mew, Magikarp, Pineco, Meloetta)",
     "sides": [
         {
             "side": "village",
@@ -85,7 +85,7 @@
             "role": "zapdos",
             "translation": "Zapdos",
             "side": "village",
-            "help": "You are Zapdos, bird of thunder! You are attuned to the electrical currents and can somtimes detect when another Pokemon is disrupting the natural flow with poisons or fire!",
+            "help": "You are Zapdos, bird of thunder! You are attuned to the electrical currents and can sometimes detect when another Pokemon is disrupting the natural flow with poisons or fire!",
             "info": "A spy. Sided with Sky Peak.",
             "actions": {
                 "hax": {
@@ -104,7 +104,7 @@
             "role": "moltres",
             "translation": "Moltres",
             "side": "village",
-            "help": "You are Moltres, bird of fire! You are attuned to the fiery passion that drives every pokemon and can somtimes detect when another Pokemon is trying to cause harm with poison, fire, or an attack!",
+            "help": "You are Moltres, bird of fire! You are attuned to the fiery passion that drives every pokemon and can sometimes detect when another Pokemon is trying to cause harm with poison, fire, or an attack!",
             "info": "A spy. Sided with Sky Peak.",
             "actions": {
                 "hax": {
@@ -190,7 +190,8 @@
                 "daykillrevengemsg": "~Target~ was foolish enough to target Genesect...who exploded!",
 				"inspect": {
                     "revealAs": "shedinja"
-                }
+                },
+				"startup": "team-reveal-with-roles"
             }
         },
         {
@@ -490,22 +491,6 @@
                         "revealmsg": "Mewww! ~Self~ flies through the air."
                     }
                 },
-                "daykill": "evade",
-                "startup": {
-                    "revealRole": [
-                        "mewtwo"
-                    ]
-                }
-            }
-        },
-		{
-            "role": "mew2",
-            "translation": "Mew",
-            "side": "village",
-			"hide": true,
-            "help": "You are Mew, little pink kitten! You're a very cute Pokemon and everyone wants to hug you. As a result, everyone knows who you are. Your transforming prowess makes you undefeatable during the day. Finally, you know your clone Mewtwo by default!",
-            "info": "A role everyone knows who cannot be daykilled and knows Mewtwo. Sided with Sky Peak.",
-            "actions": {
                 "daykill": "evade",
                 "startup": {
                     "revealRole": [
@@ -1552,7 +1537,6 @@
             "role": "shedinja",
             "translation": "Shedinja",
             "side": "shedinja",
-			"winningSides": ["bug"],
             "help": "You are Shedinja, empty shell! Having been abandoned, you are now so angry you wish to take revenge on every other Pokemon. You may defeat an opponent with /kill, and any distractors will have their soul stolen; Wonder Guard also protects you from most attacks, and though you have a vote of 0, the total votes on you will always be reduced by 1!",
             "info": "A killer who kills distractors and is immune to most moves, has a vote of 0 and a voteshield of -1. Sided with Shedinja.",
             "actions": {
@@ -1576,7 +1560,8 @@
                     "hookermsg": "In trying to distract Shedinja, you looked into its back...",
                     "msg": "The foolish ~Distracter~ looked into your back."
                 },
-                "vote": 0
+                "vote": 0,
+				"startup": "team-reveal-with-roles"
             }
         },
         {
