@@ -1,6 +1,6 @@
 {
     "name": "Ocean",
-  "author": ["Fuzzysqurl"],
+  "author": ["Fuzzysqurl", "Fuzzy"],
     "summary": "Recent Changes: Sushi Chef and Clownfish tweaked to balance sides. Angel Fish added earlier to help leverage town power. Tip: Angel Fish's command is Protect+Safeguard+Distract, it prevents night actions in exchange for perfect protection. This command WILL kill the Sea Anemone, so don't use it on it.",
     "sides": [
         {
