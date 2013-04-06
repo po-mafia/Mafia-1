@@ -20,7 +20,7 @@
         },
         {
             "side": "bug",
-            "translation": "Little Bugs",
+            "translation": "Bugs",
             "winmsg": "The bugs, ~Players~, took their vengeance on the legends for their mistreatment!"
         },
         {
@@ -70,13 +70,57 @@
             "role": "articuno",
             "translation": "Articuno",
             "side": "village",
-            "help": "You are Articuno, bird of blizzards! You are attuned to the temperature as is, and so may feel when it changes due to an attack being used, making you able to discover who used said attack.",
+            "help": "You are Articuno, bird of blizzards! You are attuned to the cold and can sometimes detect when another Pokemon's body heats up during an attack!",
             "info": "A spy. Sided with Sky Peak.",
             "actions": {
                 "hax": {
                     "kill": {
                         "revealTeam": 0.25,
                         "revealPlayer": 0.12
+                    }
+                }
+            }
+        },
+		{
+            "role": "zapdos",
+            "translation": "Zapdos",
+            "side": "village",
+			"hide": true,
+            "help": "You are Zapdos, bird of thunder! You are attuned to the electrical currents and can somtimes detect when another Pokemon is disrupting the natural flow with poisons or fire!",
+            "info": "A spy. Sided with Sky Peak.",
+            "actions": {
+                "hax": {
+                    "poison": {
+                        "revealTeam": 0.25,
+                        "revealPlayer": 0.12
+                    },
+					"burn": {
+                        "revealTeam": 0.15,
+                        "revealPlayer": 0.07
+                    }                    
+                }
+            }
+        },
+		{
+            "role": "moltres",
+            "translation": "Moltres",
+            "side": "village",
+			"hide": true,
+            "help": "You are Moltres, bird of fire! You are attuned to the fiery passion that drives every pokemon and can somtimes detect when another Pokemon is trying to cause harm with poison, fire, or an attack!",
+            "info": "A spy. Sided with Sky Peak.",
+            "actions": {
+                "hax": {
+					"kill": {
+                        "revealTeam": 0.17,
+                        "revealPlayer": 0.08
+                    },
+					"poison": {
+                        "revealTeam": 0.17,
+                        "revealPlayer": 0.08
+                    },
+					"burn": {
+                        "revealTeam": 0.11,
+                        "revealPlayer": 0.05
                     }
                 }
             }
@@ -102,15 +146,53 @@
             "role": "genesect",
             "translation": "Genesect",
             "side": "village",
-            "help": "You are Genesect, cyborg bug! Being able to use Explosion ensures that anyone attacking you will get taken out.",
-            "info": "A bomb. Sided with Sky Peak.",
+            "help": "You are Genesect, cyborg bug! Being able to use Explosion ensures that anyone attacking you during the day will get taken out. Since you are part bug, people get confused when they look at you. Bugs aren't supposed to be legendaries.",
+            "info": "A day bomb that reveals as Shedinja. Sided with Sky Peak.",
             "actions": {
+                "daykill": "bomb",
+                "daykillrevengemsg": "~Target~ was foolish enough to target Genesect...who exploded!",
+				"inspect": {
+                    "revealAs": "shedinja"
+                },
+				"lynch": {
+                    "convertTo": "genesect2",
+                    "convertmsg": "~Self~ (Shedinja) was removed from the game!"
+                }
+            }
+        },
+		{
+            "role": "genesect2",
+            "translation": "Genesect",
+            "side": "shedinja",
+            "help": "You are Genesect, cybrog bug! Everyone turned their back on you because you were a bug so you decided to team up with Shedinja. Show them how truly powerful your Techno Blast is with /blast! This will outright kill anyone you target during the night, but you only have one shot so use it wisely. You can also use /kill to team up with Shedinja on a kill.",
+            "info": "A bomb with a night kill and a one time revenge kill that reveals as Shedinja. Sided with Shedinja.",
+            "actions": {
+				"night": {
+					"kill": {
+                        "target": "AnyButSelf",
+                        "common": "Team",
+                        "priority": 8,
+                        "msg": "Shedinja took your soul..."
+                    },
+					"blast": {
+						"command": "kill",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 0,
+                        "msg": "A bright beam of light strikes you."
+                    }
+				},
                 "kill": {
-                    "mode": "killattacker",
+                    "mode": {
+						"killif": ["rayquaza"]
+					},
                     "msg": "±Genesect: Initiating 'Explosion' tactic."
                 },
                 "daykill": "bomb",
-                "daykillrevengemsg": "~Target~ was foolish enough to target Genesect...who exploded!"
+                "daykillrevengemsg": "~Target~ was foolish enough to target Genesect...who exploded!",
+				"inspect": {
+                    "revealAs": "shedinja"
+                }
             }
         },
         {
@@ -288,10 +370,41 @@
                 }
             }
         },
-        {
+		{
             "role": "meloetta",
             "translation": "Meloetta",
             "side": "village",
+			"hide": true,
+            "help": "You are Meloetta, beautiful performer! You can sing to another player with /distract, stopping them acting; you may also /safeguard a player to guard them from poison with song.",
+            "info": "A distractor and safeguarder. Sided with Sky Peak.",
+            "actions": {
+                "night": {
+                    "safeguard": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 6
+                    },
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1,
+                        "distractmsg": "Meloetta sung to you~",
+                        "teammsg": "You got to listen to Meloetta singing to your partner~"
+                    }
+                },
+                "startup": {
+                    "revealRole": [
+                        "thundurus",
+                        "thundurust"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "meloettaold",
+            "translation": "Meloetta",
+            "side": "village",
+			"hide": true,
             "help": "You are Meloetta, beautiful performer! You can sing to another player with /distract, stopping them acting; you may also /safeguard a player to guard them from poison with song. Use /relic to change forme!",
             "info": "A distractor and safeguarder who can change forme. Sided with Sky Peak.",
             "actions": {
@@ -426,9 +539,10 @@
             }
         },
         {
-            "role": "phione",
+            "role": "phione2",
             "translation": "Phione",
             "side": "village",
+			"hide": true,
             "help": "You are Phione, aqua creature! Some don't consider you a true legendary, and hence used a move to make you seen as an enemy.",
             "info": "A miller who inspects as Shedinja. Sided with Sky Peak.",
             "actions": {
@@ -551,6 +665,29 @@
                 }
             }
         },
+		{
+            "role": "phione",
+            "translation": "Phione",
+            "side": "village",
+            "help": "You are Suicune, beautiful cat of the aurora! Being a defensive wall, you can /protect others from attack.",
+            "info": "A fake protector that inspects as Suicune. Sided with Sky Peak.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 40
+                    }
+                },
+				"inspect": {
+					"revealAs": "suicune"
+				},
+				"startup": {
+					"revealAs": "suicune"
+				},
+				"onlist": "suicune"
+            }
+        },
         {
             "role": "thundurus",
             "translation": "Thundurus",
@@ -639,7 +776,7 @@
                         "target": "OnlySelf",
                         "common": "Self",
                         "priority": 5,
-                        "newRole": "tornadus",
+                        "newRole": "tornadust",
                         "convertmsg": "Tornadus became Incarnate forme!"
                     }
                 },
@@ -891,13 +1028,12 @@
                         "common": "Team",
                         "priority": 11,
                         "broadcast": "team",
-                        "msg": "*nom nom nom*",
-						"recharge": 2
+                        "msg": "*nom nom nom*"
                     },
                     "explode": {
                         "target": "AnyButTeam",
                         "common": "Team",
-                        "priority": 11,
+                        "priority": 12,
                         "broadcast": "team",
                         "msg": "Pineco exploded!",
 						"command": "kill",
@@ -1419,8 +1555,9 @@
             "role": "shedinja",
             "translation": "Shedinja",
             "side": "shedinja",
+			"winningSides": ["bug"],
             "help": "You are Shedinja, empty shell! Having been abandoned, you are now so angry you wish to take revenge on every other Pokemon. You may defeat an opponent with /kill, and any distractors will have their soul stolen; Wonder Guard also protects you from most attacks, and though you have a vote of 0, the total votes on you will always be reduced by 1!",
-            "info": "A killer who kills distractors and is immune to most moves, has a vote of 0 and a voteshield of -1. Sided with itself.",
+            "info": "A killer who kills distractors and is immune to most moves, has a vote of 0 and a voteshield of -1. Sided with Shedinja.",
             "actions": {
                 "voteshield": -1,
                 "kill": {
@@ -1432,7 +1569,7 @@
                 "night": {
                     "kill": {
                         "target": "AnyButSelf",
-                        "common": "Self",
+                        "common": "Team",
                         "priority": 8,
                         "msg": "Shedinja took your soul..."
                     }
@@ -1779,13 +1916,6 @@
 			"info": "A bodyguard with a kill (which might kill it) and a poison, but who faints after a night. Sided with Sky Peak."
 		},
 		{
-            "role": "meloettadummy",
-            "translation": "Meloetta",
-            "side": "dummy",
-            "help": "",
-			"info": "A double distractor who can change forme. Sided with Sky Peak."
-		},
-		{
             "role": "shaymindummy",
             "translation": "Shaymin",
             "side": "dummy",
@@ -1863,7 +1993,7 @@
         "unown",
         "shedinja",
         "shaymin1",
-        "meloetta",
+        "shaymin1",
         "unown",
         "phione",
         "shaymin1"
@@ -1872,21 +2002,20 @@
         "suicune",
         "arceus",
         "mewtwo",
-		{ "caterpie": 0.1, "wurmple": 0.1, "joltik": 0.1, "larvesta": 0.1, "pineco": 0.1, "nincada": 0.1, "spinarak": 0.1 },
+		{ "caterpie": 0.1, "wurmple": 0.1},
         "shedinja",
         "shaymin1",
         "meloetta",
-		{ "caterpie": 0.1, "wurmple": 0.1, "joltik": 0.1, "larvesta": 0.1, "pineco": 0.1, "nincada": 0.1, "spinarak": 0.1 },
+		{ "joltik": 0.1, "larvesta": 0.1, "spinarak": 0.1 },
         "phione",
         "shaymin1",
-		{ "caterpie": 0.1, "wurmple": 0.1, "joltik": 0.1, "larvesta": 0.1, "pineco": 0.1, "nincada": 0.1, "spinarak": 0.1 },
-        "articuno",
-        "shaymin1",
-		{ "tornadus": 0.1, "thundurus": 0.1, "landorus": 0.1 },
-        "eevee",
-        "shaymin1",
-		"genesect",
-        "phione"
+			{ "dustox": 0.1, "butterfree": 0.1, "galvantula": 0.1 },
+			{ "articuno": 0.1, "zapdos": 0.1, "moltres": 0.1 },
+			"shaymin1",
+			{ "tornadus": 0.1, "thundurus": 0.1, "landorus": 0.1 },
+			"genesect",
+			"shaymin1",
+			"shaymin1"
     ],
     "roles3": [
         "suicune",
@@ -1906,13 +2035,13 @@
         "farfetchd",
         "rayquaza",
         "genesect",
-        "dunsparce",
-        "stunfisk",
-        "eevee",
-        "shaymin",
-        "magikarp",
-        "mew",
-        "shaymin"
+			"dunsparce",
+			"stunfisk",
+			"eevee",
+			"shaymin",
+			"shaymin",
+			"mew",
+			"shaymin"
     ],
     "roles4": [
         "suicune",
@@ -1936,16 +2065,16 @@
         "hydreigon",
         "shaymin",
         "eevee",
-        "magikarp",
+        "shaymin",
         "mew",
         "shaymin",
-        "banette",
-        "darkrai",
-        "shaymin",
-        "giratina",
-        "phione",
-        "zorua",
-        "shaymin"
+			"banette",
+			"darkrai",
+			"shaymin",
+			"giratina",
+			"shaymin",
+			"zorua",
+			"shaymin"
     ],
     "roles5": [
         "suicune",
@@ -1980,8 +2109,8 @@
         "dustox",
         "galvantula",
         "shaymin",
-        "eevee",
-        "skyshaymin1"
+			"eevee",
+			"skyshaymin1"
     ],
     "villageCantLoseRoles": [
         "arceus",
@@ -1998,6 +2127,9 @@
         "tornadus",
         "tornadust"
     ],
-    "killmsg": "+Arceus: ~Player~ (~Role~) fainted!",
-    "killusermsg": "You fainted..."
+    "killmsg": "±Arceus: ~Player~ (~Role~) fainted!",
+    "killusermsg": "You fainted...",
+	"changelog": {
+		"4/5/2013": "Replaced Phione with a fake Suicune. Added Moltres and Zapdos as spys that hax other actions. Genesect now reveals as Shedinja. Genesect goes rogue after being lynched and teams up with Shedinja. Little bugs restructured in medium games. Zoroark evades daykills. Nerfed Meloetta as 2 distracts was very townsided. Meloetta replaced by Shaymin in games under 10 players. Meloetta gets proper reveal on Thundurus now. Arceus and Zoroark kill message clarified to prevent confusion. Spinarak's poison split into 2 actions following village nerfs. Eevee given ability to convert randomly if they want. Sides/Priority shortened where applicable. Rayquaza/Farfetch'd help updated to tell they can kill Shedinja. Genesect no longer nightbombs unless in second form and only bombs Rayquaza. Genesect removed from VCLR."
+	}
 }
