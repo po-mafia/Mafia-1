@@ -85,7 +85,6 @@
             "role": "zapdos",
             "translation": "Zapdos",
             "side": "village",
-			"hide": true,
             "help": "You are Zapdos, bird of thunder! You are attuned to the electrical currents and can somtimes detect when another Pokemon is disrupting the natural flow with poisons or fire!",
             "info": "A spy. Sided with Sky Peak.",
             "actions": {
@@ -105,7 +104,6 @@
             "role": "moltres",
             "translation": "Moltres",
             "side": "village",
-			"hide": true,
             "help": "You are Moltres, bird of fire! You are attuned to the fiery passion that drives every pokemon and can somtimes detect when another Pokemon is trying to cause harm with poison, fire, or an attack!",
             "info": "A spy. Sided with Sky Peak.",
             "actions": {
@@ -374,7 +372,6 @@
             "role": "meloetta",
             "translation": "Meloetta",
             "side": "village",
-			"hide": true,
             "help": "You are Meloetta, beautiful performer! You can sing to another player with /distract, stopping them acting; you may also /safeguard a player to guard them from poison with song.",
             "info": "A distractor and safeguarder. Sided with Sky Peak.",
             "actions": {
@@ -2130,6 +2127,6 @@
     "killmsg": "±Arceus: ~Player~ (~Role~) fainted!",
     "killusermsg": "You fainted...",
 	"changelog": {
-		"4/5/2013": "Replaced Phione with a fake Suicune. Added Moltres and Zapdos as spys that hax other actions. Genesect now reveals as Shedinja. Genesect goes rogue after being lynched and teams up with Shedinja. Little bugs restructured in medium games. Zoroark evades daykills. Nerfed Meloetta as 2 distracts was very townsided. Meloetta replaced by Shaymin in games under 10 players. Meloetta gets proper reveal on Thundurus now. Arceus and Zoroark kill message clarified to prevent confusion. Spinarak's poison split into 2 actions following village nerfs. Eevee given ability to convert randomly if they want. Sides/Priority shortened where applicable. Rayquaza/Farfetch'd help updated to tell they can kill Shedinja. Genesect no longer nightbombs unless in second form and only bombs Rayquaza. Genesect removed from VCLR."
+		"4/5/2013": "Replaced Phione with a fake Suicune. Added Moltres and Zapdos as spys that hax other actions. Genesect now reveals as Shedinja. Genesect goes rogue after being lynched and teams up with Shedinja. Little bugs restructured in medium games. Zoroark evades daykills. Nerfed Meloetta as 2 distracts was very townsided. Meloetta replaced by Shaymin in games under 10 players. Meloetta gets proper reveal on Thundurus now. Arceus and Zoroark kill message clarified to prevent confusion. Spinarak's poison split into 2 actions following village nerfs. Eevee given ability to convert randomly if they want. Sides/Priority shortened where applicable. Rayquaza/Farfetch'd help updated to tell they can kill Shedinja. Genesect no longer nightbombs unless in second form and only bombs Rayquaza. Genesect removed from VCLR. Little Bugs renamed Bugs. Shedinja wins with Bugs now."
 	}
 }
