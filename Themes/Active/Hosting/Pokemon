@@ -648,11 +648,11 @@
             }
         },
 		{
-            "role": "phione",
-            "translation": "Phione",
+            "role": "manaphy",
+            "translation": "Manaphy",
             "side": "village",
             "help": "You are Suicune, beautiful cat of the aurora! Being a defensive wall, you can /protect others from attack.",
-            "info": "A fake protector that inspects as Suicune. Sided with Sky Peak.",
+            "info": "A fake protector that inspects as Suicune and thinks they are Suicune. Sided with Sky Peak.",
             "actions": {
                 "night": {
                     "protect": {
@@ -1977,7 +1977,7 @@
         "shaymin1",
         "shaymin1",
         "unown",
-        "phione",
+        "manaphy",
         "shaymin1"
     ],
     "roles2": [
@@ -1989,7 +1989,7 @@
         "shaymin1",
         "meloetta",
 		{ "joltik": 0.1, "larvesta": 0.1, "spinarak": 0.1 },
-        "phione",
+        "manaphy",
         "shaymin1",
 			{ "dustox": 0.1, "butterfree": 0.1, "galvantula": 0.1 },
 			{ "articuno": 0.1, "zapdos": 0.1, "moltres": 0.1 },
@@ -2008,7 +2008,7 @@
         "shaymin",
         "meloetta",
         "ditto",
-        "phione",
+        "manaphy",
         "shaymin",
         "zoroark",
         "latias",
@@ -2034,7 +2034,7 @@
         "shaymin",
         "meloetta",
         "ditto",
-        "phione",
+        "manaphy",
         "shaymin",
         "zoroark",
         "latias",
@@ -2067,7 +2067,7 @@
         "shaymin",
         "meloetta",
         "ditto",
-        "phione",
+        "manaphy",
         "shaymin",
         "zoroark",
         "latias",
