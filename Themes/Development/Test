@@ -1,457 +1,74 @@
 {
-    "name": "Daykillers",
-    "author": [
-        "Zerowaltz",
-        "Roild"
-    ],
-    "summary": "Daykiller Royale! It's village daykillers vs. bad daykillers! Some have been nerfed, while others have gained new abilities! Who will win?",
+    "name": "Testing",
+	"author": ["Fuzzy"],
+    "summary": "Test",
     "sides": [
-        {
-            "side": "Village",
-            "translation": "Village",
-            "winmsg": "The good daykillers have defeated the bad! ~Players~ can now all return to their own themes.."
+		 {
+            "side": "1",
+            "translation": "Side 1"
         },
         {
-            "side": "Spectators",
-            "translation": "Spectators",
-            "winmsg": "Wait. What? Everyone was killed except for the Spectators, so ~Players~ went home."
+            "side": "2",
+            "translation": "Side 2"
         },
         {
-            "side": "Villains",
-            "translation": "Villains",
-            "winmsg": "The bad daykillers have prevailed over the protagonists! ~Players~ can now all boast their victory!"
+            "side": "3",
+            "translation": "Side 3"
         }
-    ],
-    "roles": [
-        {
-            "role": "cthulhu",
-            "translation": "Cthulhu",
-            "side": "Villains",
-            "help": "Some people still don't believe you exist, so it's time to prove them wrong! Type /torment [name] during the day to kill one person (non-revealing), then if you want to cause even more chaos, you can /thrash around killing another target, but you can only do this once per game. Finally, if anyone tries to kill you at night (that is, if anyone is smart enough to do, you will make sure they die as well.",
-            "info": "Can kill one person during the standby. Can kill a second person during standby once per game. Bombs night kills. Sided with Villains.",
+	],
+	"roles": [
+	     {
+            "role": "mafia1",
+            "translation": "Leader",
+            "side": "1",
+            "help": "You can vote",
             "actions": {
-                "standby": {
-                    "torment": {
-                        "command": "kill",
-                        "target": "AnyButSelf",
-                        "msg": "You can kill now by typing /torment [name]. You won't be revealed!",
-                        "killmsg": "Cthulhu emerges from the depths of the ocean and violently disposes of ~Target~."
-                    },
-                    "thrash": {
-                        "command": "kill",
-                        "target": "AnyButSelf",
-                        "msg": "You can also perform a one time kill by typing /thrash [name]. You won't be revealed!",
-                        "killmsg": "Cthulhu starts to thrash around undersea. Violent currents carry ~Target~ away from the arena, never to be heard from again.",
-                        "recharge": 100,
-                        "limit": 2
-                    }
-                },
-                "kill": {
-                    "mode": "killattacker",
-                    "msg": "Somebody tried to kill you last night. You decided to kill them, but then got bored with the war and went back to sleep.",
-                    "targetmsg": "You attacked Cthulhu! Not a very wise move... You have been instead devoured!"
-                }
+				"night": {
+					"kill": {
+						"common": "Team",
+						"priority": 2,
+						"target": "AnyButSelf"
+					}
+				}
+			}
+        }, 
+		{
+            "role": "mafia2",
+            "translation": "Team",
+            "side": "2",
+            "help": "You can vote",
+            "actions": {
+				"night": {
+					"kill": {
+						"command": ["kill", "distract"],
+						"common": "Team",
+						"priority": 2,
+						"target": "AnyButSelf"
+					}
+				}
             }
-        },
-        {
-            "role": "spectator",
-            "translation": "Spectator",
-            "winningSides": [
-                "Village",
-                "Villains",
-                "Spectators"
-            ],
-            "side": "Spectators",
-            "info": "Can self-protect during the night. Can /cheer (reveal) during the day. Has a 95% chance of evading daykills. Sided with Spectators. Wins the game with every side.",
-            "help": "You are a spectator watching this exciting royale!  You can /watch in the day to reveal yourself. You can /protect yourself at night too. Since you are a spectator, you  can't be daykilled (well, at least not easily) and win with every team! ",
+        }, 
+		{
+            "role": "mafia3",
+            "translation": "Mafia",
+            "side": "3",
+            "help": "You can vote",
             "actions": {
-                "night": {
-                    "protect": {
-                        "target": "OnlySelf",
-                        "common": "Self",
-                        "priority": 3
-                    }
-                },
-                "inspect": {
-                    "mode": "killattacker",
-                    "msg": "NO OUTSIDE CONTACT ALLOWED! You inspected the Spectator, and you were disqualified!"
-                },
-                "standby": {
-                    "cheer": {
-                        "command": "reveal",
-                        "revealmsg": "~Self~, a Spectator, cheers from the stands of the stadium!"
-                    }
-                },
-                "daykill": {
-                    "mode": {
-                        "evadeChance": 0.95
-                    }
-                },
-                "avoidHax": [
-                    "protect"
-                ]
-            }
-        },
-        {
-            "role": "swordfish",
-            "translation": "Sword Fish",
-            "side": "Village",
-            "help": "En garde! Use that fearsome snout you have by typing /kill [name] during standby for a non-revealing kill!",
-            "info": "Can kill one person during standby. Sided with Village.",
-            "actions": {
-                "standby": {
-                    "kill": {
-                        "target": "AnyButSelf",
-                        "msg": "You can kill now by typing /kill [name]. You will not be revealed!",
-                        "killmsg": "En garde! The Swordfish swings his snout around violently and punctures a hole in ~Target~."
-                    }
-                }
-            }
-        },
-        {
-            "role": "hammerhead",
-            "translation": "Hammerhead Shark",
-            "side": "Villains",
-            "help": "Nobody could think that you're dangerous- just look at you! What's with those eyes freak? Bump into things much? You can use /hammer during the day to kill someone.",
-            "info": "Can kill one person during the standby. Sided with Villains.",
-            "actions": {
-                "standby": {
-                    "hammer": {
-                        "command": "kill",
-                        "target": "AnyButSelf",
-                        "msg": "You can kill now by typing /hammer [name] !",
-                        "killmsg": "Can't touch this- IT'S HAMMER TIME!!!! The Hammershead Shark headbutted ~Target~, knocking them out instantly!"
-                    }
-                }
-            }
-        },
-        {
-            "role": "ike",
-            "translation": "Ike",
-            "side": "Village",
-            "help": "As the incredibly powerful leader of the Greil Mercenaries, it's up to you to help the village win this royale. You possess the holy sword, Ragnell, and are strong enough to wield it with only one hand. You are capable enough to duel any other player and win in single combat. Type /kill during the standby phase to fight them. You're not only powerful but you're also swift - you won't be revealed.",
-            "actions": {
-                "standby": {
-                    "kill": {
-                        "target": "AnyButSelf",
-                        "msg": "In every fight you've had that has ever mattered, you've been the one left standing. Pick a target and lunge at them with /kill [name] :",
-                        "killmsg": "'Prepare yourself!' A giant, golden sword is seen high in the sky. Then, with great force, Ike lands and duels ~Target~. Sadly, ~Target~ is no match for Ike. This match is over!"
-                    }
-                }
-            }
-        },
-        {
-            "role": "ashnard",
-            "translation": "Empowered Ashnard",
-            "side": "Villains",
-            "help": "'GGGRRAAAAAGGGGHHHH!!! GGRRAAAHH HAAA HAAA HAAA!!!...It...feels...so...GOOOOOOD...' You've been completely driven insane by Lehran's Medallion, but...you've never felt so alive! You have a high-priority nightkill, a vote of 5, and a powerful daykill! Nobody stands a chance!",
-            "info": "Has 1 high-priority nightkill, 1 daykill, and +5 vote. Sided with Villains.",
-            "actions": {
-                "night": {
-                    "kill": {
-                        "target": "AnyButSelf",
-                        "common": "Self",
-                        "priority": 4,
-                        "limit": 1
-                    }
-                },
-                "vote": 5,
-                "avoidHax": [
-                    "kill"
-                ],
-                "standby": {
-                    "kill": {
-                        "target": "AnyButSelf",
-                        "msg": "You can kill now using /kill [name] :",
-                        "killmsg": "'If you will not bring the fight to me, then I shall bring the fight to YOU!' Ashnard lunges at his foe...~Target~ never stood a chance..."
-                    }
-                }
-            }
-        },
-        {
-            "role": "ts",
-            "translation": "Twilight Sparkle",
-            "side": "Village",
-            "info": "A bright unicorn pony. Can inspect at night. Can teleport someone away during the day. Sided with Village.",
-            "help": "You are Twilight Sparkle, a bright and studious pony! Princess Celestia's most faithful student, you have been sent to this battle royale to test your true skill and knowledge! You can /inspect one person at night. Use this ability to /teleport someone far away during the day!",
-            "actions": {
-                "night": {
-                    "inspect": {
-                        "target": "AnyButSelf",
-                        "common": "Self",
-                        "priority": 33
-                    }
-                },
-                "standby": {
-                    "teleport": {
-                        "target": "AnyButSelf",
-                        "msg": "Your horn is ready to /teleport somebody away!",
-                        "killmsg": "Twilight Sparkle fires a ray of light at ~Target~, who is teleported somewhere far away... away from the royale...",
-                        "command": "kill"
-                    }
-                }
-            }
-        },
-        {
-            "role": "hydreigon",
-            "translation": "Hydreigon",
-            "side": "Village",
-            "help": "You are Hydreigon, three-headed dragon! Somehow, you've been placed with the village. Oh well! Every other day, you can use Draco Meteor on an opponent by using /kill; you also have three votes, one for each head! Finally, you are so intimidating you may stop a killer in their tracks.",
-            "info": "A daykiller with a recharge turn and three votes, who may evade kills. Sided with the Village.",
-            "actions": {
-                "kill": {
-                    "mode": {
-                        "evadeChance": 0.13,
-                        "msg": "Hydreigon intimidated you! You couldn't kill them tonight!"
-                    }
-                },
-                "vote": 3,
-                "standby": {
-                    "kill": {
-                        "target": "AnyButSelf",
-                        "msg": "Use Draco Meteor with /kill!",
-                        "killmsg": "A 252+ Specs Hydreigon used Draco Meteor on ~Target~ ...  Nuff said.",
-                        "recharge": 2
-                    }
-                }
-            }
-        },
-        {
-            "role": "sce",
-            "translation": "Sceptile",
-            "side": "Village",
-            "info": "Can kill one person during the standby. On the third night, can /fling to kill and activate its Unburden ability (30% daykill evasion, but kills have 15% of failing each). Sided with Village.",
-            "help": "Known as the King of the Forest, you are extremely fast and able to kill someone during the day with Solarbeam by typing /Kill [name]!  On the 3rd night, you can nightkill someone with /fling, and doing so will activate your Unburden ability (gives you 30% evasion, but kills have 15% of failing each)! Don't kill the good daykillers!",
-            "actions": {
-                "night": {
-                    "fling": {
-                        "command": [
-                            "copy", "kill"
-                        ],
-                        "copyAs": "scep",
-                        "silent": false,
-                        "copymsg": "Sceptile flung its Choice Specs!",
-                        "target": "AnyButSelf",
-                        "common": "Self",
-                        "priority": 5,
-                        "limit": 1,
-                        "initialrecharge": 3
-                    }
-                },
-                "standby": {
-                    "kill": {
-                        "target": "AnyButSelf",
-                        "msg": "You can now kill by typing /Kill [name] and don't kill the Good Daykillers! :",
-                        "killmsg": "A 252+ Sceptile used a STAB, Specs boosted, critical hit SolarBeam in the sun off of its 105 base Special Attack stat on ~Target~! OVERKILL 9000!"
-                    }
-                }
-            }
-        },
-        {
-            "role": "scep",
-            "translation": "Sceptile",
-            "side": "Village",
-            "info": "Can kill 1 person during the night. Can kill 1 person during the day (15% of failing each). Has a 30% chance of evading daykills. Sided with Village.",
-            "help": "All right! Getting rid of that Choice Specs made you even faster! Now you have a 30% chance of evading daykills. You still get to keep both your day and night kills, but now they each have a 15% chance of failing. Use /blast (Focus Blast) to kill at night, and /beam (Solarbeam) to kill during the day!",
-            "actions": {
-                "night": {
-                    "blast": {
-                        "command": "kill",
-                        "target": "AnyButSelf",
-                        "common": "Self",
-                        "priority": 5,
-                        "failChance": 0.15,
-                        "limit": 1
-                    }
-                },
-                "standby": {
-                    "kill": {
-                        "target": "AnyButSelf",
-                        "msg": "You can now kill by typing /beam [name] and don't kill the Good Daykillers! :",
-                        "killmsg": "A 252+ Sceptile used a STAB critical hit SolarBeam in the sun off of its 105 base Special Attack stat on ~Target~! Not as powerful without Choice Specs, but still OVERKILL!"
-                    }
-				},
-				"daykill": {
-                    "mode": {
-                        "evadeChance": 0.3
-                    }
-                }
-            }
-        },
-        {
-            "role": "cloud",
-            "translation": "Cloud",
-            "side": "Village",
-            "info": "Can kill one person during the standby. Sided with Village.",
-            "help": "As a former member of SOLDIER, your battle skills are top notch. That's why you're here at this royale! Type /kill [name] during the day to eliminate possible villains!",
-            "actions": {
-                "standby": {
-                    "kill": {
-                        "target": "AnyButSelf",
-                        "msg": "Draw your Buster Sword and pick a target using /kill [name] :",
-                        "killmsg": "Cloud Strife lunges and pulls out a Buster Sword, striking down ~Target~!"
-                    }
-                }
-            }
-        },
-        {
-            "role": "seph",
-            "translation": "Sephiroth",
-            "side": "Villains",
-            "info": "Can kill 1 person during the night. Cannot be detected by spies. Can kill one person during the standby. Sided with Villains.",
-            "help": "You...will never be a memory. As a legendary warrior, you are a force to be reckoned with at all times. Type /kill [name] once per night AND during a standby phase to eliminate those who oppose you. You will not be revealed, so have fun.",
-            "actions": {
-                "night": {
-                    "kill": {
-                        "target": "AnyButSelf",
-                        "common": "Self",
-                        "priority": 20,
-                        "limit": 1
-                    }
-                },
-                "standby": {
-                    "kill": {
-                        "target": "AnyButSelf",
-                        "msg": "You can kill now using /kill [name] :",
-                        "killmsg": "Sephiroth darts across the arena and swiftly slices through ~Target~. He then vanishes without a trace."
-                    }
-                }
-            }
-        },
-        {
-            "role": "nitrogen",
-            "translation": "Nitrogen",
-            "side": "Village",
-            "help": "Atomic symbol N. When diatomic, your triple bonds are energy-packed – for this, you are used in TNT. Harness this potential energy by killing in the day! Make sure not to kill others on your team!",
-            "info": "Can kill ONE person during the standby. Sided with Village.",
-            "actions": {
-                "standby": {
-                    "kill": {
-                        "target": "AnyButSelf",
-                        "msg": "Form TNT (trinitrotoluene) and destroy another element using /kill [name] !",
-                        "killmsg": "Nitrogen forms TNT (trinitrotoluene) and explodes on ~Target~! KABOOM!"
-                    }
-                }
-            }
-        },
-        {
-            "role": "francium",
-            "translation": "Francium",
-            "side": "Villains",
-            "help": "Atomic symbol Fr. You are the last element to have been discovered in nature, and you decay so rapidly that you have never been seen before as a bulk solid or liquid. Type /react [name] to decompose a daykiller! In addition, you may kill one person during the day with /kill [name] ! Once per game, you may use /ionize [name] to kill a second opponent.",
-            "info": "Can kill ONE person during the night. (/react) ONCE per game can kill again during the night - shared. (/ionize) Can kill ONE person during the standby. Sided with Villains.",
-            "actions": {
-                "night": {
-                    "react": {
-                        "command": "kill",
-                        "target": "AnyButSelf",
-                        "common": "Self",
-                        "priority": 31
-                    },
-                    "ionize": {
-                        "command": "kill",
-                        "target": "AnyButSelf",
-                        "common": "Self",
-                        "priority": 32,
-                        "recharge": 9001
-                    }
-                },
-                "standby": {
-                    "kill": {
-                        "target": "AnyButSelf",
-                        "msg": "Combustion reactions burn inside you! Use this energy to /kill [name]:",
-                        "killmsg": "~Target~ combusts in a violent chemical reaction sparked by the explosive element Francium!"
-                    }
-                }
-            }
-        },
-        {
-            "role": "plutonium",
-            "translation": "Plutonium",
-            "side": "Villains",
-            "help": "Atomic symbol Pu. Used in the atomic bombs of World War II, you exude an air of monstrosity and mystery. Banned from human use, you have set out to take revenge on Nitrogen and the other daykillers! Type /inspect [name] to reveal someone’s identity, and strike down others during the day! In addition, you may not be night-killed! Good luck...",
-            "info": "Can kill ONE person during the standby. Can inspect ONE person during the night. Avoids all nightkills. Avoids all hax. Ignores any distractors. Sided with Villains.",
-            "actions": {
-                "night": {
-                    "inspect": {
-                        "target": "AnyButSelf",
-                        "common": "Role",
-                        "priority": 44,
-                        "broadcast": "none"
-                    }
-                },
-                "standby": {
-                    "kill": {
-                        "target": "AnyButSelf",
-                        "msg": "Extraterrestrial power is now yours! Harness cosmic energy to pummel another daykiller with Plutonian asteroids! Use /kill [name]:",
-                        "killmsg": "A mysterious Kuiper Belt asteroid pummels the arena (is that even legal?), causing widespread pandemonium. In the debris, ~Target~ was found to be brutally crushed.  Another daykiller has been removed from the royale."
-                    }
-                },
-                "kill": {
-                    "mode": "ignore"
-                }
-            }
-        },
-        {
-            "role": "flame",
-            "translation": "Flame Dragon",
-            "side": "Village",
-            "help": "The pinnacle of dragon evolution, you are a true warrior. You may type /kill [name] during the day to envelop a target in flames!",
-            "actions": {
-                "standby": {
-                    "kill": {
-                        "target": "AnyButSelf",
-                        "msg": "You can kill now using /kill [name] :",
-                        "killmsg": "A molten fireball swiftly strikes ~Target~ and only ashes remain..."
-                    }
-                }
-            }
-        },
-        {
-            "role": "holy",
-            "translation": "Holy Paladin",
-            "side": "Village",
-            "help": "A steadfast Paladin with a strong sense of justice, it is your goal to eliminate the unjust. Type /kill [name] during the standby phase!",
-            "actions": {
-                "standby": {
-                    "kill": {
-                        "target": "AnyButSelf",
-                        "msg": "You can kill now using /kill [name] :",
-                        "killmsg": "A javelin flies out of nowhere and pierces ~Target~'s chest... an instant knockout!"
-                    }
-                }
+				"night": {
+					"distract": {
+						"common": "Team",
+						"priority": 1,
+						"target": "AnyButSelf"
+					}
+				}
             }
         }
-    ],
-    "roles1": [
-        "spectator",
-        "sce",
-        "hammerhead",
-        "cloud",
-        "seph",
-        "spectator",
-        "swordfish",
-        "francium",
-        "ts",
-        "nitrogen",
-        "spectator",
-        "plutonium",
-        "ike",
-        "cthulhu",
-        "holy",
-        "holy",
-        "spectator",
-        "ashnard",
-        "flame",
-        "flame",
-        "hydreigon"
-    ],
-    "silentVote": true,
-    "lynchmsg": "±Game: The ~Role~ (~Player~) was removed from the battle after receiving ~Count~ votes!",
-    "ticks": {
-        "standby": 45,
-        "night": 15
-    },
-    "killmsg": "+Moderator: ~Player~, who was the ~Role~, was knocked out the the royale!",
-    "killusermsg": "That's a knockout for you! Too bad!"
+	],
+	"roles1": [
+		"mafia1",
+		"mafia2",
+		"mafia3"
+	],
+	"minplayers": 3,
+	"lynchmsg": "~Target~ had ~Count~ votes"
 }
