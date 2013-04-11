@@ -1,9 +1,11 @@
 {
     "name": "Testing",
-	"author": ["Fuzzy"],
+    "author": [
+        "Fuzzy"
+    ],
     "summary": "Test",
     "sides": [
-		 {
+        {
             "side": "1",
             "translation": "Side 1"
         },
@@ -15,59 +17,57 @@
             "side": "3",
             "translation": "Side 3"
         }
-	],
-	"roles": [
-	     {
+    ],
+    "roles": [
+        {
             "role": "mafia1",
             "translation": "Leader",
             "side": "1",
             "help": "Use distract",
             "actions": {
-				"night": {
-					"distract": {
-						"common": "Team",
-						"priority": 2,
-						"target": "AnyButSelf"
-					}
-				}
-			}
-        }, 
-		{
+                "night": {
+                    "distract": {
+                        "common": "Team",
+                        "priority": 2,
+                        "target": "AnyButSelf"
+                    }
+                }
+            }
+        },
+        {
             "role": "mafia2",
             "translation": "Form 1",
             "side": "2",
             "help": "Wait for the convert",
             "actions": {
-				"distract": {
-					"mode": {
-						"convertuser",
-						"newRole": "mafia3"
-					}
-				}
+                "distract": {
+                    "mode": {
+                        "convertuser": "mafia3"
+                    }
+                }
             }
-        }, 
-		{
+        },
+        {
             "role": "mafia3",
             "translation": "Form 2",
             "side": "2",
             "help": "Success!",
             "actions": {
-				"night": {
-					"distract": {
-						"common": "Team",
-						"priority": 1,
-						"target": "AnyButSelf",
-						
-					}
-				}
+                "night": {
+                    "distract": {
+                        "common": "Team",
+                        "priority": 1,
+                        "target": "AnyButSelf"
+                    }
+                }
             }
         }
-	],
-	"roles1": [
-		"mafia1",
-		"mafia2"
-		"mafia2"
-	],
-	"minplayers": 3,
-	"lynchmsg": "~Target~ had ~Count~ votes"
+    ],
+    "roles1": [
+        "mafia1",
+        "mafia2",
+        "mafia2"
+    ],
+    "minplayers": 3,
+    "lynchmsg": "~Target~ had ~Count~ votes"
 }
