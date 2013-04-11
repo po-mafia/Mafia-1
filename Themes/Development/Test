@@ -21,10 +21,10 @@
             "role": "mafia1",
             "translation": "Leader",
             "side": "1",
-            "help": "You can vote",
+            "help": "Use distract",
             "actions": {
 				"night": {
-					"kill": {
+					"distract": {
 						"common": "Team",
 						"priority": 2,
 						"target": "AnyButSelf"
@@ -34,25 +34,23 @@
         }, 
 		{
             "role": "mafia2",
-            "translation": "Team",
-            "side": "1",
-            "help": "You can vote",
+            "translation": "Form 1",
+            "side": "2",
+            "help": "Wait for the convert",
             "actions": {
-				"night": {
-					"kill": {
-						"command": ["kill", "distract"],
-						"common": "Team",
-						"priority": 2,
-						"target": "AnyButSelf"
+				"distract": {
+					"mode": {
+						"convertuser",
+						"newRole": "mafia3"
 					}
 				}
             }
         }, 
 		{
             "role": "mafia3",
-            "translation": "Mafia",
-            "side": "3",
-            "help": "You can vote",
+            "translation": "Form 2",
+            "side": "2",
+            "help": "Success!",
             "actions": {
 				"night": {
 					"distract": {
@@ -67,8 +65,8 @@
 	],
 	"roles1": [
 		"mafia1",
-		"mafia2",
-		"mafia3"
+		"mafia2"
+		"mafia2"
 	],
 	"minplayers": 3,
 	"lynchmsg": "~Target~ had ~Count~ votes"
