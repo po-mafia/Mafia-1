@@ -58,7 +58,8 @@
 					"distract": {
 						"common": "Team",
 						"priority": 1,
-						"target": "AnyButSelf"
+						"target": "AnyButSelf",
+						
 					}
 				}
             }
