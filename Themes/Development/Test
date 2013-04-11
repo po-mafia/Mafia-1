@@ -35,7 +35,7 @@
 		{
             "role": "mafia2",
             "translation": "Team",
-            "side": "2",
+            "side": "1",
             "help": "You can vote",
             "actions": {
 				"night": {
