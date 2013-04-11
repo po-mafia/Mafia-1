@@ -35,6 +35,22 @@
             }
         },
         {
+            "role": "mafia12",
+            "translation": "Leader 2",
+            "side": "1",
+            "help": "Use distract",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "common": "Team",
+                        "priority": 2,
+                        "target": "AnyButSelf"
+                    }
+                },
+                "onteam": "mafia1"
+            }
+        },
+        {
             "role": "mafia2",
             "translation": "Form 1",
             "side": "2",
@@ -65,8 +81,8 @@
     ],
     "roles1": [
         "mafia1",
-        "mafia2",
-        "mafia2"
+        "mafia12",
+        "mafia3"
     ],
     "minplayers": 3,
     "lynchmsg": "~Target~ had ~Count~ votes"
