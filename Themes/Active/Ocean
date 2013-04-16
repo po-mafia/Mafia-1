@@ -341,11 +341,10 @@
             "translation": "Puffer Fish",
             "side": "village",
             "help": "During the voting stage you can puff up and use your vote of 2 to remove the bad guys. In addition, if someone tries to nightkill you- you poison them!. If they try to daykill you- you explode and take them down with you!",
-            "info": "Vote of 2. Poisons attacker when killed. Revenges daykills. Sided with Fish.",
+            "info": "Vote of 2. Kills attacker when killed. Revenges daykills. Sided with Fish.",
 			"actions": {
 				"kill": {
-					"mode": "poisonattacker",
-					"count": 2,
+					"mode": "killattacker",
 					"msg": "You died from the Puffer Fish's poison. That'll teach you to not to blindly nightkill!"
 				},			
 				"daykill": "bomb",
