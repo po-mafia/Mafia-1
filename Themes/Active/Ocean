@@ -344,7 +344,8 @@
             "info": "Vote of 2. Poisons attacker when killed. Revenges daykills. Sided with Fish.",
 			"actions": {
 				"kill": {
-					"mode": "killattacker",
+					"mode": "poisonattacker",
+					"count": 2,
 					"msg": "You died from the Puffer Fish's poison. That'll teach you to not to blindly nightkill!"
 				},			
 				"daykill": "bomb",
