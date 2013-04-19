@@ -377,9 +377,7 @@
 					}
 				},
 				"distract": {
-					"mode": {
-						"ignore"
-					}
+					"mode": "ignore"
 				}
             }
         },
@@ -935,4 +933,5 @@
 		"4.9.2013": "Minor typos and grammatical errors fixed. Removed Barracuda's daykill evasion. Replaced Flying Fish with an ordinary Fish. Slightly reduced hax rate for Devil Ray. Remora voteshield changed from -3 to -2. Corrected Cthulhu's help to properly tell the player what the role can do. Shortened Sushi Chef's help message. Swapped Sea Otter and Reef Shark's abilities (Otter now has stalk, Shark now has inspect). Fixed broadcast error on Reef Shark.",
 		"4.18.2013": "Swordfish given a convert to a more defensive stance. Messages updated to be gender neutral. Hammerhead no longer reveals or gets haxed. Gurry shark given +3 votes. Tiger shark removed from spawnlist. Fish standby hax changed to 33%.",
 		"??.??.????": "Village balance response to new Sharks. Sushi Chef update."
+	}
 }
