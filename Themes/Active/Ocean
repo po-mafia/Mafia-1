@@ -1,7 +1,7 @@
 {
     "name": "Ocean",
 	"author": ["Fuzzy"],
-    "summary": "A theme about a group of Fish protecting their reef community from Sharks and Mammals. Use /changelog to learn of all the new updates!",
+    "summary": "Ah, the ocean! It's truly a wonderful place where fish are can safely go about their business without fear of... hang on, that's not right. The ocean is a terrible place where fish are in constant danger. Violent Shark deaths occur on a regular basis and even the Mammals are getting in on the action! [Use /changelog to learn of all the new updates!]",
     "sides": [
         {
             "side": "village",
@@ -106,7 +106,7 @@
             "role": "fishy",
             "translation": "Fish",
             "side": "village",
-            "help": "You are the feared daykilling fi... wait. Wrong theme. You're just your average run of the mill fish. You might get hax on kills during the day, but you're far more likely to suffer a horrific shark related death. Vote to remove people in the day!",
+            "help": "You are the feared daykilling fi... wait. Wrong theme. You're just your average run of the mill fish. You might get hax on the Swordfish during the day, but you're far more likely to suffer a horrific shark related death. (Hint: The Swordfish is on your team and you should probably contact it if you get hax)",
             "info": "Gets standby hax on kill. Sided with Fish.",
 			"actions": {
 				"standbyHax": {
@@ -120,7 +120,7 @@
             "role": "clown1",
             "translation": "Clown Fish",
             "side": "village",
-            "help": "Like Nemo or, uh, Nemo's Dad? Yeah, Nemo's Dad! Anyway, since you're so good at finding people you can inspect one person a night by typing /Inspect [name].",
+            "help": "Like Nemo or, uh, Nemo's Dad? Yeah, Nemo's Dad! Anyway, since you're so good at finding people you can /inspect one person during the night.",
             "info": "Can inspect one person during the night. Sided with Fish.",
 			"actions": {
                 "night": {
@@ -137,7 +137,7 @@
             "translation": "Clown Fish",
                 "side": "village",
                 "hide": true,
-            "help": "Like Nemo or, uh, Nemo's Dad? Yeah, Nemo's Dad! Anyway, since you're so good at finding people you can inspect one person a night by typing /Inspect [name]. As long as the Anemone is alive, however, you cannot be killed or distracted. Your familiar design makes you very charismatic and grants you a vote of 2!",
+            "help": "Like Nemo or, uh, Nemo's Dad? Yeah, Nemo's Dad! Anyway, since you're so good at finding people you can /inspect one person during the night. As long as the Anemone is alive, however, you cannot be killed or distracted. Your familiar design makes you very charismatic and grants you a vote of 2!",
             "info": "Can inspect one person during the night. Ignores all distractors. Cannot be killed. Vote of 2. Sided with Fish.",
 			"actions": {
                 "night": {
@@ -172,7 +172,7 @@
             "translation": "Clown Fish",
                 "side": "village",
                 "hide": true,
-            "help": "Like Nemo or, uh, Nemo's Dad? Yeah, Nemo's Dad! Anyway, since you're so good at finding people you can inspect one person a night by typing /Inspect [name]. Unfortunately, your Anemone friend has perished so you are now vulnerable to the dangers of the ocean.",
+            "help": "Like Nemo or, uh, Nemo's Dad? Yeah, Nemo's Dad! Anyway, since you're so good at finding people you can /inspect one person during the night. Unfortunately, your Anemone friend has perished leaving you vulnerable to the dangers of the ocean.",
             "info": "Can inspect one person during the night. Sided with Fish.",
 			"actions": {
                 "night": {
@@ -353,7 +353,7 @@
             "role": "swordfish",
             "translation": "Sword Fish",
             "side": "village",
-            "help": "En garde! Use that fearsome snout you have by typing /kill [name] during standby for a non-revealing kill! Your experience in the art of swordplay allows you to /parry yourself to convert to a defensive stance blocks daykills and grants a voteshield, however, your daykill cannot be used in consecutive days.",
+            "help": "En garde! Your fearsome snout allows you to perform a non-revealing /kill during standby! Your experience in the art of swordplay allows you to /parry yourself to convert to a defensive stance blocks daykills and grants a voteshield, however, your daykill cannot be used in consecutive days.",
 			"info": "Can kill one person during standby. Can convert self during the night. Ignores distractors. Sided with Fish.",
 			"actions": {
 				"standby": {
@@ -385,7 +385,7 @@
             "role": "swordfish2",
             "translation": "Sword Fish",
             "side": "village",
-            "help": "En garde! Use that fearsome snout you have by typing /kill [name] during standby for a non-revealing kill! Your defensive stance has limited your movement and prevents you from killing two consecutive days. In return however, you have an immunity to daykills and a voteshield of -2. You can use /fleche to convert yourself back to your offensive stance.",
+            "help": "En garde! Your fearsome snout allows you to perform a non-revealing /kill during standby! Your defensive stance has limited your movement and prevents you from killing two consecutive days. In return however, you have an immunity to daykills and a voteshield of -2. You can use /fleche to convert yourself back to your offensive stance.",
 			"info": "Can kill one person during standby every other day. Can convert self during the night. Evades daykills. Voteshield of -2. Sided with Fish.",
 			"actions": {
 				"standby": {
@@ -418,7 +418,7 @@
             "role": "barracuda",
             "translation": "Barracuda",
             "side": "village",
-            "help": "You are the fearsome predator of the sea. You are able to /kill anyone during the night but due to your behavior, everyone thinks you are a Great White Shark. Your swimming speed allows you to outspeed everyone except distractors.",
+            "help": "You are the fearsome predator of the sea. You are able to /kill anyone during the night but due to your behavior, everyone thinks you are a Great White Shark! Your swimming speed allows you to outspeed everyone except distractors.",
             "info": "Can kill one person during the night. Reveals as a Great White Shark when inspected. Sided with Fish.",
 			"actions": {
 				"inspect": {
@@ -502,7 +502,7 @@
             "role": "greatwhite",
             "translation": "Great White Shark",
             "side": "shark",
-            "help": "Type /kill [name] to share a meal with your partner(s)!",
+            "help": "Duuun dun duuun dun-- You are the feared predator of the sea. You can use your massive jaws to violently attack another person at night with /kill.",
             "info": "Can kill one person during the night. Sided with Shark Mafia.",
 			"actions": {
                 "night": {
@@ -592,7 +592,7 @@
             "role": "hammerhead",
             "translation": "Hammerhead Shark",
             "side": "shark",
-            "help": "Nobody could think that you're dangerous- just look at you! What's with those eyes freak? Bump into things much? You can use /hammer during the day to kill someone and you're able to swim away before anyone knows you were there!",
+            "help": "Nobody could think that you're dangerous- just look at you! What's with those eyes freak? Bump into things much? You can /hammer someone during the day to kill them and you're even fast enough to swim away before anyone knows you were there!",
             "info": "Can kill one person during the standby (non-revealing). Sided with Shark Mafia.",
 			"actions": {
 				"standby": {
@@ -612,7 +612,7 @@
             "role": "bluewhale",
             "translation": "Blue Whale",
             "side": "mammal",
-            "help": "Use your enormous girth to protect one person every night with /protect. Furthermore, your vote counts for 2 and if anybody tries to distract you, your blowhole blasts them out of the ocean!",
+            "help": "Use your enormous girth to /protect one person every night. Furthermore, your vote counts for 2 and if anybody tries to distract you, your blowhole blasts them out of the ocean!",
             "info": "Can protect one person during the night. Vote of 2. Kills all distractors. Sided with Mammal Alliance.",
 			"actions": {
                 "night": {
@@ -664,7 +664,7 @@
 			"role": "orca",
             "translation": "Orca",
             "side": "mammal",
-            "help": "Of course, you live up to your name and are able to /kill every night. You are one of the Ocean's apex predators and fear nothing, not even the mighty Great White Shark!",
+            "help": "You are an apex predator that rules the ocean with an iron fin! You are able to attack someone at night with /kill in order to keep the Fish from rebelling and overthrowing your rule.",
             "info": "Can kill one person during the night. Sided with Mammal Alliance.",
 			"actions": {
                 "night": {
@@ -735,7 +735,7 @@
             "role": "chef",
             "translation": "Sushi Chef",
                 "side": "sushi",
-            "help": "Every night you can convert one Fish, Great White Shark, or Orca into sashimi by using /slice [name], but only these roles are able to be converted! To make things easier you know the identity of all Fish and your /slice will actually protect your target from dying in the same night. As an experienced chef, you cannot be voted out or distracted. Try not to make Cthulhu sushi as you will probably have a VERY bad day.",
+            "help": "Every night you can convert one Fish, Great White Shark, or Orca into Sashimi using /slice, but only these roles are able to be converted as strict food laws! A veteran in the field, you know the identity of all the Fish and your /slice will actually protect your target from being eaten in the same night. Your experience also makes you immune to distractions and all votes against you count for nothing. Try not to make Cthulhu Sushi though as you will probably have a VERY bad day.",
             "info": "Can convert one person every night. Ignores distractors. Voteshield of -9999. Sided with Sushi Mafia.",
 			"actions": {
 				"night": {
@@ -783,7 +783,7 @@
 			"role": "sashimi",
             "translation": "Sashimi",
             "side": "sushi",
-            "help": "Oh no! The Sushi Chef caught you and sliced you up to serve in their restaurant! To make matters worse, you have no vote!",
+            "help": "Oh no! The Sushi Chef caught you and sliced you up to serve in their restaurant! To make matters worse, you have no vote because you're sliced Fish!",
             "info": "Vote of 0. Sided with Sushi Mafia.",
 			"actions": {
 				"startup": "team-reveal-with-roles",
@@ -795,7 +795,7 @@
             "translation": "Sushi",
             "side": "sushi2",
 			"hide": true,
-            "help": "Oh no! The Sushi Chef has died. But their last act was to make Sushi out of you! You now have vote of 3 to use.",
+            "help": "Oh no! The Sushi Chef has died, but their last act was to make Sushi out of you! You now have vote of 3 to use because you are so tasty.",
             "info": "Vote of 3. Sided with Sushi Mafia.",
 			"actions": {
 				"vote": 3,
@@ -904,18 +904,17 @@
 				"mermaid",
 				"fishy",
 				"turtle",
-				"fishy",
-				"fishy",
-				"fishy",
-				"fishy",
-				"fishy",
-				"fishy",
-				"fishy",
-				"fishy",
-				"fishy",
-				"fishy",
-				"fishy",
-				"fishy"
+				"fishy", "fishy", "fishy", "fishy", "fishy",
+				"orca", "greatwhite", "fishy", "fishy", "fishy", "fishy", "pufferfish",
+				"greatwhite", "orca", "fishy", "fishy", "fishy", "fishy", "barracuda", 
+				"orca", "greatwhite", "fishy", "fishy", "fishy", "fishy", "remora",
+				"greatwhite", "orca", "fishy", "fishy", "fishy", "fishy", "angelfish", 
+				"orca", "greatwhite", "fishy", "fishy", "fishy", "fishy", "swordfish",
+				"greatwhite", "orca", "fishy", "fishy", "fishy", "fishy", "clown2", 
+				"orca", "greatwhite", "fishy", "fishy", "fishy", "fishy", "pufferfish", 
+				"greatwhite", "orca", "fishy", "fishy", "fishy", "fishy", "barracuda", 
+				"orca", "greatwhite", "fishy", "fishy", "fishy", "fishy", "swordfish", 
+				"greatwhite", "orca", "sashimi"
 	],	
     "villageCantLoseRoles": [
         "barracuda",
@@ -932,6 +931,7 @@
 	"changelog": {
 		"4.9.2013": "Minor typos and grammatical errors fixed. Removed Barracuda's daykill evasion. Replaced Flying Fish with an ordinary Fish. Slightly reduced hax rate for Devil Ray. Remora voteshield changed from -3 to -2. Corrected Cthulhu's help to properly tell the player what the role can do. Shortened Sushi Chef's help message. Swapped Sea Otter and Reef Shark's abilities (Otter now has stalk, Shark now has inspect). Fixed broadcast error on Reef Shark.",
 		"4.18.2013": "Swordfish given a convert to a more defensive stance. Messages updated to be gender neutral. Hammerhead no longer reveals or gets haxed. Gurry shark given +3 votes. Tiger shark removed from spawnlist. Fish standby hax changed to 33%.",
-		"??.??.????": "Village balance response to new Sharks. Sushi Chef update."
+		"4.26.2013": "Updating some help messages to add a little more flavor and correct some outdated references. Recycling of old summary created by FPT as a tribute.",
+		"??.??.????": "No idea what's coming up. The theme is going swimmingly right now."
 	}
 }
