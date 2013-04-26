@@ -1,7 +1,7 @@
 {
     "name": "Ocean",
 	"author": ["Fuzzy"],
-    "summary": "Ah, the ocean! It's truly a wonderful place where fish are can safely go about their business without fear of... hang on, that's not right. The ocean is a terrible place where fish are in constant danger. Violent Shark deaths occur on a regular basis and even the Mammals are getting in on the action! [Use /changelog to learn of all the new updates!]",
+    "summary": "Ah, the ocean! It's truly a wonderful place where fish can safely go about their business without fear of... hang on, that's not right. The ocean is a terrible place where fish are in constant danger. Violent Shark deaths occur on a regular basis and even the Mammals are getting in on the action! [Use /changelog to learn of all the new updates!]",
     "sides": [
         {
             "side": "village",
