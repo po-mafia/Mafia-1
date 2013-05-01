@@ -873,7 +873,7 @@
 			"translation": "Maglev",
 			"side": "train",
 			"help": "Show the others that your advanced magnetic technology far exceeds their old-school axles by using /discharge to cripple them, making their actions incredibly unreliable and unusable for a night. Your magnetic prowess warps your voting power to 1.1.",
-			"info": "Can discharge (convert and distract) one person during the night to a more detrimental state during the night. Vote of 1.1. Sided with the Train Mafia.",
+			"info": "Can discharge one person during the night. Discharge distracts and converts to a more detrimental state. Vote of 1.1. Sided with the Train Mafia.",
 			"actions": {
 				"night": {
 					"discharge":{
