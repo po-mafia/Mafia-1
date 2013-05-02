@@ -1,7 +1,7 @@
 {
     "name": "Lyncher",
     "summary": "A peaceful Village is being terrorized by a sole Mafia and a Lyncher. The Village must stop the Mafia from controlling the town while being careful not to lynch the Lynchee, otherwise the Lyncher will win! If the Lynchee is killed at night, the Lyncher joins the Village to take out the common enemy: The Mafia. The game simulates daystart and the Mafia cannot kill night 1. For 3-10 players (non-peak).",
-  "author": "Fuzzy",
+	"author": "Fuzzy",
 	"minplayers": 3,
 	"ticks": {
 		"night": 15
@@ -82,8 +82,13 @@
             "translation": "Lyncher",
             "side": "lyncher",
 			"winIfDeadRoles": ["lynchee"],
-            "help": "Your goal is to remove the Lynchee from the game during the voting phase. If the Mafia kills your Lynchee, you will join the town and win with them. You win when the Lynchee is successfully lynched at any point in the game.",
-			"info": "Wins the game if the Lynchee is lynched. Sided with Lyncher."
+            "help": "Your goal is to remove the Lynchee, who you know from the start, from the game during the voting phase. If the Mafia kills your Lynchee, you will join the town and win with them. You win when the Lynchee is successfully lynched at any point in the game.",
+			"info": "Knows the Lynchee from the start. Wins the game if the Lynchee is lynched. Sided with Lyncher.",
+			"actions": {
+				"startup": {
+					"revealRole": ["lynchee"]
+				}
+			}
 		}
 	],
 	"roles1": [
