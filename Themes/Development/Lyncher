@@ -45,7 +45,7 @@
 			"actions": {
 				"onDeath": {
 					"convertRoles": {"lyncher":"villager2"},
-					"convertmsg": "±Game: The Lynchee has been killed!"
+					"convertmsg": "±Kill: The Lynchee has been killed!"
 				},
 				"lynch": {
                     "convertTo": "lynchee2",
@@ -90,7 +90,7 @@
 				},
 				"onDeath": {
 					"convertRoles": {"lynchee":"villager2"},
-					"convertmsg": "±Game: The Lyncher has been killed!"
+					"convertmsg": "±Kill: The Lyncher has been killed!"
 				}
 			}
 		}
@@ -106,5 +106,8 @@
 		"villager",
 		"villager",
 		"villager"
-	]
+	],
+	"changelog": {
+		"May 8, 2013": "Fixed bug related to Lynchee not converting when Lyncher dies."
+	}
 }
