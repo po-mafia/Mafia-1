@@ -49,7 +49,7 @@
 				},
 				"lynch": {
                     "convertTo": "lynchee2",
-                    "convertmsg": "±Game: The Lynchee has been lynched!"
+                    "convertmsg": "The Lynchee has been lynched!"
                 }
 			}
 		},
@@ -87,6 +87,10 @@
 			"actions": {
 				"startup": {
 					"revealRole": ["lynchee"]
+				},
+				"onDeath": {
+					"convertRoles": {"lynchee":"villager2"},
+					"convertmsg": "±Game: The Lyncher has been killed!"
 				}
 			}
 		}
