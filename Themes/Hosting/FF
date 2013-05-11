@@ -1,0 +1,585 @@
+{
+    "name": "FF",
+    "author": "Narshen",
+    "summary": "All your favorite Final Fantasy heroes and villains have gathered for a gigantic battle royale! The villains bring threatening new abilities to the arena, each one able to cripple the heroes severely. Only one thing is certain, though  - last party standing wins. [Update: Cecil completely remade. Have fun!]",
+    "sides": [
+        {
+            "side": "mafia",
+            "translation": "Garland",
+            "winmsg": "'Hahahaha! Know your place!' The power of good was no match for Garland (~Players~)!"
+        },
+        {
+            "side": "mafia1",
+            "translation": "Sin",
+            "winmsg": "' Pitiful mortals... Your hope ends here...and your meaningless existence with it!' Sin has been reawakened and the world is destroyed, a victory for ~Players~!"
+        },
+        {
+            "side": "mafia2",
+            "translation": "House Solidor",
+            "winmsg": "'Your lives are forfeit, and your insurgence with them!' House Solidor triumphs over the heroes and seizes control of the land thanks to ~Players~!"
+        },
+        {
+            "side": "village",
+            "translation": "Heroes",
+            "winmsg": "Having vanquished all the evil from the world, the Heroes (~Players~) have won!"
+        },
+        {
+            "side": "mafia3",
+            "translation": "Kefka's Posse",
+            "winmsg": "Read my lips - mercy is for wimps! There's a reason 'oppose' rhymes with 'dispose'...If they get in your way, kill them! (Kefka's Posse [~Players~] has won!)"
+        },
+        {
+            "side": "mafia4",
+            "translation": "Ultimecia",
+            "winmsg": "'Time shall compress... ...All existence denied.'  A stunning victory for ~Players~!"
+        },
+        {
+            "side": "godfather",
+            "translation": "Sephiroth",
+            "winmsg": "'What I have shown you is reality. What you remember, that is the illusion.'  A magnificent victory for ~Players~!"
+        }
+    ],
+    "roles": [
+        {
+            "role": "villager",
+            "translation": "Moogle",
+            "side": "village",
+            "info": "Kupo! Sided with Heroes.",
+            "help": "As a moogle, it is your job to get the village to win by voting during the day!",
+            "actions": {}
+        },
+        {
+            "role": "inspector",
+            "translation": "Locke",
+            "side": "village",
+            "info": "Can inspect one person during the night. Sided with Heroes. ",
+            "help": "Type /Inspect [name] to find his/her identity! Be careful to not die!",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 30
+                    }
+                }
+            }
+        },
+        {
+            "role": "bodyguard",
+            "translation": "Auron",
+            "side": "village",
+            "info": "Can protect one person during the night. Gets hax on distract. Sided with Heroes.",
+            "help": "Your sole duty is to protect the Heroes as they find all of the villains. Type /protect during the night to do so. In addition, you have a chance of finding a distractor at night...",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 8,
+                        "broadcast": "role"
+                    }
+                },
+                "hax": {
+                    "distract": {
+                        "revealTeam": 0.25,
+                        "revealPlayer": 0.25
+                    }
+                },
+                "startup": "role-reveal"
+            }
+        },
+        {
+            "role": "mafia",
+            "translation": "Garland",
+            "side": "mafia",
+            "info": "Can kill one person during the night (shared with team). Sided with Garland.",
+            "help": "Type /Kill [name] to kill someone! You, Garland, will knock them all down!",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 15,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "werewolf",
+            "translation": "Kefka",
+            "side": "mafia3",
+            "info": "Can kill one person during the night. Cannot be detected by spies. Kills any distractors. Sided with Kefka's Posse.",
+            "help": "With insane agility, you outspeed even bodyguards. Strike hard with /kill [name]! Uwee hee hee! If Kuja is playing, team up with him to win!",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 5
+                    }
+                },
+                "distract": {
+                    "mode": "ChangeTarget",
+                    "hookermsg": "You tried to distract Kefka (how foolish...), you were killed instead !",
+                    "msg": "The ~Distracter~ came to you last night! You destroyed her instead !"
+                },
+                "avoidHax": [
+                    "kill"
+                ]
+            }
+        },
+        {
+            "role": "hooker",
+            "translation": "Tifa",
+            "side": "village",
+            "info": "Can distract one person during the night. Gets hax on protect. Sided with Heroes.",
+            "help": "Deceptively strong, you are capable of stopping killers at night with /distract [name]. In addition, you have a chance of finding a protector at night. ",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 2
+                    }
+                },
+                "hax": {
+                    "protect": {
+                        "revealTeam": 0.25,
+                        "revealPlayer": 0.25
+                    }
+                }
+            }
+        },
+        {
+            "role": "mayor",
+            "translation": "Dark Knight Cecil",
+            "side": "village",
+            "info": "Can protect self during the night. Can purify self during the night. Vote counts as -2. Sided with Heroes.",
+            "help": "You're the Dark Knight, Cecil. Your internal conflict with yourself grants you abilities unlike any other! Your vote is worth -2. allowing you to negate up to two neutral votes! Additionally, you can protect yourself every night with /protect. If you wish to cleanse yourself of the dark armor and gain new abilities, type /purify [your name] at night.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 6
+                    },
+                    "purify": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 50,
+                        "newRole": "palamayor",
+                        "canConvert": [
+                            "mayor"
+                        ],
+                        "convertmsg": "'My blade will lead me to the light!' Dark Knight Cecil has transformed into Paladin Cecil, altering his abilities!",
+                        "silent": false
+                    }
+                },
+                "vote": -2
+            }
+        },
+        {
+            "role": "palamayor",
+            "translation": "Paladin Cecil",
+            "side": "village",
+            "info": "Can protect one person during the night. Can shadow self during the night. Vote counts as 2. Sided with Heroes.",
+            "help": "Illumination! You've shed your armor of darkness and are now Paladin Cecil! You can no longer protect yourself but you are able to /protect any other role of your choice. Additionally, your vote is worth 2. If you wish to return to Dark Knight form, type /shadow [your name] at night.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 6
+                    },
+                    "shadow": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 50,
+                        "newRole": "mayor",
+                        "canConvert": [
+                            "palamayor"
+                        ],
+                        "convertmsg": "'Darkness be with me !' Paladin Cecil has reverted to Dark Knight Cecil, gaining new abilities!",
+                        "silent": false
+                    }
+                },
+                "vote": 2
+            }
+        },
+        {
+            "role": "mayor3",
+            "translation": "Aerith",
+            "side": "village",
+            "info": "Vote counts as 0. Can't be nightkilled. Sided with Heroes.",
+            "help": "Your sheer willpower allows your spirit to live on within the Lifestream and communicate with Heroes. As a spirit, you cannot be killed at night. You, however, have a worthless vote.",
+            "actions": {
+                "vote": 0,
+                "kill": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "mayor2",
+            "translation": "Kuja",
+            "side": "mafia3",
+            "info": "Vote counts as 9999. Voteshield of -9999. Sided with Kefka's Posse.",
+            "help": "The true show begins now! You're the brightest star in the voting arena, voting for anyone results in their immediate death. Team up with Kefka to win!",
+            "actions": {
+                "vote": 9999,
+                "voteshield": -9999
+            },
+            "winIfDeadRoles": [
+                "mafia1",
+                "vigilante",
+                "mafia2",
+                "mafiaboss2",
+                "mafiaboss1",
+                "samurai",
+                "godfather",
+                "mafia4"
+            ]
+        },
+        {
+            "role": "spy",
+            "translation": "Zidane",
+            "side": "village",
+            "info": "Gets hax on kill and inspect. Sided with Heroes.",
+            "help": "As a professional thief, darkness is your element. At night, you have a chance of finding out who is a killer. In addition to this, you will detect the presence of other thieves such as Locke!",
+            "actions": {
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.4,
+                        "revealPlayer": 0.15
+                    },
+                    "inspect": {
+                        "revealTeam": 0.99,
+                        "revealPlayer": 0.99
+                    }
+                }
+            }
+        },
+        {
+            "role": "godfather",
+            "translation": "Sephiroth",
+            "side": "godfather",
+            "info": "Can kill 1 persons during the night. Cannot be detected by spies. Can kill one person during the standby. Kills any distractors. Sided with Sephiroth.",
+            "help": "You...will never be a memory. As a legendary warrior, you are a force to be reckoned with at all times. Type /kill [name] once per night AND during a standby phase to eliminate those who oppose you. You will not be revealed, so have fun. ",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 20,
+                        "limit": 1
+                    }
+                },
+                "distract": {
+                    "mode": "ChangeTarget",
+                    "hookermsg": "Tell me what it is you cherish most. Give me the pleasure of taking it away. You tried to distract the Sephiroth, but subsequently was killed.",
+                    "msg": "You had a visitor last night. The fool simply became part of the Lifestream..."
+                },
+                "avoidHax": [
+                    "kill"
+                ],
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now using /kill [name] :",
+                        "killmsg": "Sephiroth darts through the crowd and swiftly slices through ~Target~. He then vanishes without a trace."
+                    }
+                }
+            }
+        },
+        {
+            "role": "vigilante",
+            "translation": "Lightning",
+            "side": "village",
+            "info": "Can kill one person during the night. Sided with Heroes.",
+            "help": "Allied with the heroes, it is your goal to assist them and win! Type /kill [name] during the night.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 19
+                    }
+                }
+            }
+        },
+        {
+            "role": "mafia1",
+            "translation": "Jecht",
+            "side": "mafia1",
+            "info": "Can kill one person during the night. Sided with Sin.",
+            "help": "Team up with Seymour and Yunalesca to bring Sin to victory! Type /kill [name] during the night!",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 12,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "mafia2",
+            "translation": "Larsa Solidor",
+            "side": "mafia2",
+            "info": "Can kill one person during the night. Sided with House Solidor.",
+            "help": "House Solidor unite! Use /kill [name] to weaken the heroes.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "conspirator1",
+            "translation": "Yunalesca",
+            "side": "mafia1",
+            "info": "Can distract one person during the night. Vote counts as 2. Sided with Sin.",
+            "help": "Stop those who threaten to ruin Sin's plans. Type /distract [name] during the night. Ancient magics double your voting power, giving you +2.",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 1
+                    }
+                },
+                "vote": 2,
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "conspirator2",
+            "translation": "Judge Gabranth",
+            "side": "mafia2",
+            "info": "Can protect one person during the night. Vote counts as 2. Sided with House Solidor.",
+            "help": "You're House Solidor's personal bodyguard. Type /protect [name] to defend Larsa or Vayne! You have the ability to boost your vote count by calling on fellow judges, giving you a +2 vote.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 7,
+                        "broadcast": "role"
+                    }
+                },
+                "vote": 2,
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "mafiaboss1",
+            "translation": "Seymour",
+            "side": "mafia1",
+            "info": "Can kill one person during the night. Ignores any distractors. Sided with Sin.",
+            "help": "You're Maester Seymour, allied with Sin. You invoke magic powers and can kill using /Kill! You can't be distracted by foolish mortals.",
+            "actions": {
+                "distract": {
+                    "mode": "ignore"
+                },
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 12,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "mafiaboss2",
+            "translation": "Vayne Solidor",
+            "side": "mafia2",
+            "info": "Can kill one person during the night. Can inspect one person during the night. Cannot be detected by spies. Sided with House Solidor.",
+            "help": "As head of House Solidor, it is your duty to crush the foolish heroes. Type /kill [name]. Your extensive spy network also allows you to /inspect one player per night.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team"
+                    },
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 38
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "avoidHax": [
+                    "inspect"
+                ]
+            }
+        },
+        {
+            "role": "samurai",
+            "translation": "Cloud",
+            "side": "village",
+            "info": "Can kill one person during the standby. Can't be daykilled. Sided with Heroes.",
+            "help": "As a former member of SOLDIER, your battle skills are top notch. Type /kill [name] during the day to eliminate possible villains. You're fairly flashy so your kills will be done in plain sight: you will be revealed.",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "Draw your Buster Sword and pick a target using /kill [name] :",
+                        "killmsg": "~Self~ lunges and pulls out a Buster Sword, striking down ~Target~!"
+                    }
+                },
+                "daykill": "evade"
+            }
+        },
+        {
+            "role": "miller",
+            "translation": "Cactuar",
+            "side": "village",
+            "info": "Can inspect one person during the night (90% chance for fake inspect). Sees itself as Locke. Cannot be detected by spies. Reveals as Kefka when inspected. Sided with Heroes.",
+            "help": "Type /Inspect [name] to find his/her identity! Be careful to not die!",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 30,
+                        "Sight": {
+                            "true": 0.1,
+                            "werewolf": 0.9
+                        }
+                    }
+                },
+                "avoidHax": [
+                    "inspect"
+                ],
+                "inspect": {
+                    "revealAs": "werewolf"
+                },
+                "startup": {
+                    "revealAs": "inspector"
+                }
+            }
+        },
+        {
+            "role": "vigilante2",
+            "translation": "Tidus",
+            "side": "village",
+            "info": "Can distract 3 persons during the night. Vote counts as 0. Sided with Heroes.",
+            "help": "You're Tidus! Carefree and light-hearted, you don't appreciate the villains  and their evil deeds. Thankfully, you've brought more than a few blitzballs to the fray; you can stun people with /distract and have them rendered immobile for the night. You can throw up to 3 blitzballs per night but...you have to collect them during the day. Your vote counts as 0.",
+            "actions": {
+                "night": {
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 3,
+                        "limit": 3
+                    }
+                },
+                "vote": 0
+            }
+        },
+        {
+            "role": "vigilante3",
+            "translation": "Gigantuar",
+            "side": "village",
+            "info": "Revenges nightkills. Sided with Heroes.",
+            "help": "You're a special, chosen Cactuar. While you don't have the ability to directly kill any target, you have a secret ability: any fatal attack on you during the night results in the attacker dying as well. You never go down without a fight! ",
+            "actions": {
+                "kill": {
+                    "mode": "killattacker"
+                }
+            }
+        },
+        {
+            "role": "mafia4",
+            "translation": "Ultimecia",
+            "side": "mafia4",
+            "info": "Can poison 2 persons during the night. Vote counts as 4. Sided with Ultimecia.",
+            "help": "You are Ultimecia. Time shall compress...All existence will be denied...forever. Your dark magics allow you to seal up to 2 players every night with /poison: they will die at the end of the following night. Spacial compression also greatly increases your voting capabilities: your vote counts as 4. ",
+            "actions": {
+                "night": {
+                    "poison": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 15,
+                        "broadcast": "team",
+                        "limit": 2
+                    }
+                },
+                "vote": 4
+            }
+        }
+    ],
+    "roles1": [
+        "bodyguard",
+        "mafia",
+        "inspector",
+        "werewolf",
+        "hooker",
+        "villager",
+        "mafia",
+        "mayor",
+        "miller",
+        "villager",
+        "villager"
+    ],
+    "roles2": [
+        "bodyguard",
+        "mafia1",
+        "conspirator1",
+        "inspector",
+        "hooker",
+        "villager",
+        "mafia2",
+        "conspirator2",
+        "villager",
+        "miller",
+        "vigilante",
+        "mayor",
+        "werewolf",
+        "spy",
+        "villager",
+        "samurai",
+        "mayor2",
+        "mafiaboss1",
+        "mafiaboss2",
+        "godfather",
+        "mayor3",
+        "mafia4",
+        "vigilante2",
+        "vigilante3",
+        "villager",
+        "villager",
+        "villager",
+        "miller",
+        "miller",
+        "villager"
+    ],
+    "villageCantLoseRoles": [
+        "vigilante",
+        "samurai",
+        "palamayor",
+        "mayor"
+    ],
+    "killmsg": "±Game: ~Player~ (~Role~) has fallen!",
+    "killusermsg": "You have been killed!",
+    "lynchmsg": "±Game: ~Player~ (~Role~) has been removed from the game!",
+    "drawmsg": "The battle is over...but there is no victory today. Everyone has died!"
+}
