@@ -1,0 +1,896 @@
+{
+    "name": "FE",
+    "author":["Narshen"],
+    "summary": "http://wiki.pokemon-online.eu/wiki/Theme:FE",
+    "sides": [
+        {
+            "side": "senate",
+            "translation": "Begnion Senators",
+            "winmsg": "Ta ha ha! The Corrupt Senators, ~Players~, have won!"
+        },
+        {
+            "side": "nergal",
+            "translation": "Dread Isle",
+            "winmsg": "'Humans... they are so very fragile'... the Dread Isle forces, ~Players~, have won!"
+        },
+        {
+            "side": "bern",
+            "translation": "Kingdom of Bern",
+            "winmsg": "A wide smile is seen all over the faces of ~Players~ - the dragons have been reawakened!"
+        },
+        {
+            "side": "village",
+            "translation": "Heroes",
+            "winmsg": "Fighting against all odds, the Heroes (~Players~) have cleansed the land of the forces of evil!"
+        },
+        {
+            "side": "lyon",
+            "translation": "Grado Empire",
+            "winmsg": "The sheer power of the Demon King allows ~Players~ to destroy all opposition! A thousand year reign of evil has begun!"
+        },
+        {
+            "side": "madking",
+            "translation": "Mad King Ashnard",
+            "winmsg": "'One blow. For nameless wretches like you, one blow is more than enough.' The Kingdom of Daein, lead by ~Players~, has destroyed all opposition! "
+        },
+        {
+            "side": "blackknight",
+            "translation": "Black Knight",
+            "winmsg": "'Is that...all there is? No challenge? No... resistance?' The Black Knight, ~Players~, has destroyed every foe with ease."
+        },
+        {
+            "side": "fool",
+            "translation": "Lundgren's Forces",
+            "winmsg": "'Whelps!' The Caelin throne now belongs to ~Players~...dark days are ahead..."
+        }
+    ],
+    "roles": [
+        {
+            "role": "villager",
+            "translation": "Soldier",
+            "side": "village",
+            "help": "You're a soldier fighting against the forces of evil. You aren't very strong and have no special commands. Your basic soldier training grants you a 5% chance to dodge nightkills, however!",
+            "actions": {
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.05
+                    }
+                }
+            }
+        },
+        {
+            "role": "demoted",
+            "translation": "Demoted Soldier",
+            "side": "village",
+            "help": "Never underestimate the power of money. King Zephiel has paid the ENEMY army leaders to demote you. You've lost your voting capabilities.",
+            "actions": {
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.05
+                    }
+                },
+                "vote": 0
+            }
+        },
+        {
+            "role": "villager2",
+            "translation": "Disgruntled Soldier",
+            "side": "fool",
+            "winningSides": [
+                "nergal",
+                "bern",
+                "lyon",
+                "senate",
+                "blackknight",
+                "madking"
+            ],
+            "help": "You've just about had it with these naive heroes! You don't care who wins anymore - so long as it isn't them! Your win condition is satisfied if the heroes lose. Like other soldiers, you possess a 5% kill evade chance. In addition, you appear to be a normal soldier in the roles listing. If you get lynched, you will be saved from death and turn into a Berserk Soldier!",
+			"info": "Has a 5% chance of evading nightkills. Converts when lynched. Sided with Lundgren's Forces. Wins the game with Dread Isle, Kingdom of Bern, Grado Empire, Begnion Senators, Black Knight or Mad King Ashnard. Death causes Ashnard's transformation.",
+            "actions": {
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.05
+                    }
+                },
+                "onlist": "villager",
+                "lynch": {
+                    "convertTo": "villager3",
+                    "convertmsg": "The Disgruntled Soldier, ~Self~,  is hit with a Berserk Staff after receiving ~Count~ votes. He has gone insane and now kills at night."
+                },
+                "onDeath": {
+                    "convertRoles": {
+                        "ashnard": "ashnard2"
+                    },
+                    "convertmsg": "King Ashnard revels in the death of the Disgruntled Soldier and uses his soul to unleash the power of the medallion! Ashnard's abilities have greatly increased. 'More, more I say!'"
+                }
+            }
+        },
+        {
+            "role": "villager3",
+            "translation": "Berserk Soldier",
+            "side": "fool",
+            "winningSides": [
+                "nergal",
+                "bern",
+                "lyon",
+                "senate",
+                "blackknight",
+                "madking"
+            ],
+            "help": "You've lost all sense of self-preservation. The side of justice has just tried to rid themselves of you...and you are completely enraged! The time for talk is over - you now have one swift kill per night.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 2
+                    }
+                }
+            }
+        },
+        {
+            "role": "mafia",
+            "translation": "Corrupt Senator",
+            "side": "senate",
+            "help": "You're a corrupt senator of the nation of Begnion. You'll benefit if the heroes fail and the world is purged in the final judgment. You can /kill and you have bought extra votes, you now have one and a three-quarters (1.75)!",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 15,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal",
+                "vote": 1.75
+            }
+        },
+        {
+            "role": "truemiller",
+            "translation": "Trainee",
+            "side": "village",
+            "help": "You're a soldier fighting against the forces of evil. You aren't very strong and have no special commands. Your basic soldier training grants you a 5% chance to dodge nightkills, however!",
+            "actions": {
+                "inspect": {
+                    "revealAs": "villager2"
+                },
+                "lynch": {
+                    "revealAs": "truemiller"
+                },
+                "startup": {
+                    "revealAs": "villager"
+                },
+                "onlist": "villager"
+            }
+        },
+        {
+            "role": "fool",
+            "translation": "Lundgren",
+            "side": "fool",
+            "help": "You are the evil Lord Lundgren. You don't have any lofty goals in mind like any of the other villains. You simply wish to take control of House Caelin but...Lyndis and her cadre are in your way. Exterminate the rats with /poison AND /kill every night. Your vote counts as 2.5.",
+            "actions": {
+                "night": {
+                    "poison": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 33
+                    },
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 32
+                    }
+                },
+                "vote": 2.5
+            }
+        },
+        {
+            "role": "lyndis",
+            "translation": "Lyndis",
+            "side": "village",
+            "help": "You're Lady Lyn of House Caelin. Despite being of noble blood, you spent almost the entirety of your life as a nomad on the plains of Sacae. As a result, you're extremely stealthy and swift. Every night, you have the ability to /stalk a target to follow their trail AND you can use /kill, which grants you the ability to dispatch a target with high priority. You're a close friend of Hector so you can identify him from the start.",
+            "actions": {
+                "night": {
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 50
+                    },
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 9
+                    }
+                },
+                "startup": {
+                    "revealRole": [
+                        "hector"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "hector",
+            "translation": "Hector",
+            "side": "village",
+            "help": "You're Lord Hector of House Ostia. You're rash and stubborn but fiercly loyal to your friends. You possess incredibly strong armor and defensive capabilities, you're able to /protect up to two other allies every night. In addition, your role as leader of Ostia grants you considerable sway in voting procedures, giving you a +3 vote. You're a close friend of Lyndis so you can identify her from the start. As a fun diversion, type /expose [name] during the game to insult anyone!",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 8,
+                        "limit": 2
+                    }
+                },
+                "standby": {
+                    "expose": {
+                        "target": "AnyButSelf",
+                        "recharge": 99,
+                        "msg": "Make sure the coast is clear and type /expose to make a rude gesture at someone!",
+                        "exposemsg": "Hector makes sure the coast is clear and then proceeds to make a very rude gesture at ~Target~! The audience is completely shocked..."
+                    }
+                },
+                "vote": 3,
+                "startup": {
+                    "revealRole": [
+                        "lyndis"
+                    ]
+                },
+				"kill": {
+					"mode": {
+						"ignore": ["lyndis"]
+					}
+				}
+            }
+        },
+        {
+            "role": "sothe",
+            "translation": "Sothe",
+            "side": "village",
+            "help": "You're a member of the Dawn Brigade and a childhood friend of Micaiah. You've spent your whole life in the alleys of the slums of Daein and know a few tricks here and there. Every night, you have a chance of finding a killer. You're not the only one searching for information, though and you have a small chance of finding Soren! Additionally, Micaiah is always at your side so you always know her identity.",
+            "actions": {
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.4,
+                        "revealPlayer": 0.15
+                    },
+                    "inspect": {
+                        "revealTeam": 0.99,
+                        "revealPlayer": 0.3
+                    }
+                },
+                "startup": {
+                    "revealRole": [
+                        "micaiah"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "micaiah",
+            "translation": "Micaiah",
+            "side": "village",
+            "help": "You're the Silver-Haired Maiden, liberator of Daein. You wield very powerful holy magic that can only be used by those in the service of good. Your abilities allow you to /safeguard one ally at night. Your abilities also give you immunity to poison. Your faithful friend, Sothe, is always at your side - you know his identity from the start.",
+            "actions": {
+                "night": {
+                    "safeguard": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 2
+                    }
+                },
+                "startup": {
+                    "revealRole": [
+                        "sothe"
+                    ]
+                },
+                "poison": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "sophia",
+            "translation": "Sophia",
+            "side": "village",
+            "help": "You're a shaman from the mystical village of Arcadia, here to help Lord Roy defeat the villains. To this end, you wield powerful dark magic. This magic allows you to /bind a unit once per night, leaving them unable to take any action whatsoever. Being a shaman, you have a high resistance to other dark magics - you cannot be morphed. You know the identity of Lord Roy.",
+            "actions": {
+                "night": {
+                    "bind": {
+                        "command": "distract",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 6,
+                        "distractmsg": "Mystical dark magics have bound you in place. You were unable to act this round. "
+                    }
+                },
+                "startup": {
+                    "revealRole": [
+                        "roy"
+                    ]
+                },
+                "convert": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "roy",
+            "translation": "Roy",
+            "side": "village",
+            "help": "You're the son of Eliwood, Marquess of Pherae! You're here to put an end to this war and, to that end, you've brought along the mythical Sword of Seals. Each day, during the standby phase, you can type /expose [name] to use the power of the Sword of Seals to reveal the identity of any player. The fire is so vibrant that you will be revealed so be careful. You've brought along your ally, Sophia, so you know her identity from the start.",
+            "actions": {
+                "standby": {
+                    "expose": {
+                        "target": "AnyButSelf",
+                        "msg": "You can type /expose [name] to reveal someone's role!",
+                        "exposemsg": "~Self~, Lord Roy, points the Sword of Seals at ~Target~ and illuminates them, showing them to be ~Role~! Roy then strikes a pose!"
+                    }
+                },
+                "startup": {
+                    "revealRole": [
+                        "sophia"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "soren",
+            "translation": "Soren",
+            "side": "village",
+            "help": "You're the expert tactician of the Greil Mercenaries. You're very loyal to Ike and serve him with your life but are a bit...cold to other people. Regardless, its in your best interests to help the heroes and end this war. To this end, you have the ability to /inspect one unit at nighttime, showing their identity. You're also good at predicting traps and danger, giving you a 10% chance to not die to killers. You're always next to Ike so you know his identity.",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 35
+                    }
+                },
+                "kill": {
+                    "mode": {
+                        "evadeChance": 0.1
+                    }
+                },
+                "startup": {
+                    "revealRole": [
+                        "ike"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "ike",
+            "translation": "Ike",
+            "side": "village",
+            "help": "As the incredibly powerful leader of the Greil Mercenaries, it's up to you to put an end to this war. You possess the holy sword, Ragnell, and are strong enough to wield it with only one hand. You are capable enough to duel any other player and win in single combat. Type /kill during the standby phase to fight them. You're not only powerful but you're also swift - you won't be revealed. Soren is always at your side so you know his identity.",
+            "actions": {
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "In every fight you've had that has ever mattered, you've been the one left standing. Pick a target and lunge at them with /kill [name] :",
+                        "killmsg": "'Prepare yourself'. A giant, golden sword is seen high in the sky. Then, with great force, Ike lands and duels ~Target~. Sadly, ~Target~ is no match for Ike. This match is over!"
+                    }
+                },
+                "startup": {
+                    "revealRole": [
+                        "soren"
+                    ]
+                }
+            }
+        },
+        {
+            "role": "mhero",
+            "translation": "Masked Hero",
+            "side": "village",
+            "help": "A prince from a distant land, cloaked in purple garb. A mask shields your face...an enigmatic figure. You're watching the outcome of this fight with utmost patience - you have no commands until the third night. On the third night, you will be able to /unmask [your name] to reveal your true identity! Due to your disguise, you'll appear to be very similar to a certain masked villain...the Black Knight. You stray away from the battlefield during both the day and night - you can't be killed, poisoned or converted but your vote is worthless.",
+			"info": "Can unmask self during the night. Vote counts as 0. Can't be nightkilled. Can't be daykilled. Can't be poisoned. Reveals as Black Knight when inspected. Sided with Heroes.",
+            "actions": {
+                "night": {
+                    "unmask": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 50,
+                        "initialrecharge": 3,
+                        "newRole": "marth",
+                        "canConvert": [
+                            "mhero"
+                        ],
+                        "convertmsg": "The Masked Hero removes his disguise...it's Prince Marth! The audience cheers!",
+                        "silent": false
+                    }
+                },
+                "inspect": {
+                    "revealAs": "blackknight"},
+                    "vote": 0,
+				"convert": {
+                    "mode": "ignore"
+                },
+                "kill": {
+					"mode": "ignore"},
+                "poison": {
+                    "mode": "ignore"
+                },
+				"daykill": "evade"
+            }
+        },
+        {
+            "role": "marth",
+            "translation": "Marth",
+            "side": "village",
+            "help": "The Prince of Altea, Marth is here! You're an extremely capable tactician - in addition to your peerless swordsmanship. Now that you've removed your mask, you can finally take the lead! You have the ability to /kill one target per night with ease. Additionally, your assortment of abilities allows you to do anything else you wish but...you can't perform everything at once! You can /protect, /distract, /safeguard (yourself included), /inspect and even /stalk at night but you must choose one carefully! You're also incredibly charismatic - your vote is worth 4.",
+			"info": "Can kill one person during the night. Can either inspect, protect, stalk, safeguard, or distract one target during the night. Vote counts as 4. Sided with Heroes.",
+            "actions": {
+                "night": {
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 40,
+                        "restrict": [
+                            "distract",
+                            "stalk",
+                            "protect",
+                            "safeguard"
+                        ]
+                    },
+                    "safeguard": {
+                        "target": "Any",
+                        "common": "Self",
+                        "priority": 4,
+                        "restrict": [
+                            "distract",
+                            "stalk",
+                            "protect",
+                            "safeguard"
+                        ]
+                    },
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 4,
+                        "restrict": [
+                            "distract",
+                            "stalk",
+                            "inspect",
+                            "safeguard"
+                        ]
+                    },
+                    "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 40,
+                        "restrict": [
+                            "distract",
+                            "inspect",
+                            "protect",
+                            "safeguard"
+                        ]
+                    },
+                    "distract": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 4,
+                        "restrict": [
+                            "inspect",
+                            "stalk",
+                            "protect",
+                            "safeguard"
+                        ]
+                    },
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 40
+                    }
+                },
+                "vote": 4
+            }
+        },
+        {
+            "role": "blackknight",
+            "translation": "Black Knight",
+            "side": "blackknight",
+            "help": "You're the enigmatic Black Knight, the strongest of Daein's Four Riders and one of the strongest warriors in the land. You wield the holy blade Alondite, the counterpart to Ike's Ragnell! You're patiently watching the outcome of this war. On the 5th night, you are able to act and use the deadly skill Luna. Type /luna to kill up to 5 targets with maximum priority on the 5th night and every night afterwards. Your armor is blessed by the goddess, normal weapons cannot hope to harm it - you are immune to death at night. You can, as a fun distraction, use /intimidate during the 4th standby phase (before the 5th night) to send a warning message to all the other players.",
+            "info": "The Black Knight is incredibly patient and will not take any action for 4 turns. Starting from the 5th night onward, he can kill up to 5 people at once with maximum priority. He is undetectable via spies and is unkillable at night. ",
+            "actions": {
+                "standby": {
+                    "intimidate": {
+                        "command": "reveal",
+                        "revealmsg": "In every pub and on every street, there is only one topic of conversation - the Black Knight is here. Everyone in the audience feels a chill.",
+                        "initialrecharge": 4,
+                        "recharge": 99
+                    }
+                },
+                "night": {
+                    "luna": {
+                        "command": "kill",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 1,
+                        "limit": 5,
+                        "initialrecharge": 5
+                    }
+                },
+                "convert": {
+                    "mode": "ignore"
+                },
+                "kill": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "zeph",
+            "translation": "King Zephiel",
+            "side": "bern",
+            "help": "You will not bar my path! You are the powerful King Zephiel, ruler of Bern and commander of dragons. You have decided to purify this world by unleashing the dragons upon it, so that it could be reborn anew. To this end, you have the ability to /kill any unit at night with your mighty blade. Additionally, your spy network allows you to /inspect anyone (this spy network cannot be traced via enemy spies). Furthermore, your incredible political clout gives you a +3 vote. Needless to say, you cannot be distracted, poisoned or morphed. Finally, you can /demote a soldier of their voting capabilities once per game!",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team"
+                    },
+                    "inspect": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 38,
+                        "recharge": 1
+                    },
+                    "demote": {
+                        "command": "convert",
+                        "target": "AnyButTeam",
+                        "common": "Role",
+                        "priority": 26,
+                        "charges": 1,
+                        "broadcast": "team",
+                        "broadcastmsg": "±Tactician: King Zephiel has decided to demote ~Target~!",
+                        "convertmsg": "King Zephiel slips the Heroes a bag of gold and ~Target~ is demoted. Being a King has some plus sides!",
+                        "newRole": {
+                            "demoted": [
+                                "villager"
+                            ]
+                        }
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "avoidHax": [
+                    "inspect"
+                ],
+                "convert": {
+                    "mode": "ignore"
+                },
+                "poison": {
+                    "mode": "ignore"
+                },
+                "distract": {
+                    "mode": "ignore"
+                },
+                "vote": 3
+            }
+        },
+        {
+            "role": "murdock",
+            "translation": "Murdock",
+            "side": "bern",
+            "help": "You're the personal guard of King Zephiel. Type /protect [name] to shield up to two allies per night. Your protection is nearly absolute, few can break it. Like the other members on your team, you are capable of armed combat - you can /kill once per night.",
+            "actions": {
+                "night": {
+                    "protect": {
+                        "target": "AnyButSelf",
+                        "common": "Role",
+                        "priority": 7,
+                        "broadcast": "role",
+                        "limit": 2
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "idoun",
+            "translation": "Idoun",
+            "side": "bern",
+            "help": "You're the Dark Priestess, Idoun. While you seem to be a young girl, you're actually the Dark Dragon. You're assisting Zephiel in his schemes for the destruction of the world but you aren't doing it of your own volition. Still, you must win this war!. You can /kill one target a night and you have considerable influence in affairs of state, giving you a +1.5 vote. Additionally, as you are always in robes and a hood, you are mistaken for a Soldier when inspected.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 11,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "inspect": {
+                    "revealAs": "villager"
+                },
+                "vote": 1.5
+            }
+        },
+        {
+            "role": "morph",
+            "translation": "Nameless Morph",
+            "side": "nergal",
+            "help": "Your life force has been stolen and you've been slain! The morph made from your corpse retains your memories, though, and you are still 'alive' (if only in name). Your vote is worthless. You do, however, have a -10 voteshield and inspect as Lord Nergal",
+            "actions": {
+                "vote": 0,
+                "voteshield": -10,
+                "inspect": {
+                    "revealAs": "nergal"
+                }
+            }
+        },
+        {
+            "role": "nergal",
+            "translation": "Nergal",
+            "side": "nergal",
+            "help": "You're the dark druid, Nergal. You've sought to start this war to collect the powerful life energies of strong warriors! You've mastered the ability to steal life energy and every other night you are able to /morph any unit into a Nameless Morph, sided with you. Be careful, as Nameless Morphs do not know who you are! Of course, you are also able to /kill using 'basic' dark magic every round as well. Plunge the world into darkness!",
+"info": "Can morph one person every other night. Can kill one person during the night. Sided with Dread Isle.",
+            "actions": {
+                "night": {
+                    "morph": {
+                        "command": "convert",
+                        "target": "AnyButTeam",
+                        "common": "Self",
+                        "priority": 4,
+                        "newRole": "morph",
+                        "silent": false,
+                        "recharge": 2,
+                        "convertmsg": "A player has been drained of life energy and turned into a Nameless Morph!"
+                    },
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 12,
+                        "broadcast": "team"
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "onDeath": {
+                    "killRoles": [
+                        "morph"
+                    ],
+                    "killmsg": "As Nergal dies so do all of his converted Morphs (~Target~)!"
+                }
+            }
+        },
+        {
+            "role": "limstella",
+            "translation": "Limstella",
+            "side": "nergal",
+            "help": "The strongest and most beautiful of morphs at Nergal's command, you are a master of magic. You can use this magic to /kill every night. Elemental magics allow you to /bind an opponent in place, rendering then unable to take action for the night. You may also use /stalk to follow a suspect during the night. As you are not alive, you are not able to be poisoned.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 12,
+                        "broadcast": "team"
+                    },
+ "stalk": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 53
+                    },
+                    "bind": {
+                        "command": "distract",
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 5,
+                        "distractmsg": "Mystical anima magics have bound you in place. You were unable to act this round. "
+                    }
+                },
+                "poison": {
+                    "mode": "ignore"
+                },
+                "startup": "team-reveal-with-roles"
+            }
+        },
+        {
+            "role": "ephidel",
+            "translation": "Ephidel",
+            "side": "nergal",
+            "help": "One of Nergal's morphs, you are among the strongest of the ones he possesses. In addition to being able to /kill, you are able to detect use of the kill, bind, inspect and safeguard commands. As you are not alive, you cannot be poisoned. Your face is always covered with a hood, you are often mistaken for a common soldier.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 12,
+                        "broadcast": "team"
+                    }
+                },
+                "hax": {
+                    "kill": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    },
+                    "inspect": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    },
+                    "bind": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    },
+                    "safeguard": {
+                        "revealTeam": 0.1,
+                        "revealPlayer": 0.1
+                    }
+                },
+                "startup": "team-reveal-with-roles",
+                "inspect": {
+                    "revealAs": "villager"
+                },
+                "poison": {
+                    "mode": "ignore"
+                }
+            }
+        },
+        {
+            "role": "lyon",
+            "translation": "Lyon",
+            "side": "lyon",
+            "help": "You're the kind prince of Grado, you have no desire for this war but...this is out of your hands! You're just about done with the final preparations for the activation of the Dark Stone, with which you will attempt to save countless lives. Type /activate [your name] to use it! You have no further commands until you activate it.",
+"info": "Can convert self during the night. Sided with Grado Empire.",
+            "actions": {
+                "night": {
+                    "activate": {
+                        "command": "convert",
+                        "target": "OnlySelf",
+                        "common": "Self",
+                        "priority": 1,
+                        "newRole": "demon king",
+                        "canConvert": [
+                            "lyon"
+                        ],
+                        "convertmsg": "The Dark Crystal has consumed the soul of Lyon, the final sacrifice. Now, the Demon King is reborn! Beware!",
+                        "silent": false
+                    }
+                }
+            }
+        },
+        {
+            "role": "ashnard2",
+            "translation": "Empowered Ashnard",
+            "side": "madking",
+            "help": "'GGGRRAAAAAGGGGHHHH!!! GGRRAAAHH HAAA HAAA HAAA!!!...It...feels...so...GOOOOOOD...' The power of the medallion has driven you completely insane but...you've never felt so alive! Your nightkill priority has been increased, your vote totals have increased to 5 and you now have a powerful daykill with /kill!  Nobody stands a chance!",
+           "info": "Ashnard's strongest form. Appears when a Disgruntled Soldier is killed in combat. 1 high-priority nightkill, 1 daykill, +5 vote.",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "common": "Self",
+                        "priority": 3,
+                        "limit": 1
+                    }
+                },
+                "convert": {
+                    "mode": "ignore"
+                },
+                "vote": 5,
+                "avoidHax": [
+                    "kill"
+                ],
+                "standby": {
+                    "kill": {
+                        "target": "AnyButSelf",
+                        "msg": "You can kill now using /kill [name] :",
+                        "killmsg": "'If you will not bring the fight to me, then I shall bring the fight to YOU!' Ashnard lunges at his foe...~Target~ never stood a chance..."
+                    }
+                }
+            }
+        },
+        {
+            "role": "ashnard",
+            "translation": "Mad King Ashnard",
+            "side": "madking",
+            "help": "You're the very powerful King of Daein, Ashnard. Dubbed the 'Mad King' by all, your reign is one of terror, one in which only the strongest may survive. You strike down one unworthy opponent at night with /kill and use political clout to gain a +2 vote in the arena. You've brought your trump card to the  fray, however. Upon the death of a Disgruntled Soldier, you activate Lehran's Medallion - this will unleash your true form.",
+            "info": "King Ashnard holds back his true power, wishing to gauge the strength of those around him at first. One kill per night, +2 vote. Once a single Disgruntled Soldier is killed, however, his true form is unleashed! ",
+            "actions": {
+                "night": {
+                    "kill": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 28,
+                        "broadcast": "team"
+                    }
+                },
+                "vote": 2,
+                "convert": {
+                    "mode": "ignore"
+                },
+                "avoidHax": [
+                    "kill"
+                ]
+            }
+        },
+        {
+            "role": "demon king",
+            "translation": "Demon King",
+            "side": "lyon",
+            "help": "Hnn...hrr...RAAAAHHH!!! The activation of the forbidden dark stone has caused you to become the Demon King, Formotiis. Lyon's hopes and dreams are merely a distant memory now as you have a new goal: the destruction of this world. Your dark minions can /poison up to 2 people per night. Additionally, as a dark god, your voting powers are absolute - anyone you vote for will immediately perish.",
+            "actions": {
+                "night": {
+                    "poison": {
+                        "target": "AnyButTeam",
+                        "common": "Team",
+                        "priority": 22,
+                        "broadcast": "team",
+                        "limit": 2
+                    }
+                },
+                "convert": {
+                    "mode": "ignore"
+                },
+                "distract": {
+                    "mode": "ignore"
+                },
+                "vote": 666
+            }
+        }
+    ],
+    "roles1": [
+        "hector",
+        "roy",
+        "fool",
+        "mafia",
+        "villager",
+        "lyndis",
+        "soren",
+        "mafia",
+        "villager",
+        "villager2",
+        "truemiller"
+    ],
+    "roles2": [
+        "hector",
+        "lyndis",
+        "idoun",
+        "nergal",
+        "roy",
+        "soren",
+        "limstella",
+        "zeph",
+        "villager",
+        "villager2",
+        "truemiller",
+        "ike",
+        "sophia",
+        "sothe",
+        "villager",
+        "ashnard",
+        "murdock",
+        "ephidel",
+        "villager2",
+        "lyon",
+        "blackknight",
+        "micaiah",
+        "mhero",
+        "truemiller",
+        "villager2",
+        "truemiller",
+        "villager",
+        "villager",
+        "villager2",
+        "villager"
+    ],
+    "villageCantLoseRoles": [
+        "ike",
+        "hector",
+        "lyndis"
+    ],
+    "killmsg": "±Tactician: ~Player~ (~Role~) has fallen in combat!",
+    "killusermsg": "You have fallen in combat!"
+}
