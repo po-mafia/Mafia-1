@@ -416,9 +416,10 @@
             "role": "eoceanus",
             "translation": "Empowered Oceanus",
             "side": "titans",
-            "help": "Titan of the Oceans.  Bodies of water are everywhere, giving you a wide range of influence, and you are sometimes able to detect any command each night.  In your empowered form, you have a far superior ability to detect actions.  You are allied with the Titans.",
-            "info": "Has a massive hax chance on every command.  Sided with the Titans.",
+            "help": "Titan of the Oceans.  Bodies of water are everywhere, giving you a wide range of influence, and you are sometimes able to detect any command each night.  In your empowered form, you have a far superior ability to detect actions as well as a voting power of 5!  You are allied with the Titans.",
+            "info": "Has a massive hax chance on every command. Vote of 5. Sided with the Titans.",
             "actions": {
+                "vote": 5,
                 "hax": {
                     "kill": {
                         "revealTeam": 0.5,
