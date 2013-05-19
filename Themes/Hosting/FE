@@ -683,7 +683,7 @@
                         "target": "AnyButTeam",
                         "common": "Self",
                         "priority": 53,
-                        "broadcast": team
+                        "broadcast": "team"
                     },
                     "bind": {
                         "command": "distract",
