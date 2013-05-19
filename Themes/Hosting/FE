@@ -536,7 +536,7 @@
                         "broadcast": "team"
                     },
                     "inspect": {
-                        "target": "AnyButSelf",
+                        "target": "AnyButTeam",
                         "common": "Self",
                         "priority": 38,
                         "recharge": 1
@@ -647,7 +647,8 @@
                         "newRole": "morph",
                         "silent": false,
                         "recharge": 2,
-                        "convertmsg": "A player has been drained of life energy and turned into a Nameless Morph!"
+                        "convertmsg": "A player has been drained of life energy and turned into a Nameless Morph!",
+                        "broadcast": "team"
                     },
                     "kill": {
                         "target": "AnyButTeam",
@@ -678,15 +679,17 @@
                         "priority": 12,
                         "broadcast": "team"
                     },
- "stalk": {
-                        "target": "AnyButSelf",
+ 		"stalk": {
+                        "target": "AnyButTeam",
                         "common": "Self",
-                        "priority": 53
+                        "priority": 53,
+                        "broadcast": team
                     },
                     "bind": {
                         "command": "distract",
-                        "target": "AnyButSelf",
+                        "target": "AnyButTeam",
                         "common": "Self",
+                        "broadcast": "team",
                         "priority": 5,
                         "distractmsg": "Mystical anima magics have bound you in place. You were unable to act this round. "
                     }
