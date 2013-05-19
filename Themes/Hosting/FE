@@ -628,7 +628,8 @@
                 "voteshield": -10,
                 "inspect": {
                     "revealAs": "nergal"
-                }
+                },
+                "startup": "team-reveal-with-roles"
             }
         },
         {
