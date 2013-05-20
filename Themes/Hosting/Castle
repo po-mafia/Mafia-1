@@ -482,5 +482,8 @@
     "ticks": {
         "standby": 35,
         "night": 30
+    },
+    "changelog": {
+        "May 20": "MDA only has 2 night kills now. GBS gets 1 daykill per phase. Bombs now bomb nightkills too. GBS vote fixed to match help message. Votesniping enabled."
     }
 }
