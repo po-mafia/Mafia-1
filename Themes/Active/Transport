@@ -760,7 +760,7 @@
 						"priority": 2
 					}
 				},
-				"vote": [2,5],
+				"vote": [2, 3, 4],
 				"startup":{
 					"revealRole": "mechanic"
 				}
