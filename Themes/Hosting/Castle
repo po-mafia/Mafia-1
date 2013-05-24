@@ -343,7 +343,7 @@
                 "standby": {
                     "kill": {
                         "target": "AnyButSelf",
-                        "msg": "The wind...is blowing. During any standby-phase you may kill up to two foes with /kill but be warned - you may only do this once. :",
+                        "msg": "The wind...is blowing. During any standby-phase you may kill one foe with /kill. :",
                         "killmsg": "A floating leaf. A serene breeze. This is all that is left of the fury of the storm, the Gale-Blade Samurai has dispatched another unworthy opponent."
                     }
                 },
