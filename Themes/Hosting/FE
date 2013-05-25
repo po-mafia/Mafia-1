@@ -2,7 +2,7 @@
     "name": "FE",
     "author":["Narshen"],
     "summary": "http://wiki.pokemon-online.eu/wiki/Theme:FE Minplayers is now set to 15 temporarily pending small game rebalance.",
-    "minplayers": 15,
+    "minplayers": 16,
     "sides": [
         {
             "side": "senate",
